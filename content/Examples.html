@@ -134,25 +134,11 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">檢視 STL << <a href='檢視 STL.html'>Previous</a> <a href='Heroku 部署.html'>Next</a> >> Heroku 部署<br /><h1>Gitlab 同步</h1>
-<p>利用 git remote add gitlab <a href="https://gitlab.com/user/repository.git">https://gitlab.com/user/repository.git</a> 可以在近端倉儲中的 .git/config 中新增一個名稱為 gitlab, 且與 <a href="https://gitlab.com/user/repository.git">https://gitlab.com/user/repository.git</a> 倉儲對應的設定. 使用者可以將此倉儲改版內容以 git push gitlab 推向 Gitlab.</p>
-<p>至於 Gitlab Pages 額外需要下列 .yml 檔案進行轉換設定:</p>
-<p>.gitlab-ci.yml</p>
-<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">pages:
-  stage: deploy
-  script:
-  - mkdir .public
-  - cp -r * .public
-  - mv .public public
-  artifacts:
-    paths:
-    - public
-  only:
-  - master
-variables:
-  GIT_SUBMODULE_STRATEGY: recursive</pre>
-<p></p>
-<br />檢視 STL << <a href='檢視 STL.html'>Previous</a> <a href='Heroku 部署.html'>Next</a> >> Heroku 部署</div>
+    <div id="tipue_search_content">About << <a href='About.html'>Previous</a> <a href='可攜系統.html'>Next</a> >> 可攜系統<br /><h1>Examples</h1>
+<p><a href="https://cad.onshape.com/documents/56298f9c90df4f577c10ec66/w/ae64289050ff20e29ab48a69/e/fb3ec7729b500dd569ef03c2?configuration=default">Onshape Ex1</a></p>
+<p><img alt="" height="392" src="./../images/onshape_ex1.png" width="600"/></p>
+<p><a href="https://cad.onshape.com/documents/7f4c744a841bb441d1c51956/w/aa991ba802d3774f0d20487c/e/26cece3c2f3e829b22c9a35f">Onshape Ex2</a></p>
+<p><img alt="" height="425" src="./../images/betarobot.png" width="600"/></p><br />About << <a href='About.html'>Previous</a> <a href='可攜系統.html'>Next</a> >> 可攜系統</div>
         
     <!-- footer -->
       <div class="container">
