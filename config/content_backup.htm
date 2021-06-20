@@ -32,6 +32,11 @@
 <p><iframe height="600" src="https://calendar.google.com/calendar/embed?src=mde.nfu.edu.tw_3439313938333136353439%40resource.calendar.google.com&amp;ctz=Asia%2FTaipei&amp;mode=week&amp;src=mde.nfu.edu.tw_35303530373431313438%40resource.calendar.google.com&amp;ctz=Asia%2FTaipei&amp;src=yen%40gm.nfu.edu.tw&amp;ctz=Asia%2FTaipei" width="800"></iframe></p><h2>Examples</h2>
 <p>Onshape to Robot: <a href="https://onshape-to-robot.readthedocs.io/en/latest/">https://onshape-to-robot.readthedocs.io/en/latest/</a></p>
 <p><a href="https://www.programmersought.com/article/59331583319/">Onshape to Matlab</a> </p>
+<h4>Inverse Kinematics:</h4>
+<p style="padding-left: 30px;">RoboDK</p>
+<p style="padding-left: 30px;">CoppeliaSim</p>
+<p style="padding-left: 30px;">Webots</p>
+<p style="padding-left: 30px;"><a href="https://github.com/Phylliade/ikpy">https://github.com/Phylliade/ikpy</a>  </p>
 <p>Onshape to RoboDK, CoppeliaSim and Webots. &lt;= Machine Learning and Reinforcement Learning</p>
 <p><a href="https://cad.onshape.com/documents/56298f9c90df4f577c10ec66/w/ae64289050ff20e29ab48a69/e/fb3ec7729b500dd569ef03c2?configuration=default">Onshape Ex1</a></p>
 <p><img alt="" height="392" src="/images/onshape_ex1.png" width="600"/></p>
@@ -44,7 +49,16 @@
 <p style="padding-left: 30px;"><a href="https://cad.onshape.com/FsDoc/tutorials/create-a-slot-feature.html">https://cad.onshape.com/FsDoc/tutorials/create-a-slot-feature.html</a></p>
 <p style="padding-left: 30px;"><a href="https://cadlab.mde.tw/post/onshape-featurescript-tutorial-dao-yin.html">Featurescript 導引</a> (<a href="https://cadlab.mde.tw/post/search.html?q=featurescript">其他參考資料</a>)</p>
 <p style="padding-left: 30px;"><a href="https://mde.tw/cad2019/content/Onshape.html">Onshape of cad2019</a></p><h2>Arduino</h2>
-<p>Uno Simulator: <a href="https://www.sites.google.com/site/unoardusim/services">https://www.sites.google.com/site/unoardusim/services</a></p><h1>可攜系統</h1>
+<p>Uno Simulator: <a href="https://www.sites.google.com/site/unoardusim/services">https://www.sites.google.com/site/unoardusim/services</a></p>
+<h2>Ethercalc</h2>
+<p><a href="http://mde.tw/cd2021/content/Programming.html">http://mde.tw/cd2021/content/Programming.html</a></p>
+<h4>有關 ethercalc:</h4>
+<p>若 ethercalc 與 redis 合用, sheet 資料將會存入 /var/lib/redis/dump.rdb, 此一檔案儲存設定位於 /etc/redis/redis.conf 中的 dbfilename dump.rdb<br/><br/>使用者若要以 root 身分檢視 /var/lib/redis/dump.rdb 可以透過 sudo -s 以 root 身分執行命令.<br/><br/>若以 /etc/init.d/redis-server stop 關閉 redis, 然後執行 ethercalc, sheet 資料將會存在執行命令目錄下的 dump 目錄中.<br/><br/>在結合 redis 使用下的 ethercalc, 若希望 reset /var/lib/redis/dump.rdb 中的資料:<br/><br/>sudo -s<br/><br/>/etc/init.d/redis-server stop<br/><br/>rm /var/lib/redis/dump.rdb<br/><br/>/etc/init.d/redis-server start<br/><br/>ethercalc<br/><br/>則 /var/lib/redis/dump.rdb 中為空資料.</p>
+<h2>CoppeliaSim</h2>
+<p><a href="https://robocomp.github.io/web/gsoc/2019/nikhil_bansal/post02">https://robocomp.github.io/web/gsoc/2019/nikhil_bansal/post02</a> </p>
+<h2>強化學習</h2>
+<h4>Pytorch Reinforcement Learning Library:</h4>
+<p style="padding-left: 30px;"><a href="https://github.com/thu-ml/tianshou">https://github.com/thu-ml/tianshou</a></p><h1>可攜系統</h1>
 <p><a href="https://drive.google.com/file/d/1hTvN4mCk2b_enIK204HA0AVPsd3GPlh5/view?usp=sharing">portablekmol_base.7z</a> (下載 118MB, 解開壓縮後 148MB)</p>
 <p style="padding-left: 30px;">包括 data 目錄與 start_ipv6.bat, start_ipv4.bat, stop.bat</p>
 <p style="padding-left: 30px;">功能: 啟動後可以啟動 SciTE 編輯器, 可用於類解譯 ANSI C 程式, 以及 <a href="https://solvespace.com">Solvespace</a>.</p>
