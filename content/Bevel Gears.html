@@ -1,0 +1,873 @@
+<!DOCTYPE html><html>
+        <head>
+        <title>CAD2021</title>
+        <meta charset="utf-8">
+<meta property="head" content="H2">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container-fluid">
+                <div class="row align-items-center">
+                <h1>2021 電腦輔助設計實習</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">2021 電腦輔助設計實習</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">Site Map</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Examples.html'>Examples</a><li><a href='Onshape.html'>Onshape</a><li><a href='Arduino.html'>Arduino</a><li><a href='Ethercalc.html'>Ethercalc</a><li><a href='CoppeliaSim.html'>CoppeliaSim</a><li><a href='強化學習.html'>強化學習</a></li></ul><li class='has-children'><a href='課程主題.html'>課程主題</a><ul class='dropdown'><li><a href='Bevel Gears.html'>Bevel Gears</a></li></ul><li class='has-children'><a href='可攜系統.html'>可攜系統</a><ul class='dropdown'><li><a href='Lua 解譯.html'>Lua 解譯</a></li></ul><li class='has-children'><a href='CMSiMDE.html'>CMSiMDE</a><ul class='dropdown'><li><a href='建立網頁.html'>建立網頁</a><li class='has-children'><a href='基本操作.html'>基本操作</a><ul class='dropdown'><li><a href='客製化.html'>客製化</a><li><a href='編輯網頁內容.html'>編輯網頁內容</a><li><a href='上傳與引用檔案.html'>上傳與引用檔案</a><li><a href='上傳與引用圖片.html'>上傳與引用圖片</a><li><a href='嵌入程式碼.html'>嵌入程式碼</a><li><a href='嵌入影片檔.html'>嵌入影片檔</a><li><a href='檢視 STL.html'>檢視 STL</a></li></ul><li><a href='Gitlab 同步.html'>Gitlab 同步</a><li><a href='Heroku 部署.html'>Heroku 部署</a><li><a href='Fossil SCM.html'>Fossil SCM</a></li></ul><li class='has-children'><a href='注意事項.html'>注意事項</a><ul class='dropdown'><li><a href='標題選擇.html'>標題選擇</a><li><a href='靜態網頁 404.html'>靜態網頁 404</a><li><a href='動態網站錯誤.html'>動態網站錯誤</a></li></ul><li class='has-children'><a href='延伸開發.html'>延伸開發</a><ul class='dropdown'><li class='has-children'><a href='已知問題.html'>已知問題</a><ul class='dropdown'><li><a href='IPv6.html'>IPv6</a><li><a href='MathJax.html'>MathJax</a><li><a href='html 分頁.html'>html 分頁</a><li><a href='template.html'>template</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">課程主題 << <a href='課程主題.html'>Previous</a> <a href='可攜系統.html'>Next</a> >> 可攜系統<br /><h1>Bevel Gears</h1>
+<h4>參考:</h4>
+<p style="padding-left: 30px;"><a href="https://hackaday.io/project/174370-minamil-a-minimal-cnc-mill-and-friends/log/185917-bevel-gears-twos-company">https://hackaday.io/project/174370-minamil-a-minimal-cnc-mill-and-friends/log/185917-bevel-gears-twos-company</a> </p>
+<h4>Featurescript (<a href="https://cad.onshape.com/documents/9b04fb889def400dfd4a693f/v/7e4070a95d663f4afeb156f3/e/786005a281331572a0efe88b">source</a>, <a href="https://forum.onshape.com/discussion/6031/bevel-gear-pair-generator">discussion</a>):</h4>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">/*    
+    Bevel Gear pair
+    
+    This custom feature creates a bevel gear pair.
+    
+    TODO:
+     - use better tooth profile. See:
+         https://cad.onshape.com/documents/5742c8cde4b06c68b362d748/v/c65839fc6078faeb4d2aece1/e/01a666571e625f8b819fd75b
+*/
+
+FeatureScript 531;
+import(path : "onshape/std/geometry.fs", version : "531.0");
+
+
+annotation { "Feature Type Name": "Bevel Gear Pair", "Filter Selector": ["bevel", "gear"]}
+export const BevelGearPair = defineFeature(function(context is Context, id is Id, definition is map)
+    precondition
+    {
+        annotation {"Name": "Number of teeth for gear 1"}
+        isInteger(definition.Z1, TEETH_BOUNDS);
+        
+        annotation {"Name": "Number of teeth for gear 2"}
+        isInteger(definition.Z2, TEETH_BOUNDS);
+
+        annotation {"Name": "Module"}
+        isReal(definition.m, MODULE_BOUNDS);
+
+        annotation {"Name": "Shafts angle"}
+        isAngle(definition.theta, SHAFT_ANGLE_BOUNDS);
+
+        annotation {"Name": "Teeth width"}
+        isLength(definition.e, TEETH_WIDTH_BOUNDS);
+        
+        annotation {"Name": "Height 1"}
+        isLength(definition.h1, H1_BOUNDS);
+        
+        annotation {"Name": "Height 2"}
+        isLength(definition.h2, H2_BOUNDS);
+        
+        annotation {"Name": "Pressure angle"}
+        isAngle(definition.alpha, PRESSURE_ANGLE_BOUNDS);
+    }
+    
+    {
+        // lambdas
+        // pitch apex to outside pitch distance for a bevel gears pair
+        var pitchApex = function(r1, r2, theta) { return r2 * sin(theta) + (r2 * cos(theta) + r1) / tan(theta); };
+        
+        // cone distance (R) for a bevel gears pair
+        var coneDistance = function(r1, r2, theta) { return sqrt(pitchApex(r1, r2, theta) ^ 2 + r1 ^ 2); };
+
+        // common values for a gear pair
+        const addendum = 1 * definition.m * millimeter;
+        const dedendum = 1.25 * definition.m * millimeter;
+        const r1 = definition.m * definition.Z1 / 2 * millimeter;  // external pitch radius
+        const r2 = definition.m * definition.Z2 / 2 * millimeter;
+        const delta1 = atan(sin(definition.theta) / (definition.Z2 / definition.Z1 + cos(definition.theta)));
+        const delta2 = atan(sin(definition.theta) / (definition.Z1 / definition.Z2 + cos(definition.theta)));
+        const scale_ = 1 - definition.e / coneDistance(r1, r2, definition.theta);  // scale factor for teeth generation
+
+        // gear 1
+        var value1 = {
+            Z: definition.Z1,
+            delta: delta1,
+            scale: scale_,
+            shift1: 0 * millimeter,
+            shift2: 0 * millimeter,
+            rot: 0 * degree,
+            turn: 0
+        };
+        bevelGear(context, id + "1", definition, value1);
+
+        // gear 2
+        var turn_;
+        if ((definition.Z2 % 2) != 0) {
+            turn_ = 0;
+        }
+        else {
+            turn_ = 1;
+        }
+        var value2 = {
+            Z: definition.Z2,
+            delta: delta2,
+            scale: scale_,
+            shift1: pitchApex(r1, r2, definition.theta) + dedendum * sin(delta1),
+            shift2: pitchApex(r2, r1, definition.theta) + dedendum * sin(delta2),
+            rot: definition.theta,
+            turn: turn_
+        };
+        bevelGear(context, id + "2", definition, value2);
+
+    }, {});
+
+
+function bevelGear(context is Context, id is Id, definition is map, value is map)
+{
+    /*
+    value = {
+        Z,
+        delta,
+        scale,
+        shift1,
+        shift2,
+        rot,
+        turn
+    }
+    */
+
+    // compute gear geometry
+    const addendum = 1 * definition.m * millimeter;
+    const dedendum = 1.25 * definition.m * millimeter;
+    const r = definition.m * value.Z / 2 * millimeter;  // external pitch radius
+    const ri = r - definition.e * sin(value.delta);     // internal pitch radius
+    const h1 = dedendum * sin(value.delta) + definition.e * cos(value.delta) - dedendum * value.scale * sin(value.delta);
+    const ra1 = r + addendum * cos(value.delta);
+    const rf1 = r - dedendum * cos(value.delta);
+    const ra2 = ri + addendum * cos(value.delta) * value.scale;
+    const rf2 = ri - dedendum * cos(value.delta) * value.scale;
+    const rf1p = rf1 - definition.h1 / tan(value.delta);
+    const rf2p = rf2 - definition.h2 / tan(value.delta);
+    //const rf2pp = rf2 - h1 / tan(value.delta);
+
+    const plane1 = plane(vector(0, 0, 0) * millimeter, vector(0, -1, 0), vector(1, 0, 0));
+    const sketch1 = newSketchOnPlane(context, id + "sketch1", {"sketchPlane": plane1});
+    
+    skPolyline(sketch1, "polyline1", {
+        points : [
+            vector(0 * millimeter, -definition.h1),
+            vector(rf1p, -definition.h1),
+            vector(rf1, 0 * millimeter),
+            vector(rf2, h1),
+            vector(rf2p, h1 - definition.h2),
+            vector(0 * millimeter, h1 - definition.h2),
+            vector(0 * millimeter, -definition.h1)
+        ],
+        constrained: true
+    });
+
+    skSolve(sketch1);
+
+    // rotate extrude segments
+    opRevolve(context, id + "revolve1", {
+        "entities" : qSketchRegion(id + "sketch1"),
+        "axis" : line(vector(0, 0, 0) * millimeter, vector(0, 0, 1)),
+        "angleForward" : 360 * degree
+    });
+
+    // Remove sketch entities no longer required
+    opDeleteBodies(context, id + "delete1", {"entities" : qCreatedBy(id + "sketch1")});
+
+    // teeths generation
+    const plane2 = plane(vector(0, 0, 0) * millimeter, vector(0, 0, 1), vector(1, 0, 0));
+    const sketch2 = newSketchOnPlane(context, id + "sketch2", {"sketchPlane": plane2});
+
+    // outer teeth profile
+    skPolyline(sketch2, "polyline2", {
+        points: gearTooth2D(r / cos(value.delta), definition.m, definition.alpha),
+    });
+
+    skSolve(sketch2);
+    
+    const plane3 = plane(vector(0 * millimeter, 0 * millimeter, definition.e), vector(0, 0, 1), vector(1, 0, 0));
+    const sketch3 = newSketchOnPlane(context, id + "sketch3", {"sketchPlane": plane3});
+
+    // inner teeth profile
+    skPolyline(sketch3, "polyline3", {
+        points: gearTooth2D(value.scale * r / cos(value.delta), value.scale * definition.m, definition.alpha),
+    });
+
+    skSolve(sketch3);
+
+    // generate tooth body
+    opLoft(context, id + "loft1", {
+        "profileSubqueries": [
+            qCreatedBy(id + "sketch2", EntityType.FACE),
+            qCreatedBy(id + "sketch3", EntityType.FACE),
+        ],
+    });
+
+    // Remove sketch entities no longer required
+    opDeleteBodies(context, id + "delete2", {"entities" : qCreatedBy(id + "sketch2")});
+    opDeleteBodies(context, id + "delete3", {"entities" : qCreatedBy(id + "sketch3")});
+
+    // move tooth back in place
+    const matrix1 = rotationMatrix3d(vector(1, 0, 0), value.delta);
+    const transform1 = transform(matrix1, vector(0, 0, 0) * millimeter);
+    const transform2 = transform(vector(0 * millimeter, r, dedendum * sin(value.delta)));
+    opTransform(context, id + "transform1", {
+            "bodies" : qCreatedBy(id + "loft1", EntityType.BODY),
+            "transform": transform2 * transform1
+    });
+
+    // copy teeth all around
+    var transforms = [];
+    var names = [];
+    for (var i = 1; i &lt; value.Z; i += 1) {
+        const matrix = rotationMatrix3d(vector(0, 0, 1), i * 360 / value.Z * degree);
+        transforms = append(transforms, transform(matrix, vector(0, 0, 0) * millimeter));
+        names = append(names, toString(i));
+    }
+    opPattern(context, id + "pattern1", {
+        "entities": qCreatedBy(id + "loft1", EntityType.BODY),
+        "transforms": transforms,
+        "instanceNames": names
+    });
+
+    // merge all parts
+    opBoolean(context, id + "boolean1", {
+        "tools" : qCreatedBy(id, EntityType.BODY),
+        "operationType" : BooleanOperationType.UNION
+    });
+
+    // move gear in place
+    const matrix2 = rotationMatrix3d(vector(0, 0, 1), value.turn * 360 / value.Z / 2 * degree);
+    const transform3 = transform(matrix2, vector(0, 0, 0) * millimeter);
+    const transform4 = transform(vector(0 * millimeter, 0 * millimeter, -value.shift2));
+    const matrix3 = rotationMatrix3d(vector(1, 0, 0), value.rot);
+    const transform5 = transform(matrix3, vector(0, 0, 0) * millimeter);
+    const transform6 = transform(vector(0 * millimeter, 0 * millimeter, value.shift1));
+    opTransform(context, id + "transform2", {
+        "bodies" : qCreatedBy(id, EntityType.BODY),
+        "transform": transform6 * transform5 * transform4 * transform3
+    });
+}
+
+
+function gearTooth2D(r is ValueWithUnits, m is number, alpha is ValueWithUnits)
+{
+    // convert polar to cartesian coordinates
+    var polar = function(r, theta) { return r * vector(sin(theta), cos(theta)); };
+
+    // unwind a string this many degrees to go from radius r1 to radius r2
+    var iang = function(r1, r2) { return sqrt((r2 / r1) ^ 2 - 1) / PI * 180 * degree - acos(r1 / r2); };
+
+    // point at radius d on the involute curve
+    var q6 = function(b, s, t, d) { return polar(d, s * (iang(b, d) + t)); };
+
+    // radius a fraction f up the curved side of the tooth
+    var q7 = function(f, r, b, r2, t, s) { return q6(b, s, t, (1 - f) * max(b, r) + f * r2); };
+
+    const Z = 2 * r / (m * millimeter);                      // number of teeth
+    const ra = r + 1 * m * millimeter;                       // radius of outer circle (tête)
+    const rb = r * cos(alpha);                               // radius of base circle (base de la dent)
+    const rf = r - 1.25 * m * millimeter;                    // radius of root circle (pied)
+    const w = m * PI / 2 * millimeter;                       // tooth width at pitch circle
+    const k = -iang(rb, r) - w / 2 / r / PI * 180 * degree;  // angle to where involute meets base circle on each side of tooth
+
+    const offset = vector(0 * millimeter, -r);               // bring back tooth at origin
+
+    var points;
+    if (rf &lt; rb) {
+        points = [
+            polar(rf, k) + offset,
+            q7(0/5, rf, rb, ra, k,  1) + offset, q7(1/5, rf, rb, ra, k,  1) + offset, q7(2/5, rf, rb, ra, k,  1) + offset,
+            q7(3/5, rf, rb, ra, k,  1) + offset, q7(4/5, rf, rb, ra, k,  1) + offset, q7(5/5, rf, rb, ra, k,  1) + offset,
+            q7(5/5, rf, rb, ra, k, -1) + offset, q7(4/5, rf, rb, ra, k, -1) + offset, q7(3/5, rf, rb, ra, k, -1) + offset,
+            q7(2/5, rf, rb, ra, k, -1) + offset, q7(1/5, rf, rb, ra, k, -1) + offset, q7(0/5, rf, rb, ra, k, -1) + offset,
+            polar(rf, -k) + offset,
+            polar(rf, k) + offset  // close profile
+        ];
+    }
+    else {
+        points = [
+            q7(0/5, rf, rb, ra, k,  1) + offset, q7(1/5, rf, rb, ra, k,  1) + offset, q7(2/5, rf, rb, ra, k,  1) + offset,
+            q7(3/5, rf, rb, ra, k,  1) + offset, q7(4/5, rf, rb, ra, k,  1) + offset, q7(5/5, rf, rb, ra, k,  1) + offset,
+            q7(5/5, rf, rb, ra, k, -1) + offset, q7(4/5, rf, rb, ra, k, -1) + offset, q7(3/5, rf, rb, ra, k, -1) + offset,
+            q7(2/5, rf, rb, ra, k, -1) + offset, q7(1/5, rf, rb, ra, k, -1) + offset, q7(0/5, rf, rb, ra, k, -1) + offset,
+            q7(0/5, rf, rb, ra, k,  1) + offset  // close profile
+        ];
+    }
+
+    return points;
+}
+
+
+const TEETH_BOUNDS = {
+    (unitless) : [4, 25, 250]
+} as IntegerBoundSpec;
+
+
+const SHAFT_ANGLE_BOUNDS = {
+    (degree) : [5, 90, 175]
+} as AngleBoundSpec;
+
+
+const MODULE_BOUNDS = {
+    (unitless) : [0.1, 1, 10]
+} as RealBoundSpec;
+
+
+const TEETH_WIDTH_BOUNDS = {
+    (millimeter) : [0.1, 5, 100],
+    (centimeter) : 0.5,
+    (meter) : 0.005,
+    (inch) : 0.2
+} as LengthBoundSpec;
+
+
+const H1_BOUNDS = {
+    (millimeter) : [0.1, 1, 50],
+    (centimeter) : 0.1,
+    (meter) : 0.001,
+    (inch) : 0.0375
+} as LengthBoundSpec;
+
+
+const H2_BOUNDS = {
+    (millimeter) : [0.1, 0.5, 50],
+    (centimeter) : 0.05,
+    (meter) : 0.0005,
+    (inch) : 0.0175
+} as LengthBoundSpec;
+
+
+const PRESSURE_ANGLE_BOUNDS = {
+    (degree) : [14.999, 20, 25]
+} as AngleBoundSpec;
+</pre>
+<h4>Bevel Gear2 (<a href="https://www.cctech.co.in/assets/files/blog/exploring-onshape-featurescript/Onshape-FeatureScript-for-Bevel-Gear.txt">source</a>, <a href="https://www.cctech.co.in/blog/exploring-onshape-featurescript">page</a>):</h4>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">FeatureScript 961;
+import(path : "onshape/std/geometry.fs", version : "961.0");
+
+annotation { "Feature Type Name" : "Bevel Gear" }
+export const myFeature = defineFeature(function(context is Context, id is Id, definition is map)
+precondition
+{
+	// Define the parameters of the feature type
+
+	annotation { "Name" : "Module" }
+	isInteger(definition.module, POSITIVE_COUNT_BOUNDS);  
+	
+	annotation { "Name" : "Pressure Angle Input type" }
+	definition.PressAngInputType is PressureAngleType;
+	
+	if(definition.PressAngInputType == PressureAngleType.standardPressAngle)
+	{
+		annotation { "Name" : "Pressure Angle (degrees)" }
+		definition.stdPressAngle is stdPressAngles;
+	}
+	else
+	{
+		annotation { "Name" : "Custom Pressure Angle (degrees)"  }
+		isAngle(definition.pressureAngle, ANGLE_360_BOUNDS); 
+	}
+	
+	annotation { "Name" : "Number of Teeths in Gear" }
+	isInteger(definition.gearTeeths, POSITIVE_COUNT_BOUNDS);
+	
+	annotation { "Name" : "Face Width" }
+	isLength(definition.faceWidth, LENGTH_BOUNDS);        
+	
+	annotation { "Name" : "Root Fillet Radius" }
+	isLength(definition.RootFilletRadius, LENGTH_BOUNDS);
+	
+	annotation { "Name" : "Gear Ratio" }
+	isInteger(definition.gearRatio, POSITIVE_COUNT_BOUNDS);
+	
+	annotation { "Name" : "Hole Diameter" }
+	isLength(definition.HoleDia, LENGTH_BOUNDS);   
+	
+	//End of Parameter def
+}
+{
+	// Define the function's action
+	//Calculations for gear nomenclatures
+
+	var diameteralPitch = (25.4 / definition.module);        
+	var gearPitchDia = (definition.gearTeeths / diameteralPitch) * meter;
+	definition.pinionTeeths = round(definition.gearTeeths / definition.gearRatio);
+	var pinionPitchDia = (definition.pinionTeeths / diameteralPitch) * meter;
+	var theta = atan(gearPitchDia / pinionPitchDia);
+
+	theta = ((theta * 180 / PI) / radian);
+	var zOffset = (definition.faceWidth * cos((theta / 2) * degree));
+
+	if(zOffset &gt; ((pinionPitchDia / 2) * 0.9))
+	{
+		throw regenError("Component failed to create - Face Width greater than cone distance");
+	}
+	
+	if(zOffset &lt; ((pinionPitchDia / 2) * 0.2))
+	{
+		throw regenError("Component failed to create - Face Width less than minimum required value.");
+	}
+	
+	var pitchDiameter = gearPitchDia + definition.faceWidth * sin(theta * 0.5 * degree);
+	var planeOffset = 0 * meter;        
+	// Recalculate diametral Pitch
+	diameteralPitch = definition.gearTeeths / pitchDiameter * meter;
+	
+	var dedendum =  0;        
+	dedendum = calculateDedendum(context, diameteralPitch) * meter;
+	
+	var rootDiameter = pitchDiameter - (2 * dedendum);
+
+	var baseCircleDiameter = pitchDiameter * cos(definition.pressureAngle);
+
+	var outsideDiameter = (definition.gearTeeths + 2) / diameteralPitch * meter;
+	
+	// Add base circle sketch;               
+	var baseCircle1 = newSketch(context, id + "baseCircle1", {
+			"sketchPlane" : qCreatedBy(makeId("Front"), EntityType.FACE)
+	});
+	
+		skCircle(baseCircle1, "baseCircle1", {
+			   "center" : vector(0, 0) * meter,
+			   "radius" : 1 * (baseCircleDiameter / 2)
+		});
+	
+	skSolve(baseCircle1);
+
+	// End of base circle sketch
+	
+	// Calculate and define nomenclatures for offset Plane for Loft operation
+	var pitchDiameter2 = gearPitchDia - (definition.faceWidth * sin(theta * degree) / 2);
+	
+	var diameteralPitch2 = definition.gearTeeths / pitchDiameter2 * meter;
+
+	var dedendum2 = 0;
+	dedendum2 = calculateDedendum(context, diameteralPitch2) * meter;
+	if (dedendum2 == 0)
+		throw regenError("failed to calculate value of dedndum");
+	
+	planeOffset = zOffset;
+	
+	//Creating Offset Plane
+	opPlane(context, id + "plane1", {
+			"plane" : plane(vector(0, (-1) *  zOffset / meter, 0) * meter, vector(0, -1, 0 )),
+			"width" : 6 * inch,
+			"height" : 6 * inch
+	});
+	
+	var rootDiameter2 = pitchDiameter2 - (2 * dedendum2);
+
+	var baseCircleDiameter2 = pitchDiameter2 * cos(definition.pressureAngle);
+
+	var outsideDiameter2 = (definition.gearTeeths + 2) / diameteralPitch2 * meter;
+	
+	// Add base circle 2 sketch
+	var baseCircle2 = newSketch(context, id + "baseCircle2", {
+			"sketchPlane" : qCreatedBy((id + "plane1"), EntityType.FACE)
+	});
+	
+	skCircle(baseCircle2, "baseCircle2", {
+			"center" : vector(0, 0) * meter,
+			"radius" : 1 * (baseCircleDiameter2 / 2)
+	});  
+		
+	skSolve(baseCircle2);
+	// End of base circle sketch
+   
+	// Create sketch entity for shaft.
+	var shaftCircle = newSketch(context, id + "shaftCircle", {
+			"sketchPlane" : qCreatedBy(makeId("Front"), EntityType.FACE)
+	});
+
+	skCircle(shaftCircle, "shaftCircle", {
+			"center" : vector(0, 0) * meter,
+			"radius" : 1 * (definition.HoleDia / 2)
+	});
+	
+	skSolve(shaftCircle);
+	// ### Executing Loft Operation ############################################################       
+	opLoft(context, id + "loft1", {
+			"profileSubqueries" : [ qCreatedBy(id + "baseCircle1", EntityType.FACE), qCreatedBy(id + "baseCircle2", EntityType.FACE) ],
+	});
+	// Begining Calculations for Involute points for gear teeth sketch.        
+	var involutePoints1 = [];
+	var involutePoints2 = [];
+	var tempInvoluteSet = [];        
+
+	var toothThicknessAngle = ((2 * PI) / (2 * definition.gearTeeths)) * 180 / PI;       
+	var involutePointCount = 15;    
+	var involuteIntersectionRadius = baseCircleDiameter / 2;
+	var involuteSize = (outsideDiameter / 2) - (baseCircleDiameter / 2);
+  
+	planeOffset = 0 * meter;
+
+	for (var t = 0; t &lt; involutePointCount; t += 1)
+	{    
+		involuteIntersectionRadius = (baseCircleDiameter / 2.0) + ((involuteSize / (involutePointCount - 1)) * t);
+		var newPt = involutePoint(context, baseCircleDiameter / 2, involuteIntersectionRadius, planeOffset);
+		tempInvoluteSet = append(tempInvoluteSet, newPt);
+	}
+	// Determine the angle between the X axis and a line between the origin of the curve and the intersection point between the involute and the pitch diameter circle.
+
+	var pitchInvolutePt = involutePoint(context, baseCircleDiameter / 2, pitchDiameter / 2, planeOffset);
+		
+	var pitchPointAngle = atan(pitchInvolutePt[1] / pitchInvolutePt[0]) * 180 /(PI * radian);
+
+	// Determine the angle defined by the tooth thickness as measured at the pitch diameter circle.
+
+	//Angle to rotate the curve
+	var rotateAngle = (-1) * (toothThicknessAngle / 2 + pitchPointAngle);
+	// Rotate the involute so the intersection point lies on the x axis.
+	var cosAngle = cos(rotateAngle * degree);
+	var sinAngle = sin(rotateAngle * degree);
+
+	for (var pt in tempInvoluteSet)
+	{
+		pt[0] = pt[0] * cosAngle - pt[1] * sinAngle;
+		pt[1] = pt[0] * sinAngle + pt[1] * cosAngle;
+		involutePoints1 = append(involutePoints1, vector( pt[0], pt[1] ) * meter);
+		// Create a new set of points with a negated y.  This effectively mirrors the original points about the X axis. 
+		var negatedPt = vector(pt[0], (-1) * pt[1] );
+		involutePoints2 = append(involutePoints2, negatedPt * meter);
+	}
+
+	// Create sketch for Teeth Profile
+	var Involute1 = newSketch(context, id + "Involute1", {
+			"sketchPlane" : qCreatedBy(makeId("Front"), EntityType.FACE)
+	});
+
+	skFitSpline(Involute1, "spline1", {
+			"points" : involutePoints1
+	});
+	
+	skFitSpline(Involute1, "spline2", {
+			"points" : involutePoints2
+	});
+	
+	skArc(Involute1, "gearTop", {
+			"start" : 1 * involutePoints1[involutePointCount - 1] ,
+			"mid" : 1 * vector(outsideDiameter / 2, 0 * meter ),
+			"end" : 1 * involutePoints2[involutePointCount - 1]
+	});
+			
+   skArc(Involute1, "gearBase", {
+			"start" : 1 * involutePoints1[0] ,
+			"mid" : 1 * vector(baseCircleDiameter / 2, 0 * meter ),
+			"end" : 1 * involutePoints2[0]
+	});
+
+	skSolve(Involute1);
+	//##### Begining Calculations for Involute points for gear teeth sketch on offset Plane for loft operation. 
+	var tempInvoluteSet2 = [];
+	var involutePts1 = [];
+	var involutePts2 = [];
+	
+	involuteIntersectionRadius = baseCircleDiameter2 / 2;
+	involuteSize = (outsideDiameter2 / 2) - (baseCircleDiameter2 / 2);        
+	planeOffset = zOffset;       
+
+	for (var t = 0; t &lt; involutePointCount; t += 1)
+	{    
+		involuteIntersectionRadius = (baseCircleDiameter2 / 2.0) + ((involuteSize / (involutePointCount - 1)) * t);
+		var newPt = involutePoint(context, baseCircleDiameter2 / 2, involuteIntersectionRadius, planeOffset);
+		tempInvoluteSet2 = append(tempInvoluteSet2, newPt);
+	}
+	// Determine the angle between the X axis and a line between the origin of the curve and the intersection point between the involute and the pitch diameter circle.
+
+	pitchInvolutePt = involutePoint(context, baseCircleDiameter2 / 2, pitchDiameter2 / 2, planeOffset);
+	debug(context, pitchInvolutePt);
+	pitchPointAngle = atan(pitchInvolutePt[1] / pitchInvolutePt[0]) * 180 /(PI * radian);
+
+	// Determine the angle defined by the tooth thickness as measured at the pitch diameter circle.
+
+	//Angle to rotate the curve
+	rotateAngle = (-1) * (toothThicknessAngle / 2 + pitchPointAngle);//-backlashAngle
+	// Rotate the involute so the intersection point lies on the x axis.
+	cosAngle = cos(rotateAngle * degree);
+	sinAngle = sin(rotateAngle * degree);
+
+	for (var pt in tempInvoluteSet2)
+	{
+		pt[0] = pt[0] * cosAngle - pt[1] * sinAngle;
+		pt[1] = pt[0] * sinAngle + pt[1] * cosAngle;
+		involutePts1 = append(involutePts1, vector( pt[0], pt[1] ) * meter);
+	// Create a new set of points with a negated y.  This effectively mirrors the original points about the X axis. 
+		var negatedPt = vector(pt[0], (-1) * pt[1] );
+		involutePts2 = append(involutePts2, negatedPt * meter);
+	}
+	// Create sketch for Teeth Profile for offset plane
+	var Involute2 = newSketch(context, id + "Involute2", {
+		"sketchPlane" : qCreatedBy((id + "plane1"), EntityType.FACE)
+	});
+
+	skFitSpline(Involute2, "spline1", {
+			"points" : involutePts1
+	});
+	
+	skFitSpline(Involute2, "spline2", {
+			"points" : involutePts2
+	});
+	
+	skArc(Involute2, "gearTop", {
+			"start" : 1 * involutePts1[involutePointCount - 1] ,
+			"mid" : 1 * vector(outsideDiameter2 / 2, 0 * meter ),
+			"end" : 1 * involutePts2[involutePointCount - 1]
+	});
+			
+	skArc(Involute2, "gearBase", {
+			"start" : 1 * involutePts1[0] ,
+			"mid" : 1 * vector(baseCircleDiameter2 / 2, 0 * meter ),
+			"end" : 1 * involutePts2[0]
+	});
+
+	skSolve(Involute2);
+
+	// Loft Operation for Teeth Profile
+	opLoft(context, id + "loft2", {
+			"profileSubqueries" : [ qCreatedBy(id + "Involute1", EntityType.FACE), qCreatedBy(id + "Involute2", EntityType.FACE) ],
+	});
+	
+	opFitSpline(context, id + "Axis", {
+			"points" : [vector( 0,  0,  0) * inch, vector(0,  -1, 0) * inch] });
+	const axis = qCreatedBy(id + "Axis", EntityType.EDGE);
+
+	// Circular patteren operation for creating all the terth profile bodies around base.
+	circularPattern(context, id + "gearTeeths", {
+			"patternType" : PatternType.PART,
+			"entities" : qCreatedBy(id + "loft2", EntityType.BODY),
+			"axis" : axis,
+			"angle" : 360 * degree,
+			"instanceCount" : definition.gearTeeths,
+			"equalSpace" : true
+	});
+	
+});
+
+//Function to calculate dedendum value.
+export function calculateDedendum(context, diametralPitch)returns number
+{
+	if(diametralPitch  &lt; ((20 * (PI / 180)) - 0.000001))
+	{
+		return (1.157 / diametralPitch);
+	}
+	else
+	{
+		var circularPitch = PI / diametralPitch;
+		if(circularPitch &gt;= 20)
+		{
+			return (1.25 / diametralPitch);
+		}
+		else
+		{
+			return (1.2 / diametralPitch);
+		}
+	}
+}
+
+const PRESSURE_ANGLE_BOUNDS =
+{
+	(degree) : [14.5, 20, 25]
+} as AngleBoundSpec;
+
+export enum stdPressAngles
+{
+	annotation { "NAME" : "14.5 degree" }
+	PressAngle_14_5 ,
+	annotation { "NAME" : "20 degree" }
+	PressAngle_20,
+	annotation { "NAME" : "25 degree" }
+	PressAngle_25
+}
+
+export enum PressureAngleType
+{
+	annotation { "Name" : "Standard Pressure Angle(Recomended)" }
+	standardPressAngle,
+	annotation { "Name" : "Custom Pressure Angle" }
+	customPressAngle
+}
+
+// Function to calculate Involute Point coordinates / vectors
+export function involutePoint(context, baseCircleRadius, involuteIntersectionRadius, planeOffset)returns Vector
+{
+	var l = sqrt(involuteIntersectionRadius ^ 2 - baseCircleRadius ^ 2 );
+
+	var alpha = (l / baseCircleRadius);
+	alpha = alpha * 180 / PI;
+
+	var thta = alpha - (180 / PI) * (acos(baseCircleRadius / involuteIntersectionRadius)) / radian;
+
+	var x = involuteIntersectionRadius * cos(thta * degree) / meter;
+	var y = involuteIntersectionRadius * sin(thta * degree) / meter;
+
+	return vector(x,y);
+}</pre>
+<p></p>
+<p style="padding-left: 30px;"></p>
+<p></p>
+<p></p><br />課程主題 << <a href='課程主題.html'>Previous</a> <a href='可攜系統.html'>Next</a> >> 可攜系統</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        
