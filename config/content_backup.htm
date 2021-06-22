@@ -59,6 +59,20 @@
 <p><a href="https://robocomp.github.io/web/gsoc/2019/nikhil_bansal/post02">https://robocomp.github.io/web/gsoc/2019/nikhil_bansal/post02</a></p><h2>強化學習</h2>
 <h4>Pytorch Reinforcement Learning Library:</h4>
 <p style="padding-left: 30px;"><a href="https://github.com/thu-ml/tianshou">https://github.com/thu-ml/tianshou</a></p><h1>課程主題</h1>
+<h4>電腦輔助設計實習課程面臨的第一個問題是:</h4>
+<p style="padding-left: 30px;">我們該採用剛購買的 SolidWorks 2021 單機套件, 目前只能支援 IPv4 網路協定認證 (校方安裝認證的 AutoDesk Inventor 已經支援 IPv6 網路協定認證), 還是直接採用近端免安裝, 可以利用瀏覽器使用的 Onshape？</p>
+<p style="padding-left: 30px;">就方便性而言, 採用 Onshape 有許多優點, 但 SolidWorks 仍然是目前業界售出套數最多的參數式電腦輔助設計軟體, 因此若最後仍無法在純 IPv6 環境下取得使用授權, 仍可以設法在上課前五分鐘先以 IPv4 協定上網取得 SolidWorks 的使用授權後, 再切換至純 IPv6 的網路環境 (Why?). 然後主要的零組件繪圖軟體仍以 Onshape 為主.</p>
+<p style="padding-left: 30px;">至於為何要在電腦輔助設計室採用純 IPv6 網路連線, 主要原因在於只有如此才能有足夠的頻寬聯外, 讓所有學員都能將近端的個人或協同分組倉儲的改版資料送到 Github.com, Gitlab.com 與 Heroku.</p>
+<h4>電腦輔助設計實習課程面臨的第二個問題是:</h4>
+<p style="padding-left: 30px;">課程的主軸為何? 在承接計算機程式與網際內容管理課程之後, 我們希望能夠儘量透過程式方法, 協助解決機電整合產品設計與開發上所面臨的問題. 其中包括:</p>
+<p style="padding-left: 30px;">1. 設計歷程中版本保留的議題 - 採用 CMSiMDE 與 Github, Gitlab, Heroku 及 Fossil SCM 再加上 Onshape 中的設計繪圖版本進行管理.</p>
+<p style="padding-left: 30px;">2. 從 CAD 轉檔至 CoppeliaSim 時, 能否透過程式方法加速建模流程?</p>
+<p style="padding-left: 30px;">3. 產品設計報告除了 CMSiMDE 中的網頁, 簡報與網誌外, 能夠直接透過 Github Actions 適時建立所需的 pdf 文件與雙欄位論文格式檔案?</p>
+<p style="padding-left: 30px;">4. 希望在 CoppeliaSim 場景中建立自動化機電整合製造系統, 能否透過手動 IK, 純程式設定 IK 與客製化 IK  運算模組進行模擬運算?</p>
+<p style="padding-left: 30px;">5. CMSiMDE html 是否能夠透過 <a href="https://github.com/showdownjs/showdown">https://github.com/showdownjs/showdown</a> 轉為 Markdown 檔案後, 進一步再透過 Pandoc 轉為 LaTeX 或 pdf, 以便實現產品開發流程中的 <a href="https://en.wikipedia.org/wiki/Literate_programming">Literate Programming </a>架構.</p>
+<p style="padding-left: 60px;">It’s been more than three decades since literate programming was invented by the legendary Donald Knuth. Its promise was immense — creating software which was more reliable, more understandable, more maintainable, and with hugely more teaching value — software which targeted both humans and computers.</p>
+<p style="padding-left: 60px;">What if we replace the software with physical product, <span style="background-color: #ffff99;">can we reach out a more reliable, more understandable, more maintainable, and with hugely more teaching value product which targeted both humans and computers.</span></p>
+<p style="padding-left: 60px;"><span style="background-color: #ffff99;">意即: 如何能夠在人與電腦雙重導向的架構中, 完成更可靠, 更令人容易理解, 更易於維護且具備教育價值的產品開發流程.</span></p>
 <h4>利用 <a href="https://www.onshape.com/en/">Onshape</a> 設計繪圖 (教學使用 course At mde):</h4>
 <p style="padding-left: 30px;"><a href="https://learn.onshape.com/collections/onshape-fundamentals-cad">https://learn.onshape.com/collections/onshape-fundamentals-cad</a></p>
 <p style="padding-left: 30px;">Onshape Forum: <a href="https://forum.onshape.com/">https://forum.onshape.com/</a></p>
@@ -72,12 +86,13 @@
 <p style="padding-left: 30px;"><a href="https://www.onshape.com/en/features/custom-features">https://www.onshape.com/en/features/custom-features</a></p>
 <h4>Onshape and CoppeliaSim to create an automation assembly line:</h4>
 <p style="padding-left: 30px;"><a href="http://mde.tw/cd2021/content/%E5%85%AD%E8%BB%B8%E6%A9%9F%E6%A2%B0%E8%87%82%E6%A8%A1%E5%9E%8B.html">六軸機械手臂零組件</a></p>
-<p style="padding-left: 30px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/buildingAModelTutorial.htm">https://www.coppeliarobotics.com/helpFiles/en/buildingAModelTutorial.htm</a> </p>
+<p style="padding-left: 30px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/buildingAModelTutorial.htm">https://www.coppeliarobotics.com/helpFiles/en/buildingAModelTutorial.htm</a></p>
 <p style="padding-left: 30px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/xmlFormat.htm">https://www.coppeliarobotics.com/helpFiles/en/xmlFormat.htm</a></p>
 <p style="padding-left: 30px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/simUI-widgets.htm">https://www.coppeliarobotics.com/helpFiles/en/simUI-widgets.htm</a></p>
 <p style="padding-left: 30px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/importExport.htm">https://www.coppeliarobotics.com/helpFiles/en/importExport.htm</a></p>
 <h4 style="padding-left: 30px;">IK and Automation:</h4>
 <p style="padding-left: 60px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/inverseKinematicsTutorial.htm">https://www.coppeliarobotics.com/helpFiles/en/inverseKinematicsTutorial.htm</a></p>
+<p style="padding-left: 60px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/basicsOnIkGroupsAndIkElements.htm">https://www.coppeliarobotics.com/helpFiles/en/basicsOnIkGroupsAndIkElements.htm</a></p>
 <p style="padding-left: 60px;"><a href="https://www.researchgate.net/publication/351561339_An_Inverse_Kinematics_Demonstration_of_a_Custom_Robot_using_C_and_CoppeliaSim/link/609d4bfb458515c2658c7c52/download">IK example</a> (use Onshape create robot assembly and use Lua and Python to control the robot)</p>
 <p style="padding-left: 60px;"></p>
 <p style="padding-left: 30px;"></p><h2>Bevel Gears</h2>
