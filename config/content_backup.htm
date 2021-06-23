@@ -62,6 +62,7 @@
 <h4>電腦輔助設計實習課程面臨的第一個問題是:</h4>
 <p style="padding-left: 30px;">我們該採用剛購買的 SolidWorks 2021 單機套件, 目前只能支援 IPv4 網路協定認證 (校方安裝認證的 AutoDesk Inventor 已經支援 IPv6 網路協定認證), 還是直接採用近端免安裝, 可以利用瀏覽器使用的 Onshape？</p>
 <p style="padding-left: 30px;">就方便性而言, 採用 Onshape 有許多優點, 但 SolidWorks 仍然是目前台灣業界普遍採用的參數式電腦輔助設計軟體, 因此若最後仍無法在純 IPv6 環境下取得使用授權, 仍可以設法在上課前五分鐘先以 IPv4 協定上網取得 SolidWorks 的使用授權後, 再切換至純 IPv6 的網路環境 (Why?). 然後主要的零組件繪圖軟體仍以 Onshape 為主.</p>
+<p style="padding-left: 30px;">AutoDesk Inventor 呢? 其他 NX12 以及 Solvespace 等三套用不用? Inventor 與 NX12 仍會用於透過 Python API 網際程式介面修改既有零件參數尺寸的範例中, 而 Solvespace 則仍會納入透過 Msys2 進行編譯後, 可產生基本參數零組件的課程主題中, 假如 Solvespace 也能用於網際程式 API 零件訂製中的一環, 當然更好.</p>
 <p style="padding-left: 30px;">至於為何要在電腦輔助設計室採用純 IPv6 網路連線, 主要原因在於只有如此才能有足夠的頻寬聯外, 讓所有學員都能將近端的個人或協同分組倉儲的改版資料送到 Github.com, Gitlab.com 與 Heroku.</p>
 <h4>電腦輔助設計實習課程面臨的第二個問題是:</h4>
 <p style="padding-left: 30px;">課程的主軸為何? 在承接計算機程式與網際內容管理課程之後, 我們希望能夠儘量透過程式方法, 協助解決機電整合產品設計與開發上所面臨的問題. 其中包括:</p>
@@ -102,9 +103,10 @@
 <p style="padding-left: 60px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/inverseKinematicsTutorial.htm">https://www.coppeliarobotics.com/helpFiles/en/inverseKinematicsTutorial.htm</a></p>
 <p style="padding-left: 60px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/basicsOnIkGroupsAndIkElements.htm">https://www.coppeliarobotics.com/helpFiles/en/basicsOnIkGroupsAndIkElements.htm</a></p>
 <p style="padding-left: 60px;"><a href="https://www.researchgate.net/publication/351561339_An_Inverse_Kinematics_Demonstration_of_a_Custom_Robot_using_C_and_CoppeliaSim/link/609d4bfb458515c2658c7c52/download">IK example</a> (use Onshape create robot assembly and use Lua and Python to control the robot)</p>
-<p style="padding-left: 30px;"></p><h2>Bevel Gears</h2>
+<p style="padding-left: 30px;"></p><h2>Featurescript</h2>
+<h3>Bevel Gears</h3>
 <h4>參考:</h4>
-<p style="padding-left: 30px;"><a href="https://hackaday.io/project/174370-minamil-a-minimal-cnc-mill-and-friends/log/185917-bevel-gears-twos-company">https://hackaday.io/project/174370-minamil-a-minimal-cnc-mill-and-friends/log/185917-bevel-gears-twos-company</a> </p>
+<p style="padding-left: 30px;"><a href="https://hackaday.io/project/174370-minamil-a-minimal-cnc-mill-and-friends/log/185917-bevel-gears-twos-company">https://hackaday.io/project/174370-minamil-a-minimal-cnc-mill-and-friends/log/185917-bevel-gears-twos-company</a></p>
 <h4>Featurescript (<a href="https://cad.onshape.com/documents/9b04fb889def400dfd4a693f/v/7e4070a95d663f4afeb156f3/e/786005a281331572a0efe88b">source</a>, <a href="https://forum.onshape.com/discussion/6031/bevel-gear-pair-generator">discussion</a>):</h4>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">/*    
     Bevel Gear pair
@@ -788,7 +790,53 @@ export function involutePoint(context, baseCircleRadius, involuteIntersectionRad
 <p></p>
 <p style="padding-left: 30px;"></p>
 <p></p>
-<p></p><h1>可攜系統</h1>
+<h2>SQLite</h2>
+<p><a href="https://www.sqlite.org/index.html">https://www.sqlite.org/index.html</a></p>
+<p>Fossil SCM</p>
+<p>Why using Fossil SCM: <a href="https://andreiclinciu.net/why-im-using-fossil-scm-instead-of-other-source-control-systems">https://andreiclinciu.net/why-im-using-fossil-scm-instead-of-other-source-control-systems</a></p>
+<p>User passwords are local configuration information.</p>
+<p>Passwords are stored in the PW field of the USER table. In older versions of Fossil (prior to 2010-01-11) the password is stored as cleartext. In newer versions of Fossil, the password can be either cleartext or an SHA1 hash (written as a 40-character lower-case hexadecimal number). If the USER.PW field contains a 40-character string, that string is assumed to be a SHA1 hash. If the size of USER.PW is anything other than 40 characters, then it is understood as a plain-text password.</p>
+<p>Whenever a password is changed using the web interface or using the "user" command-line method, the new password is stored using the SHA1 encoding. Thus, cleartext passwords will gradually migrate to become SHA1 passwords. All remaining cleartext passwords can be converted to SHA1 passwords using the following command:<br/><br/>    fossil test-hash-passwords REPOSITORY-NAME<br/><br/>Remember that converting from cleartext to SHA1 passwords is an irreversible operation.</p>
+<p>The only way to insert a new cleartext password into the USER table is to do so manually using SQL commands. For example:<br/><br/>    UPDATE user SET pw='asdfg' WHERE login='alice';<br/><br/>Note that an password that is an empty string or NULL will disable all login for that user. Thus, to lock a user out of the system, one has only to set their password to an empty string, using either the web interface or direct SQL manipulation of the USER table. Note also that the password field is essentially ignored for the special users named "anonymous", "developer", "reader", and "nobody". It is not possible to authenticate as users "developer", "reader", or "nobody" and the authentication protocol for "anonymous" uses one-time captchas not persistent passwords</p>
+<p>Web Interface Authentication<br/><br/>When a user logs into Fossil using the web interface, the login name and password are sent in the clear to the server. The server then hashes the password and compares it against the value stored in USER.PW. If they match, the server sets a cookie on the client to record the login. This cookie contains a large amount of high-quality randomness and is thus intractable to guess. The value of the cookie and the IP address of the client is stored in the USER.COOKIE and USER.IPADDR fields of the USER table on the server. The USER.CEXPIRE field holds an expiration date for the cookie, encoded as a Julian day number. On all subsequent HTTP requests, the cookie value is matched against the USER table to enable access to the repository.</p>
+<p>因此若 Python 經由 Oauth2 流程登入後, 若能建立</p>
+<p>USER.COOKIE</p>
+<p>USER.IPADDR</p>
+<p>USER.CEXPIRE</p>
+<p>所需資料, 並送出與  USER.COOKIE 對應的 cookie 至 client, 將可視為該帳號已經登入 Fossil SCM.</p>
+<p>fossil sql -R repo-name.fossil<br/>.schema user<br/>CREATE TABLE repository.user(<br/>  uid INTEGER PRIMARY KEY,<br/>  login TEXT UNIQUE,<br/>  pw TEXT,<br/>  cap TEXT,<br/>  cookie TEXT,<br/>  ipaddr TEXT,<br/>  cexpire DATETIME,<br/>  info TEXT,<br/>  mtime DATE,<br/>  photo BLOB<br/>);</p>
+<p>Sync Protocol Authentication<br/><br/>A different authentication mechanism is used when one repository wants to sync (or push or pull or clone) another repository. When two repositories are syncing, the one that initiates the transaction is the client and the repository that responds is the server. The client works by sending HTTP requests to the server with a method of "xfer" and a content-type of "application/x-fossil". The content is Zlib-compressed text consisting of "cards" of instructions. The first card of this content is a "login" card responsible for authentication. The login card contains the login name of the user and a "signature" where the signature is the SHA1 hash of a nonce and the value of USER.PW. The nonce is the SHA1 hash of the remainder of the request content after the newline (ASCII 14) character that terminates the login card.</p>
+<p>Fossil has the following option in /setup_access:<br/><br/>------------------------------------------------------------------------<br/> Allow REMOTE_USER authentication<br/><br/>When enabled, if the REMOTE_USER environment variable is set to the login name of a valid user and no other login credentials are available, then the REMOTE_USER is accepted as an authenticated user. (Property: "remote_user_ok") <br/>------------------------------------------------------------------------<br/><br/>It seems to me that one should be able to configure a web server to authenticate against LDAP/AD and host Fossils behind that.  One would still have to add users to Fossil that match the username that is provided by the authentication, but I believe this should work.</p>
+<p>At the Access setup of the Fossil SCM web page:</p>
+<p> Allow REMOTE_USER authentication<br/><br/>When enabled, if the REMOTE_USER environment variable is set to the login name of a valid user and no other login credentials are available, then the REMOTE_USER is accepted as an authenticated user. (Property: "remote_user_ok")</p>
+<p>By using Python:</p>
+<p style="padding-left: 30px;"><a href="https://stackoverflow.com/questions/34418545/flask-faking-request-environremote-user-for-testing">https://stackoverflow.com/questions/34418545/flask-faking-request-environremote-user-for-testing</a></p>
+<p style="padding-left: 30px;"><a href="https://tedboy.github.io/flask/generated/generated/flask.Request.remote_user.html">https://tedboy.github.io/flask/generated/generated/flask.Request.remote_user.html</a></p>
+<p>By using command:</p>
+<p style="padding-left: 30px;">echo "replace into config(name,value) values('remote_user_ok',1)" | fossil<br/>sql -R $repository_filename</p>
+<p><br/>Allow HTTP_AUTHENTICATION authentication<br/><br/>When enabled, allow the use of the HTTP_AUTHENTICATION environment variable or the "Authentication:" HTTP header to find the username and password. This is another way of supporting Basic Authentication. (Property: "http_authentication_ok")</p>
+<p><a href="https://stackoverflow.com/questions/6999565/python-https-get-with-basic-authentication">https://stackoverflow.com/questions/6999565/python-https-get-with-basic-authentication</a></p>
+<p><a href="https://stackoverflow.com/questions/1453264/python-https-client-with-basic-authentication-via-proxy">https://stackoverflow.com/questions/1453264/python-https-client-with-basic-authentication-via-proxy</a></p>
+<p><a href="https://serverfault.com/questions/360293/setting-remote-user-for-trac-in-gunicorn-behind-nginx">https://serverfault.com/questions/360293/setting-remote-user-for-trac-in-gunicorn-behind-nginx</a> </p>
+<p>References:</p>
+<p style="padding-left: 30px;"><a href="https://fossil-scm.org/forum/forumpost/363b4668b3">https://fossil-scm.org/forum/forumpost/363b4668b3</a></p>
+<p style="padding-left: 30px;"><a href="https://fossil-scm.org/forum/forumpost/df0df6720d">https://fossil-scm.org/forum/forumpost/df0df6720d</a></p>
+<p style="padding-left: 30px;"><a href="https://pypi.org/project/pystunnel/">https://pypi.org/project/pystunnel/</a></p>
+<h4>主題一:</h4>
+<p style="padding-left: 30px;">Python 與 SQLite</p>
+<p style="padding-left: 30px;">CMSiMDE 與 SQLite</p>
+<p style="padding-left: 30px;">利用 Python 讀取 Fossil SCM 資料庫內容</p>
+<p style="padding-left: 60px;"><a href="https://github.com/mdecourse/fossilpy">https://github.com/mdecourse/fossilpy</a></p>
+<p style="padding-left: 60px;"><a href="https://github.com/ggicci/python-fossil-delta">https://github.com/ggicci/python-fossil-delta</a></p>
+<p style="padding-left: 60px;"></p>
+<p></p><h2>Elixir</h2>
+<p>Can mechanical designer also take advantage of Elixir?</p>
+<p style="padding-left: 30px;"><a href="https://phoenixframework.org/">https://phoenixframework.org/</a></p>
+<p><a href="https://link.springer.com/book/10.1007/978-1-4842-2394-9">Erlang and Elixir for Imperative Programmers</a> (ebook)</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/lxYFOM3UJzo" title="YouTube video player" width="560"></iframe></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/zL2wcqS78UA" title="YouTube video player" width="560"></iframe></p>
+<p><a href="https://www.kabisa.nl/tech/when-elixirs-performance-becomes-rust-y/">https://www.kabisa.nl/tech/when-elixirs-performance-becomes-rust-y/</a></p>
+<p><a href="https://www.infoq.com/news/2019/07/rust-elixir-performance-at-scale/">https://www.infoq.com/news/2019/07/rust-elixir-performance-at-scale/</a></p><h1>可攜系統</h1>
 <p><a href="https://drive.google.com/file/d/1hTvN4mCk2b_enIK204HA0AVPsd3GPlh5/view?usp=sharing">portablekmol_base.7z</a> (下載 118MB, 解開壓縮後 148MB)</p>
 <p style="padding-left: 30px;">包括 data 目錄與 start_ipv6.bat, start_ipv4.bat, stop.bat</p>
 <p style="padding-left: 30px;">功能: 啟動後可以啟動 SciTE 編輯器, 可用於類解譯 ANSI C 程式, 以及 <a href="https://solvespace.com">Solvespace</a>.</p>
