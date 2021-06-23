@@ -77,6 +77,9 @@
 <p style="padding-left: 60px;"><span style="background-color: #ccffcc;">更令人容易理解</span> - 列出與設計相關的每一項細節, 背景說明及參考資料.</p>
 <p style="padding-left: 60px;"><span style="background-color: #ccffcc;">更容易維護</span> - 不斷思索如何讓產品設計流程更加快速便捷, 易於管理.</p>
 <p style="padding-left: 60px;"><span style="background-color: #ccffcc;">具備教育價值</span> - 留下產品設計歷程中進行決策的所有細節, 並舉出當時所面臨的環境與條件選項, 以供參考追蹤學習.</p>
+<h4>然後呢?</h4>
+<p style="padding-left: 30px;">從 <a href="https://www.pbr-book.org/">https://www.pbr-book.org/</a> 帶出 <a href="https://cyberbotics.com/">Webots </a>也許是下一階段有關電腦輔助與協同產品設計相關課程應該進入的領域.</p>
+<p style="padding-left: 30px;">Oauth2 從取得使用者登入帳號之後, 再根據 session 中的資料與 Fossil SCM 的 password management, 或許就能有效連結 Google, Github, Gitlab 帳號. 亦即, 當網際 Python 程式經由 Oauth2 取得使用者帳號後, 就發出一則 SQL, 讓該用戶在 Fossil SCM 視為已經登入, 如此便可由該帳號對所屬 Fossil SCM 倉儲進行管理.</p>
 <h4>利用 <a href="https://www.onshape.com/en/">Onshape</a> 設計繪圖 (教學使用 course At mde):</h4>
 <p style="padding-left: 30px;"><a href="https://learn.onshape.com/collections/onshape-fundamentals-cad">https://learn.onshape.com/collections/onshape-fundamentals-cad</a></p>
 <p style="padding-left: 30px;">Onshape Forum: <a href="https://forum.onshape.com/">https://forum.onshape.com/</a></p>
@@ -98,7 +101,6 @@
 <p style="padding-left: 60px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/inverseKinematicsTutorial.htm">https://www.coppeliarobotics.com/helpFiles/en/inverseKinematicsTutorial.htm</a></p>
 <p style="padding-left: 60px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/basicsOnIkGroupsAndIkElements.htm">https://www.coppeliarobotics.com/helpFiles/en/basicsOnIkGroupsAndIkElements.htm</a></p>
 <p style="padding-left: 60px;"><a href="https://www.researchgate.net/publication/351561339_An_Inverse_Kinematics_Demonstration_of_a_Custom_Robot_using_C_and_CoppeliaSim/link/609d4bfb458515c2658c7c52/download">IK example</a> (use Onshape create robot assembly and use Lua and Python to control the robot)</p>
-<p style="padding-left: 60px;"></p>
 <p style="padding-left: 30px;"></p><h2>Bevel Gears</h2>
 <h4>參考:</h4>
 <p style="padding-left: 30px;"><a href="https://hackaday.io/project/174370-minamil-a-minimal-cnc-mill-and-friends/log/185917-bevel-gears-twos-company">https://hackaday.io/project/174370-minamil-a-minimal-cnc-mill-and-friends/log/185917-bevel-gears-twos-company</a> </p>
@@ -814,13 +816,13 @@ pacman -Sy mingw-w64-x86-64-cmake</pre>
 <p style="padding-left: 30px;">功能: 開放源 FEM (Finite Element Method) 分析套件.</p>
 <p><a href="https://drive.google.com/file/d/1ITHNrhemifHloS_x3BAchyQxMUKma0AI/view?usp=sharing">webots-R2021a.7z</a> (下載 1.5GB, 解開壓所後 2.9GB)</p>
 <p style="padding-left: 30px;">功能: 採 Apache 2.0 使用授權的開放源套件, 可用於機電資控制系統設計與模擬.</p><h2>Lua 解譯</h2>
+<p>網際 Lua 解譯網頁: <a href="http://mde.tw/lab/downloads/lua/index.html">http://mde.tw/lab/downloads/lua/index.html</a></p>
 <p>SciTE 編輯器中的 Lua.properties 設定:</p>
 <p>選擇利用 y:\lua-5.4.3\luac 與 lua 編譯或解譯 .lua 程式檔案.</p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">command.compile.*.lua=y:\lua-5.4.3\luac -o "$(FileName).luc" "$(FileNameExt)"
 # Lua 5.1
 command.go.*.lua=y:\lua-5.4.3\lua "$(FileNameExt)"</pre>
-<p></p>
-<h1>CMSiMDE</h1>
+<p></p><h1>CMSiMDE</h1>
 <p>CMSiMDE (<a href="https://github.com/mdecourse/cmsimde">https://github.com/mdecourse/cmsimde</a>) 是一套以 Python 與 Flask 框架編寫的網際內容管理系統,</p>
 <p>使用 CMSiMDE 建議使用者安裝 flask flask_cors bs4 lxml pelican markdown leo 等模組. 其中的 flask flask_cors bs4 lxml pelican markdown為啟動 CMSiMDE 的必要模組, 而 leo 則是 CMSMDE 開發者所使用的大綱管理工具, 可以用於與 CMSiMDE 整合的 Pelican blog 及 Reveal.js 網際簡報編輯之用.</p>
 <h2>建立網頁</h2>
