@@ -791,6 +791,37 @@ export function involutePoint(context, baseCircleRadius, involuteIntersectionRad
 <p style="padding-left: 30px;"></p>
 <p></p>
 <h2>SQLite</h2>
+<p>Use Flask request get remote_addr</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from flask import request
+from flask import jsonify
+
+@app.route("/get_my_ip", methods=["GET"])
+def get_my_ip():
+    return jsonify({'ip': request.remote_addr}), 200
+
+'''
+with app.test_request_context(environ_base={'REMOTE_ADDR': '10.1.2.3'}):
+# https://flask.palletsprojects.com/en/2.0.x/testing/
+'''
+</pre>
+<p>利用 Python requests 登入 Fossil SCM 後取得對應的 cookie:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import requests
+
+session = requests.Session()
+
+headers = {'X-Requested-With': 'XMLHttpRequest'}
+
+url = 'https://fossil.kmol.info/u/yen/login'
+post_var = {'u': 'username', 'p': 'password'}
+  
+result = session.post(url, data = post_var, headers = headers)
+#print(result)
+print(session.cookies.get_dict())
+
+
+
+</pre>
+<p><a href="https://fossil-scm.org/forum/forumpost/59c6552555">https://fossil-scm.org/forum/forumpost/59c6552555</a> (Fossil SCM with json)</p>
 <p><a href="https://mde.tw/cp2019/downloads/Why%20Fossil-SCM%20is%20an%20excellent%20choice%20for%20introductory%20programming%20courses.pdf">Why Fossil-SCM is an excellent choice for introductory programming courses </a></p>
 <p><a href="https://www.sqlite.org/index.html">https://www.sqlite.org/index.html</a></p>
 <p><a href="https://medium.com/@nerdijoe/how-to-deploy-flask-on-iis-with-windows-authentication-733839d657b7">https://medium.com/@nerdijoe/how-to-deploy-flask-on-iis-with-windows-authentication-733839d657b7</a></p>
