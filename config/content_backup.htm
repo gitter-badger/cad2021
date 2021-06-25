@@ -790,7 +790,47 @@ export function involutePoint(context, baseCircleRadius, involuteIntersectionRad
 <p></p>
 <p style="padding-left: 30px;"></p>
 <p></p>
+<h2>Oauth2</h2>
 <h2>SQLite</h2>
+<p>Cookie</p>
+<p><a href="https://www.valentinog.com/blog/cookies/">https://www.valentinog.com/blog/cookies/</a></p>
+<p>利用 Python send cookie:</p>
+<p><a href="https://stackoverflow.com/questions/7164679/how-to-send-cookies-in-a-post-request-with-the-python-requests-library">https://stackoverflow.com/questions/7164679/how-to-send-cookies-in-a-post-request-with-the-python-requests-library</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import requests
+
+cookies = {'enwiki_session': '17ab96bd8ffbe8ca58a78657a918558'}
+
+r = requests.post('http://wikipedia.org', cookies=cookies)</pre>
+<p>pip3 install selenium</p>
+<p>brew install geckodriver</p>
+<p>local cookie set to Firefox</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import requests
+from selenium import webdriver
+
+driver = webdriver.Firefox()
+session = requests.Session()
+
+headers = {'X-Requested-With': 'XMLHttpRequest'}
+
+url = 'https://fossil.kmol.info/u/yen/login'
+driver.get(url)
+
+post_var = {'u': 'username', 'p': 'password'}
+  
+result = session.post(url, data = post_var, headers = headers)
+#print(result)
+cookie = session.cookies.get_dict()
+#print(cookie)
+driver.delete_all_cookies()
+response_cookies_browser = [{'name':name, 'value':value} for name, value in cookie.items()]
+c = [driver.add_cookie(c) for c in response_cookies_browser]
+#the browser now contains the cookies generated from the authentication    
+driver.get(url)
+
+
+
+
+</pre>
 <p>Use Flask request get remote_addr</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from flask import request
 from flask import jsonify

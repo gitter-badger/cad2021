@@ -2,7 +2,7 @@
         <head>
         <title>CAD2021</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -134,28 +134,39 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Fossil SCM << <a href='Fossil SCM.html'>Previous</a> <a href='標題選擇.html'>Next</a> >> 標題選擇<br /><h1>注意事項</h1>
-<p>因為 <a href="https://github.com/mdecourse/cmstemplate">https://github.com/mdecourse/cmstemplate</a> 將 CMSiMDE 倉儲作為 submodule, 因此使用者利用 cmstemplate 作為 template 後, 必須使用 git clone --recurse-submodules 取下遠端倉儲.</p>
-<p>例如:</p>
-<p style="padding-left: 30px;">若使用者的倉儲 URL 為 <a href="https://github.com/mdecourse/cmstemplate">https://github.com/mdecourse/cmstemplate</a></p>
-<p style="padding-left: 30px;">則可以在近端利用:</p>
-<p style="padding-left: 30px;">git clone --recurse-submodules <a href="https://github.com/mdecourse/cmstemplate.git">https://github.com/mdecourse/cmstemplate.git</a></p>
-<p style="padding-left: 30px;">將遠端倉儲資料存入 cmstemplate 目錄中.</p>
-<p>目前的 cmstemplate 內建 cms.bat 與 acp.bat 等兩個 batch 檔案, 可以協助使用者直接在倉儲根目錄啟動 CMSiMDE 動態網頁, 以及單一指令式即可完成 git add, git commit 以及 git push, 但是前提是使用者必須設定以 ssh 方式與 Github 倉儲進行驗證.</p>
-<p>例如:</p>
-<p style="padding-left: 30px;">若使用者已經將倉儲內容 clone 至近端, 且已經帶有 cmsimde 子模組的內容.</p>
-<p style="padding-left: 30px;">則可以在近端命令列進入 cmstemplate 倉儲目錄執行:</p>
-<p style="padding-left: 30px;">cms.bat</p>
-<p style="padding-left: 30px;">開啟動態網頁系統. 並以 <a>https://localhost:9443</a> 開啟.</p>
-<p style="padding-left: 30px;">一旦完成動態網頁的編輯, 利用 Generate Pages 可以轉為靜態網站, 且各 html 檔案將位於 content 目錄中.</p>
-<p style="padding-left: 30px;">若使用者希望檢查近端靜態網頁的內容, 可以利用 SciTE 開啟倉儲中的 http-server.py, 並利用瀏覽器以 <a href="https://localhost:8444">https://localhost:8444</a> 檢查靜態網頁內容.</p>
-<p style="padding-left: 30px;">一旦使用者要將近端倉儲的動態與靜態網頁內容推向 Github, 則必須將倉儲中 .git/config 的 url, 從 https 改為 ssh 的連線格式:</p>
-<p style="padding-left: 30px;">例如:</p>
-<p style="padding-left: 60px;">原先 .git/config origin 的 url 為 url = <a href="https://github.com/mdecourse/cmstemplate.git,">https://github.com/mdecourse/cmstemplate.git,</a> 則必須改為:</p>
-<p style="padding-left: 60px;">url = <a href="mailto:git@github.com:mdecourse/cmstemplate.git">git@github.com:mdecourse/cmstemplate.git</a></p>
-<p style="padding-left: 60px;">之後假如使用者要以 "add some files" 字串當作提交說明訊息, 則可以在命令列中的倉儲目錄執行:</p>
-<p style="padding-left: 60px;">acp.bat "add some files"</p>
-<br />Fossil SCM << <a href='Fossil SCM.html'>Previous</a> <a href='標題選擇.html'>Next</a> >> 標題選擇</div>
+    <div id="tipue_search_content">Bevel Gears << <a href='Bevel Gears.html'>Previous</a> <a href='SQLite.html'>Next</a> >> SQLite<br /><h1>Oauth2</h1>
+<p>Flask 與 Fossil SCM  在同一台主機, 可以透過 Oauth2 登入後, 由 Python 程式導引 redirect 登入 Fossil SCM 主機. 其中可以讓 Python 讀取使用者在 Fossil SCM 倉儲中當下所設定的帳號密碼後登入.</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from flask import Flask
+from flask import make_response, request, redirect
+import requests
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'SUPER SECRET'
+
+@app.route('/')
+def hello_world():
+    with requests.Session() as s:
+        url = 'https://fossil.kmol.info/u/yen/login'
+        post_var = {'u': 'username', 'p': 'password'}
+        headers = {'X-Requested-With': 'XMLHttpRequest'}
+        result = s.post(url, data = post_var, headers = headers)
+        cookie = s.cookies.get_dict()
+        key = list(cookie.keys())[0]
+        value = cookie[key]
+        '''
+        print(key, value)
+        resp = redirect(url)
+        resp.set_cookie(key, value)
+        return resp
+        '''
+        response = make_response(redirect(url))
+        response.set_cookie(key, value)
+        return response
+        
+
+if __name__ == '__main__':
+    app.run()</pre>
+<p>接下來的考量是, 能否不讓使用者直接從 Fossil SCM web 介面中登入?</p><br />Bevel Gears << <a href='Bevel Gears.html'>Previous</a> <a href='SQLite.html'>Next</a> >> SQLite</div>
         
     <!-- footer -->
       <div class="container">
