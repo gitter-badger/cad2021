@@ -791,7 +791,38 @@ export function involutePoint(context, baseCircleRadius, involuteIntersectionRad
 <p style="padding-left: 30px;"></p>
 <p></p>
 <h2>Oauth2</h2>
-<h2>SQLite</h2>
+<p>Flask 與 Fossil SCM  在同一台主機, 可以透過 Oauth2 登入後, 由 Python 程式導引 redirect 登入 Fossil SCM 主機. 其中可以讓 Python 讀取使用者在 Fossil SCM 倉儲中當下所設定的帳號密碼後登入.</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from flask import Flask
+from flask import make_response, request, redirect
+import requests
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'SUPER SECRET'
+
+@app.route('/')
+def hello_world():
+    with requests.Session() as s:
+        url = 'https://fossil.kmol.info/u/yen/login'
+        post_var = {'u': 'username', 'p': 'password'}
+        headers = {'X-Requested-With': 'XMLHttpRequest'}
+        result = s.post(url, data = post_var, headers = headers)
+        cookie = s.cookies.get_dict()
+        key = list(cookie.keys())[0]
+        value = cookie[key]
+        '''
+        print(key, value)
+        resp = redirect(url)
+        resp.set_cookie(key, value)
+        return resp
+        '''
+        response = make_response(redirect(url))
+        response.set_cookie(key, value)
+        return response
+        
+
+if __name__ == '__main__':
+    app.run()</pre>
+<p>接下來的考量是, 能否不讓使用者直接從 Fossil SCM web 介面中登入?</p><h2>SQLite</h2>
 <p>Cookie</p>
 <p><a href="https://www.valentinog.com/blog/cookies/">https://www.valentinog.com/blog/cookies/</a></p>
 <p>利用 Python send cookie:</p>
