@@ -1,4 +1,6 @@
 <h1>About</h1>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/-J_xL4IGhJA" title="YouTube video player" width="560"></iframe></p>
+<p style="text-align: center;">(<a href='/get_page/About/&lt;a href="https:/ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video-lectures/"&gt;'>source</a>)</p>
 <p>這裡是國立虎尾科技大學-機械設計工程系-電腦輔助設計實習課程網站.</p>
 <p>Repository: <a href="https://github.com/mdecourse/cad2021">https://github.com/mdecourse/cad2021</a></p>
 <p>Github Pages: <a href="https://mde.tw/cad2021">https://mde.tw/cad2021</a></p>
@@ -18,8 +20,11 @@
 <p style="padding-left: 30px;"><a href="https://github.com/gorisanson/quoridor-ai">https://github.com/gorisanson/quoridor-ai</a></p>
 <p style="padding-left: 30px;"><a href="https://github.com/zack-hill/quoridor-web">https://github.com/zack-hill/quoridor-web</a></p>
 <p style="padding-left: 30px;"><a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.100.5204&amp;rep=rep1&amp;type=pdf">Mastering Quoridor</a> (thesis)</p>
-<p style="padding-left: 30px;"><a href="https://zh.wikipedia.org/wiki/%E7%89%86%E6%A3%8B">四人牆棋</a> (<a href="https://gorisanson.github.io/quoridor-ai/">線上版</a>, <a href="https://github.com/mPelland42/Quoridor-Reinforcement-Learning">強化學習</a>, <a href="https://github.com/boriel/quoridor">AI Player</a>)</p>
-<p style="padding-left: 30px;"><a href="https://bruceisonfire.net/2020/04/23/my-adventure-with-flosscad-the-birth-of-hexidor/">六人牆棋</a></p>
+<p style="padding-left: 30px;">在 <a href="https://www.coppeliarobotics.com/">CoppeliaSim</a> 建立步步為營桌遊場景, 以按鍵控制兩人, 四人或六人對陣.</p>
+<p style="padding-left: 30px;">設法建立電腦程式, 可在 <a href="https://www.coppeliarobotics.com/">CoppeliaSim</a> 場景中與單一使用者或多使用者對陣.</p>
+<p style="padding-left: 30px;">是否也能利用 <a href="https://robodk.com/">RoboDK</a> 或 <a href="https://cyberbotics.com/">Webots</a> 建立對應場景?</p>
+<p style="padding-left: 30px;"><a href="https://zh.wikipedia.org/wiki/%E7%89%86%E6%A3%8B">四人步步為營桌遊</a> (<a href="https://gorisanson.github.io/quoridor-ai/">線上版</a>, <a href="https://github.com/mPelland42/Quoridor-Reinforcement-Learning">強化學習</a>, <a href="https://github.com/boriel/quoridor">AI Player</a>)</p>
+<p style="padding-left: 30px;"><a href="https://bruceisonfire.net/2020/04/23/my-adventure-with-flosscad-the-birth-of-hexidor/">六人步步為營桌遊</a></p>
 <p>Onshape Featurescript: <a href="https://cad.onshape.com/FsDoc/">https://cad.onshape.com/FsDoc/</a></p>
 <p style="padding-left: 30px;"><a href="https://www.onshape.com/en/resource-center/videos/beginners-guide-to-featurescript">Beginner's Guide to Featurescript</a> (Video)</p>
 <p style="padding-left: 30px;"><a href="https://www.onshape.com/en/features/custom-features">Custom Features</a></p>
@@ -50,12 +55,16 @@
 <p style="padding-left: 30px;"><a href="https://cadlab.mde.tw/post/onshape-featurescript-tutorial-dao-yin.html">Featurescript 導引</a> (<a href="https://cadlab.mde.tw/post/search.html?q=featurescript">其他參考資料</a>)</p>
 <p style="padding-left: 30px;"><a href="https://mde.tw/cad2019/content/Onshape.html">Onshape of cad2019</a></p><h2>Arduino</h2>
 <p>Uno Simulator: <a href="https://www.sites.google.com/site/unoardusim/services">https://www.sites.google.com/site/unoardusim/services</a></p>
-<h2>Ethercalc</h2>
+<h4>Picsimlab:</h4>
+<p style="padding-left: 30px;"><a href="https://github.com/lcgamboa/picsimlab">https://github.com/lcgamboa/picsimlab</a></p>
+<p style="padding-left: 30px;"><a href="https://lcgamboa.github.io/">https://lcgamboa.github.io/</a></p>
+<p><a href="https://mplabxpress.microchip.com/mplabcloud/ide">https://mplabxpress.microchip.com/mplabcloud/ide</a> </p><h2>Ethercalc</h2>
 <p><a href="http://mde.tw/cd2021/content/Programming.html">http://mde.tw/cd2021/content/Programming.html</a></p>
 <h4>有關 ethercalc:</h4>
 <p>若 ethercalc 與 redis 合用, sheet 資料將會存入 /var/lib/redis/dump.rdb, 此一檔案儲存設定位於 /etc/redis/redis.conf 中的 dbfilename dump.rdb<br/><br/>使用者若要以 root 身分檢視 /var/lib/redis/dump.rdb 可以透過 sudo -s 以 root 身分執行命令.<br/><br/>若以 /etc/init.d/redis-server stop 關閉 redis, 然後執行 ethercalc, sheet 資料將會存在執行命令目錄下的 dump 目錄中.<br/><br/>在結合 redis 使用下的 ethercalc, 若希望 reset /var/lib/redis/dump.rdb 中的資料:<br/><br/>sudo -s<br/><br/>/etc/init.d/redis-server stop<br/><br/>rm /var/lib/redis/dump.rdb<br/><br/>/etc/init.d/redis-server start<br/><br/>ethercalc<br/><br/>則 /var/lib/redis/dump.rdb 中為空資料.</p>
 <h2>CoppeliaSim</h2>
-<p><a href="https://robocomp.github.io/web/">https://robocomp.github.io/web/</a> </p>
+<p><a href="https://www.coppeliarobotics.com/">https://www.coppeliarobotics.com/</a> </p>
+<p><a href="https://robocomp.github.io/web/">https://robocomp.github.io/web/</a></p>
 <p><a href="https://robocomp.github.io/web/gsoc/2019/nikhil_bansal/post02">https://robocomp.github.io/web/gsoc/2019/nikhil_bansal/post02</a></p><h2>強化學習</h2>
 <h4>Pytorch Reinforcement Learning Library:</h4>
 <p style="padding-left: 30px;"><a href="https://github.com/thu-ml/tianshou">https://github.com/thu-ml/tianshou</a></p><h1>課程主題</h1>
@@ -79,9 +88,11 @@
 <p style="padding-left: 60px;"><span style="background-color: #ccffcc;">更容易維護</span> - 不斷思索如何讓產品設計流程更加快速便捷, 易於管理.</p>
 <p style="padding-left: 60px;"><span style="background-color: #ccffcc;">具備教育價值</span> - 留下產品設計歷程中進行決策的所有細節, 並舉出當時所面臨的環境與條件選項, 以供參考追蹤學習.</p>
 <h4>然後呢?</h4>
-<p style="padding-left: 30px;">1. 從 <a href="https://www.pbr-book.org/">https://www.pbr-book.org/</a> 帶出 <a href="https://cyberbotics.com/">Webots </a>也許是下一階段有關電腦輔助與協同產品設計相關課程應該進入的領域.</p>
-<p style="padding-left: 30px;">2. Oauth2 從取得使用者登入帳號之後, 再根據 session 中的資料與 Fossil SCM 的 password management, 或許就能有效連結 Google, Github, Gitlab 帳號. 亦即, 當網際 Python 程式經由 Oauth2 取得使用者帳號後, 就發出一則 SQL, 讓該用戶在 Fossil SCM 視為已經登入, 如此便可由該帳號對所屬 Fossil SCM 倉儲進行管理.</p>
-<p style="padding-left: 30px;">3. 繼續探究 <a href="https://www.coppeliarobotics.com/helpFiles/en/PyRep.htm">https://www.coppeliarobotics.com/helpFiles/en/PyRep.htm</a> 在機電整合系統中與視覺辨識及強化學習相關應用.</p>
+<ol>
+<li>從 <a href="https://www.pbr-book.org/">https://www.pbr-book.org/</a> 帶出 <a href="https://cyberbotics.com/">Webots </a>也許是下一階段有關電腦輔助與協同產品設計相關課程應該進入的領域. (<a href="https://cyberbotics.com/doc/guide/samples-rendering">https://cyberbotics.com/doc/guide/samples-rendering</a>)</li>
+<li>Oauth2 從取得使用者登入帳號之後, 再根據 session 中的資料與 Fossil SCM 的 password management, 或許就能有效連結 Google, Github, Gitlab 帳號. 亦即, 當網際 Python 程式經由 Oauth2 取得使用者帳號後, 就發出一則 SQL, 讓該用戶在 Fossil SCM 視為已經登入, 如此便可由該帳號對所屬 Fossil SCM 倉儲進行管理. (<a href="https://github.com/mdecourse/fossiloauth">https://github.com/mdecourse/fossiloauth</a>)</li>
+<li>繼續探究 <a href="https://www.coppeliarobotics.com/helpFiles/en/PyRep.htm">https://www.coppeliarobotics.com/helpFiles/en/PyRep.htm</a> 在機電整合系統中與視覺辨識及強化學習相關應用.</li>
+</ol>
 <h4>利用 <a href="https://www.onshape.com/en/">Onshape</a> 設計繪圖 (教學使用 course At mde):</h4>
 <p style="padding-left: 30px;"><a href="https://learn.onshape.com/collections/onshape-fundamentals-cad">https://learn.onshape.com/collections/onshape-fundamentals-cad</a></p>
 <p style="padding-left: 30px;">Onshape Forum: <a href="https://forum.onshape.com/">https://forum.onshape.com/</a></p>
@@ -104,7 +115,12 @@
 <p style="padding-left: 60px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/basicsOnIkGroupsAndIkElements.htm">https://www.coppeliarobotics.com/helpFiles/en/basicsOnIkGroupsAndIkElements.htm</a></p>
 <p style="padding-left: 60px;"><a href="https://www.researchgate.net/publication/351561339_An_Inverse_Kinematics_Demonstration_of_a_Custom_Robot_using_C_and_CoppeliaSim/link/609d4bfb458515c2658c7c52/download">IK example</a> (use Onshape create robot assembly and use Lua and Python to control the robot)</p>
 <p style="padding-left: 30px;"></p><h2>Featurescript</h2>
-<h3>Bevel Gears</h3>
+<p><a href="https://cad.onshape.com/FsDoc/">https://cad.onshape.com/FsDoc/</a> 能做什麼?</p>
+<p><a href="http://cadlab.mde.tw/post/onshape-featurescript-cheng-shi-yu-yan.html">http://cadlab.mde.tw/post/onshape-featurescript-cheng-shi-yu-yan.html</a></p>
+<p><a href="https://cadlab.mde.tw/post/tag/featurescript.html">https://cadlab.mde.tw/post/tag/featurescript.html</a> </p>
+<p><a href="https://github.com/dcowden/featurescript">https://github.com/dcowden/featurescript</a></p>
+<p><a href="https://www.onshape.com/en/features/custom-features">https://www.onshape.com/en/features/custom-features</a> </p>
+<p><a href="https://deep-geometry.github.io/abc-dataset/">https://deep-geometry.github.io/abc-dataset/</a></p><h3>Bevel Gears</h3>
 <h4>參考:</h4>
 <p style="padding-left: 30px;"><a href="https://hackaday.io/project/174370-minamil-a-minimal-cnc-mill-and-friends/log/185917-bevel-gears-twos-company">https://hackaday.io/project/174370-minamil-a-minimal-cnc-mill-and-friends/log/185917-bevel-gears-twos-company</a></p>
 <h4>Featurescript (<a href="https://cad.onshape.com/documents/9b04fb889def400dfd4a693f/v/7e4070a95d663f4afeb156f3/e/786005a281331572a0efe88b">source</a>, <a href="https://forum.onshape.com/discussion/6031/bevel-gear-pair-generator">discussion</a>):</h4>
@@ -791,6 +807,8 @@ export function involutePoint(context, baseCircleRadius, involuteIntersectionRad
 <p style="padding-left: 30px;"></p>
 <p></p>
 <h2>Oauth2</h2>
+<h4>本頁面相關內容的討論, 最終催生出:</h4>
+<p style="padding-left: 30px;"><a href="https://github.com/mdecourse/fossiloauth">https://github.com/mdecourse/fossiloauth</a></p>
 <p>Flask 與 Fossil SCM  在同一台主機, 可以透過 Oauth2 登入後, 由 Python 程式導引 redirect 登入 Fossil SCM 主機. 其中可以讓 Python 讀取使用者在 Fossil SCM 倉儲中當下所設定的帳號密碼後登入.</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from flask import Flask
 from flask import make_response, request, redirect
@@ -823,6 +841,8 @@ def hello_world():
 if __name__ == '__main__':
     app.run()</pre>
 <p>接下來的考量是, 能否不讓使用者直接從 Fossil SCM web 介面中登入?</p><h2>SQLite</h2>
+<h4>本頁面相關內容的討論, 最終催生出:</h4>
+<p style="padding-left: 30px;"><a href="https://github.com/mdecourse/fossiloauth">https://github.com/mdecourse/fossiloauth</a></p>
 <p>Cookie</p>
 <p><a href="https://www.valentinog.com/blog/cookies/">https://www.valentinog.com/blog/cookies/</a></p>
 <p>利用 Python send cookie:</p>
@@ -936,6 +956,7 @@ print(session.cookies.get_dict())
 <p style="padding-left: 60px;"><a href="https://github.com/ggicci/python-fossil-delta">https://github.com/ggicci/python-fossil-delta</a></p><h3>Althttpd</h3>
 <p><a href="https://sqlite.org/althttpd/doc/trunk/althttpd.md">https://sqlite.org/althttpd/doc/trunk/althttpd.md</a> </p>
 <p></p><h2>Elixir</h2>
+<p><a href="/downloads/a_history_of_erlang.pdf">A history of Erlang</a></p>
 <p>Can mechanical designer also take advantage of Elixir?</p>
 <p style="padding-left: 30px;"><a href="https://phoenixframework.org/">https://phoenixframework.org/</a></p>
 <p><a href="https://link.springer.com/book/10.1007/978-1-4842-2394-9">Erlang and Elixir for Imperative Programmers</a> (ebook)</p>
@@ -949,6 +970,7 @@ print(session.cookies.get_dict())
 <p style="padding-left: 30px;">功能: 啟動後可以啟動 SciTE 編輯器, 可用於類解譯 ANSI C 程式, 以及 <a href="https://solvespace.com">Solvespace</a>.</p>
 <p><a href="https://drive.google.com/file/d/1BGfN5R6Yw1e9Unm4u8GCRP4xcSuYfCSE/view?usp=sharing">Python395.7z</a> (下載 123MB, 解開壓縮後 495MB)</p>
 <p style="padding-left: 30px;">功能: 與 <a href="https://drive.google.com/file/d/1hTvN4mCk2b_enIK204HA0AVPsd3GPlh5/view?usp=sharing">portablekmol_base.7z</a> 結合後, 可以利用 SciTE 編輯器執行 Python 程式.</p>
+<p style="padding-left: 30px;">請注意: 由於 CMSiMDE 改用 adhoc ssl_context 啟動近端伺服器, 因此 Python 解譯系統必須加裝 pyopenssl 模組: pip install pyopenssl,  且安裝前要先將系統 proxy 暫時關閉.</p>
 <p><a href="https://drive.google.com/file/d/1RW51wCJ056TdWvjharBKOl6FM9iewpHI/view?usp=sharing">portablegit_2.31.1.7z</a> (下載 60MB, 解開壓縮後 286MB)</p>
 <p style="padding-left: 30px;">功能: 與 <a href="https://drive.google.com/file/d/1hTvN4mCk2b_enIK204HA0AVPsd3GPlh5/view?usp=sharing">portablekmol_base.7z</a> 結合後, 可以利用可攜程式系統的命令列視窗執行 git 指令.</p>
 <p><a href="https://drive.google.com/file/d/1JDmc_b4BLwGh4hQ7Tatq02EXmiPLrNZV/view?usp=sharing">lua-5.4.3.7z</a> (下載 662KB, 解開壓縮後 4MB)</p>
