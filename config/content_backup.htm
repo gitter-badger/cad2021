@@ -977,6 +977,7 @@ print(session.cookies.get_dict())
 <p>Elixir 在解決 ____, ____, ____, ____等問題.</p>
 <p><a href="/downloads/a_history_of_erlang.pdf">A history of Erlang</a></p>
 <p><a href="https://github.com/dwyl/learn-elixir">https://github.com/dwyl/learn-elixir</a></p>
+<p><a href="https://inquisitivedeveloper.com/tag/lwm-elixir/">https://inquisitivedeveloper.com/tag/lwm-elixir/</a></p>
 <p><a href="https://www.phoenixframework.org/">https://www.phoenixframework.org/</a></p>
 <h4>Dart + Phonix:</h4>
 <p style="padding-left: 30px;"><a href="https://pub.dev/packages/phoenix_socket">https://pub.dev/packages/phoenix_socket</a></p>
@@ -995,11 +996,40 @@ print(session.cookies.get_dict())
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/me4cANg9RMU" title="YouTube video player" width="560"></iframe></p>
 <p><a href="https://www.kabisa.nl/tech/when-elixirs-performance-becomes-rust-y/">https://www.kabisa.nl/tech/when-elixirs-performance-becomes-rust-y/</a></p>
 <p><a href="https://www.infoq.com/news/2019/07/rust-elixir-performance-at-scale/">https://www.infoq.com/news/2019/07/rust-elixir-performance-at-scale/</a></p>
+<h4>Elixir and IOT:</h4>
+<p style="padding-left: 30px;"><a href="https://medium.com/@carlogilmar/learning-iot-first-steps-with-elixir-310c4ad4ab15">https://medium.com/@carlogilmar/learning-iot-first-steps-with-elixir-310c4ad4ab15</a></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/zWytNNPnJUk" title="YouTube video player" width="560"></iframe></p>
 <h4>Elixir and reinforcement learning:</h4>
 <p style="padding-left: 30px;"><a href="https://github.com/doctorcorral/gyx">https://github.com/doctorcorral/gyx</a></p>
 <p style="padding-left: 30px;"><a href="https://medium.datadriveninvestor.com/elixir-e-reinforcement-learning-i-3ecd9399d03c">https://medium.datadriveninvestor.com/elixir-e-reinforcement-learning-i-3ecd9399d03c</a></p>
-<p style="padding-left: 30px;"><a href="https://www.erlang-solutions.com/blog/how-to-build-a-machine-learning-project-in-elixir/">https://www.erlang-solutions.com/blog/how-to-build-a-machine-learning-project-in-elixir/</a> </p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/n0X61Ad8Ofo" title="YouTube video player" width="560"></iframe></p><h1>可攜系統</h1>
+<p style="padding-left: 30px;"><a href="https://www.erlang-solutions.com/blog/how-to-build-a-machine-learning-project-in-elixir/">https://www.erlang-solutions.com/blog/how-to-build-a-machine-learning-project-in-elixir/</a></p>
+<p style="padding-left: 30px;"><a href="https://elixirforum.com/search?q=machine%20learning">https://elixirforum.com/search?q=machine%20learning</a></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/n0X61Ad8Ofo" title="YouTube video player" width="560"></iframe></p><h3>可攜 Elixir</h3>
+<p>採用 Elixir 希望解決 ____ 問題?</p>
+<p><a href="https://elixir-lang.org/blog/2013/08/08/elixir-design-goals/">https://elixir-lang.org/blog/2013/08/08/elixir-design-goals/</a> </p>
+<p>在 Windows 環境中建立可攜 Erlang 與 Elixir 的方法, 是先在操作系統中安裝後, 將 Erlang 與 Elixir 目錄內容取出放入可攜系統 y:\ 中的 elixir 目錄後, 在控制台中分別解除 Erlang 與 Elixir 的系統安裝, 然後必須要進入取出放入隨身碟或系統其他目錄後, 先修改:</p>
+<p>Y:\elixir\erl10.7\bin 以及 Y:\elixir\erl10.7\erts-10.7\bin 目錄中的兩個 erl.ini:</p>
+<p>將原先設定為操作系統安裝的路徑, 改為隨身可攜系統的對應路徑:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">[erlang] 
+Bindir=Y:\\elixir\\erl10.7\\erts-10.7\\bin 
+Progname=erl 
+Rootdir=Y:\\elixir\\erl10.7\\ 
+</pre>
+<p>至於在隨身系統啟動後, 開啟互動式 Elixir 的 batch file, elixir.bat 內容為:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">"y:\elixir\erl10.7\bin\werl.exe" -env ERL_LIBS "y:\elixir\Elixir\lib" -user Elixir.IEx.CLI -extra --no-halt</pre>
+<p>而 erlang.bat 則為:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">echo off
+y:\elixir\erl10.7\bin\werl.exe</pre>
+<p>另外, 在啟動隨身系統的 start_ipv6.bat 中則加入:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">REM for Erlang and Elixir
+set path_erlang=%Disk%:\elixir\erl10.7\bin\;%Disk%:\elixir\erl10.7\erts-10.7\bin;%Disk%:\elixir\elixir\bin\;
+set ERTSPATH=%Disk%:\elixir\erl10.7\erts-10.7\bin
+set ERLINI=%Disk%:\elixir\erl10.7\erts-10.7\bin\erl.ini</pre>
+<p>並將 %path_erlang% 納入隨後的 Path 環境變數中.</p>
+<p>如此就可以在啟動隨身系統後, 以 elixir.bat 啟動 Elixir 互動環境, 而執行 erlang.bat 則啟動 Erlang  互動環境.</p>
+<h4>根據上述流程設定的 Elixir 可攜系統下載:</h4>
+<p style="padding-left: 30px;"><a href="https://drive.google.com/file/d/1CZfEjvHtQSlAch83jHmw4Ivz6WubPu8h/view?usp=sharing">Erlang 10.7 and Elixir portable.7z</a> for Windows (下載 62MB , 解開壓縮後 340MB)</p>
+<p>基本操作: <a href="https://inquisitivedeveloper.com/lwm-elixir-75/">https://inquisitivedeveloper.com/lwm-elixir-75/</a></p><h1>可攜系統</h1>
 <p>可攜系統在解決 ____ 問題?</p>
 <p><a href="https://drive.google.com/file/d/1hTvN4mCk2b_enIK204HA0AVPsd3GPlh5/view?usp=sharing">portablekmol_base.7z</a> (下載 118MB, 解開壓縮後 148MB)</p>
 <p style="padding-left: 30px;">包括 data 目錄與 start_ipv6.bat, start_ipv4.bat, stop.bat</p>

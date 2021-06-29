@@ -134,10 +134,32 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">客製化 << <a href='客製化.html'>Previous</a> <a href='上傳與引用檔案.html'>Next</a> >> 上傳與引用檔案<br /><h1>編輯網頁內容</h1>
-<p>編輯 CMSiMDE 動態網站中的內容, 可以透過表單中的 <span style="background-color: #ffff99;">Edit All</span> 或 <span style="background-color: #ffff99;">Edit</span> 按鈕進行. <span style="background-color: #ffff99;">Edit</span> 可用於單頁編輯, 操作時先選擇左側的頁面標題, 等系統顯示該頁面內容後, 再點擊上方的 <span style="background-color: #ffff99;">Edit</span> 按鈕即可進入該頁面的編輯模式.</p>
-<p><span style="background-color: #ffff99;">Edit All</span> 通常用於單次刪除所有頁面內容或者只保留特定頁面用, 點擊後會將所有頁面內容置於編輯器中.</p>
-<br />客製化 << <a href='客製化.html'>Previous</a> <a href='上傳與引用檔案.html'>Next</a> >> 上傳與引用檔案</div>
+    <div id="tipue_search_content">Elixir << <a href='Elixir.html'>Previous</a> <a href='可攜系統.html'>Next</a> >> 可攜系統<br /><h1>可攜 Elixir</h1>
+<p>採用 Elixir 希望解決 ____ 問題?</p>
+<p><a href="https://elixir-lang.org/blog/2013/08/08/elixir-design-goals/">https://elixir-lang.org/blog/2013/08/08/elixir-design-goals/</a> </p>
+<p>在 Windows 環境中建立可攜 Erlang 與 Elixir 的方法, 是先在操作系統中安裝後, 將 Erlang 與 Elixir 目錄內容取出放入可攜系統 y:\ 中的 elixir 目錄後, 在控制台中分別解除 Erlang 與 Elixir 的系統安裝, 然後必須要進入取出放入隨身碟或系統其他目錄後, 先修改:</p>
+<p>Y:\elixir\erl10.7\bin 以及 Y:\elixir\erl10.7\erts-10.7\bin 目錄中的兩個 erl.ini:</p>
+<p>將原先設定為操作系統安裝的路徑, 改為隨身可攜系統的對應路徑:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">[erlang] 
+Bindir=Y:\\elixir\\erl10.7\\erts-10.7\\bin 
+Progname=erl 
+Rootdir=Y:\\elixir\\erl10.7\\ 
+</pre>
+<p>至於在隨身系統啟動後, 開啟互動式 Elixir 的 batch file, elixir.bat 內容為:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">"y:\elixir\erl10.7\bin\werl.exe" -env ERL_LIBS "y:\elixir\Elixir\lib" -user Elixir.IEx.CLI -extra --no-halt</pre>
+<p>而 erlang.bat 則為:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">echo off
+y:\elixir\erl10.7\bin\werl.exe</pre>
+<p>另外, 在啟動隨身系統的 start_ipv6.bat 中則加入:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">REM for Erlang and Elixir
+set path_erlang=%Disk%:\elixir\erl10.7\bin\;%Disk%:\elixir\erl10.7\erts-10.7\bin;%Disk%:\elixir\elixir\bin\;
+set ERTSPATH=%Disk%:\elixir\erl10.7\erts-10.7\bin
+set ERLINI=%Disk%:\elixir\erl10.7\erts-10.7\bin\erl.ini</pre>
+<p>並將 %path_erlang% 納入隨後的 Path 環境變數中.</p>
+<p>如此就可以在啟動隨身系統後, 以 elixir.bat 啟動 Elixir 互動環境, 而執行 erlang.bat 則啟動 Erlang  互動環境.</p>
+<h4>根據上述流程設定的 Elixir 可攜系統下載:</h4>
+<p style="padding-left: 30px;"><a href="https://drive.google.com/file/d/1CZfEjvHtQSlAch83jHmw4Ivz6WubPu8h/view?usp=sharing">Erlang 10.7 and Elixir portable.7z</a> for Windows (下載 62MB , 解開壓縮後 340MB)</p>
+<p>基本操作: <a href="https://inquisitivedeveloper.com/lwm-elixir-75/">https://inquisitivedeveloper.com/lwm-elixir-75/</a></p><br />Elixir << <a href='Elixir.html'>Previous</a> <a href='可攜系統.html'>Next</a> >> 可攜系統</div>
         
     <!-- footer -->
       <div class="container">
