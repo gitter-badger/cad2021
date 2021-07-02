@@ -137,7 +137,20 @@
 <p style="padding-left: 30px;"></p><h2>Zulip</h2>
 <p>為什麼要使用 Zulip?</p>
 <p>學習使用 <a href="https://kmolab.zulipchat.com">https://kmolab.zulipchat.com</a></p>
-<h2>Featurescript</h2>
+<h2>SolidWorks</h2>
+<p>SolidWorks Robot model import into CoppeliaSim</p>
+<p><a href="https://www.youtube.com/watch?v=jfUA2W-niIc">https://www.youtube.com/watch?v=jfUA2W-niIc</a></p>
+<h4>URDF:</h4>
+<p style="padding-left: 30px;">Unified Robotic Description Format (<a href="https://github.com/ros/urdf">URDF</a>) is an XML file format used in ROS to describe all elements of a robot.</p>
+<p style="padding-left: 30px;"><a href="http://wiki.ros.org/urdf/XML/model">http://wiki.ros.org/urdf/XML/model</a></p>
+<p style="padding-left: 30px;">Intro to URDF: <a href="https://industrial-training-master.readthedocs.io/en/melodic/_source/session3/Intro-to-URDF.html">https://industrial-training-master.readthedocs.io/en/melodic/_source/session3/Intro-to-URDF.html</a></p>
+<p style="padding-left: 30px;"><a href="http://wiki.ros.org/urdf/Tutorials/Building%20a%20Visual%20Robot%20Model%20with%20URDF%20from%20Scratch">Building a Visual Robot Model with URDF from Scratch</a></p>
+<p style="padding-left: 30px;">Use Python to generate URDF: <a href="https://github.com/mdecourse/odio_urdf">https://github.com/mdecourse/odio_urdf</a></p>
+<p style="padding-left: 30px;"><a href="https://github.com/yanshil/Fusion2PyBullet">https://github.com/yanshil/Fusion2PyBullet</a> </p>
+<p style="padding-left: 30px;"><a href="https://github.com/mdecourse/urdf2webots">https://github.com/mdecourse/urdf2webots</a> </p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/0M2b1p6H20o" title="YouTube video player" width="560"></iframe></p>
+<h4>simExtURDF:</h4>
+<p style="padding-left: 30px;"><a href="https://github.com/CoppeliaRobotics/simExtURDF">https://github.com/CoppeliaRobotics/simExtURDF</a></p><h2>Featurescript</h2>
 <p><a href="https://cad.onshape.com/FsDoc/">https://cad.onshape.com/FsDoc/</a> 能做什麼?</p>
 <p><a href="http://cadlab.mde.tw/post/onshape-featurescript-cheng-shi-yu-yan.html">http://cadlab.mde.tw/post/onshape-featurescript-cheng-shi-yu-yan.html</a></p>
 <p><a href="https://cadlab.mde.tw/post/tag/featurescript.html">https://cadlab.mde.tw/post/tag/featurescript.html</a> </p>
@@ -864,121 +877,54 @@ def hello_world():
 if __name__ == '__main__':
     app.run()</pre>
 <p>接下來的考量是, 能否不讓使用者直接從 Fossil SCM web 介面中登入?</p>
-<h2>SQLite</h2>
-<h4>本頁面相關內容的討論, 最終催生出:</h4>
+<h2>Fossil</h2>
+<h4>結合 Fossil SCM 與 Flask Oauth2:</h4>
 <p style="padding-left: 30px;"><a href="https://github.com/mdecourse/fossiloauth">https://github.com/mdecourse/fossiloauth</a></p>
-<p>Cookie</p>
-<p><a href="https://www.valentinog.com/blog/cookies/">https://www.valentinog.com/blog/cookies/</a></p>
-<p>利用 Python send cookie:</p>
-<p><a href="https://stackoverflow.com/questions/7164679/how-to-send-cookies-in-a-post-request-with-the-python-requests-library">https://stackoverflow.com/questions/7164679/how-to-send-cookies-in-a-post-request-with-the-python-requests-library</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import requests
+<h4>Cookie Tutorial:</h4>
+<p style="padding-left: 30px;"><a href="https://www.valentinog.com/blog/cookies/">https://www.valentinog.com/blog/cookies/</a></p>
+<p>採用 Flask Oauth2 介面登入後, 取得使用者 Gmail 帳號名稱 (具有唯一性) 後, 利用此一帳號查詢 Fossil SCM 中是否已經建立此一用戶,  若是, 則以亂數 (使用者無法得知, 因此無法直接從 Fossil SCM 倉儲網際介面中登入) 變更帳號對應密碼, 若尚無帳號, 則新建帳號並以亂數設定密碼. 使用者透過 Cookie 登入同硬體的 Fossil SCM 主機後, 程式必須自動替使用者登出 Flask 網際介面, 因此當使用者進入 Fossil SCM, 前面已經分別由程式登出 Gmail 與 Flask 網際帳號.</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">@app.route('/forum')
+# at the end of forum must logout from 8443
+@login_required
+def forum():
+    """Create forum routine"""
+    username, userpass = repo()
 
-cookies = {'enwiki_session': '17ab96bd8ffbe8ca58a78657a918558'}
+    with requests.Session() as s:
+        url = 'https://fossil.kmol.info/u/yen/login'
+        post_var = {'u': username, 'p': userpass}
+        headers = {'X-Requested-With': 'XMLHttpRequest'}
+        result = s.post(url, data = post_var, headers = headers)
+        cookie = s.cookies.get_dict()
+        key = list(cookie.keys())[0]
+        value = cookie[key]
 
-r = requests.post('http://wikipedia.org', cookies=cookies)</pre>
-<p>pip3 install selenium</p>
-<p>brew install geckodriver</p>
-<p>local cookie set to Firefox</p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import requests
-from selenium import webdriver
-
-driver = webdriver.Firefox()
-session = requests.Session()
-
-headers = {'X-Requested-With': 'XMLHttpRequest'}
-
-url = 'https://fossil.kmol.info/u/yen/login'
-driver.get(url)
-
-post_var = {'u': 'username', 'p': 'password'}
-  
-result = session.post(url, data = post_var, headers = headers)
-#print(result)
-cookie = session.cookies.get_dict()
-#print(cookie)
-driver.delete_all_cookies()
-response_cookies_browser = [{'name':name, 'value':value} for name, value in cookie.items()]
-c = [driver.add_cookie(c) for c in response_cookies_browser]
-#the browser now contains the cookies generated from the authentication    
-driver.get(url)
-
-
-
-
-</pre>
-<p>Use Flask request get remote_addr</p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from flask import request
-from flask import jsonify
-
-@app.route("/get_my_ip", methods=["GET"])
-def get_my_ip():
-    return jsonify({'ip': request.remote_addr}), 200
-
-'''
-with app.test_request_context(environ_base={'REMOTE_ADDR': '10.1.2.3'}):
-# https://flask.palletsprojects.com/en/2.0.x/testing/
-'''
-</pre>
-<p>利用 Python requests 登入 Fossil SCM 後取得對應的 cookie:</p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import requests
-
-session = requests.Session()
-
-headers = {'X-Requested-With': 'XMLHttpRequest'}
-
-url = 'https://fossil.kmol.info/u/yen/login'
-post_var = {'u': 'username', 'p': 'password'}
-  
-result = session.post(url, data = post_var, headers = headers)
-#print(result)
-print(session.cookies.get_dict())
-
-
-
-</pre>
-<p><a href="https://fossil-scm.org/forum/forumpost/59c6552555">https://fossil-scm.org/forum/forumpost/59c6552555</a> (Fossil SCM with json)</p>
-<p><a href="https://mde.tw/cp2019/downloads/Why%20Fossil-SCM%20is%20an%20excellent%20choice%20for%20introductory%20programming%20courses.pdf">Why Fossil-SCM is an excellent choice for introductory programming courses </a></p>
-<p><a href="https://www.sqlite.org/index.html">https://www.sqlite.org/index.html</a></p>
-<p><a href="https://medium.com/@nerdijoe/how-to-deploy-flask-on-iis-with-windows-authentication-733839d657b7">https://medium.com/@nerdijoe/how-to-deploy-flask-on-iis-with-windows-authentication-733839d657b7</a></p>
-<p><a href="https://atrium.ai/resources/how-to-implement-oauth-2-0-login-for-python-flask-web-server-applications/">https://atrium.ai/resources/how-to-implement-oauth-2-0-login-for-python-flask-web-server-applications/</a></p>
-<p>Fossil SCM</p>
+        forum = "https://fossil.kmol.info/u/yen/forum"
+        response = make_response(redirect(forum))
+        response.set_cookie(key, value)
+        # logout from 8443
+        logout()
+        return response</pre>
+<h4>Rererences:</h4>
+<p style="padding-left: 30px;"><a href="https://fossil-scm.org/forum/forumpost/59c6552555">https://fossil-scm.org/forum/forumpost/59c6552555</a> (Fossil SCM with json)</p>
+<p style="padding-left: 30px;"><a href="https://mde.tw/cp2019/downloads/Why%20Fossil-SCM%20is%20an%20excellent%20choice%20for%20introductory%20programming%20courses.pdf">Why Fossil-SCM is an excellent choice for introductory programming courses </a></p>
+<p style="padding-left: 30px;"><a href="https://www.sqlite.org/index.html">https://www.sqlite.org/index.html</a></p>
+<p style="padding-left: 30px;"><a href="https://medium.com/@nerdijoe/how-to-deploy-flask-on-iis-with-windows-authentication-733839d657b7">https://medium.com/@nerdijoe/how-to-deploy-flask-on-iis-with-windows-authentication-733839d657b7</a></p>
+<p style="padding-left: 30px;"><a href="https://atrium.ai/resources/how-to-implement-oauth-2-0-login-for-python-flask-web-server-applications/">https://atrium.ai/resources/how-to-implement-oauth-2-0-login-for-python-flask-web-server-applications/</a></p>
+<h4>Fossil SCM:</h4>
 <p><a href="https://fossil-scm.org/home/doc/trunk/www/json-api/api-auth.md">https://fossil-scm.org/home/doc/trunk/www/json-api/api-auth.md</a></p>
 <p>Why using Fossil SCM: <a href="https://andreiclinciu.net/why-im-using-fossil-scm-instead-of-other-source-control-systems">https://andreiclinciu.net/why-im-using-fossil-scm-instead-of-other-source-control-systems</a></p>
-<p>User passwords are local configuration information.</p>
-<p>Passwords are stored in the PW field of the USER table. In older versions of Fossil (prior to 2010-01-11) the password is stored as cleartext. In newer versions of Fossil, the password can be either cleartext or an SHA1 hash (written as a 40-character lower-case hexadecimal number). If the USER.PW field contains a 40-character string, that string is assumed to be a SHA1 hash. If the size of USER.PW is anything other than 40 characters, then it is understood as a plain-text password.</p>
-<p>Whenever a password is changed using the web interface or using the "user" command-line method, the new password is stored using the SHA1 encoding. Thus, cleartext passwords will gradually migrate to become SHA1 passwords. All remaining cleartext passwords can be converted to SHA1 passwords using the following command:<br/><br/>    fossil test-hash-passwords REPOSITORY-NAME<br/><br/>Remember that converting from cleartext to SHA1 passwords is an irreversible operation.</p>
-<p>The only way to insert a new cleartext password into the USER table is to do so manually using SQL commands. For example:<br/><br/>    UPDATE user SET pw='asdfg' WHERE login='alice';<br/><br/>Note that an password that is an empty string or NULL will disable all login for that user. Thus, to lock a user out of the system, one has only to set their password to an empty string, using either the web interface or direct SQL manipulation of the USER table. Note also that the password field is essentially ignored for the special users named "anonymous", "developer", "reader", and "nobody". It is not possible to authenticate as users "developer", "reader", or "nobody" and the authentication protocol for "anonymous" uses one-time captchas not persistent passwords</p>
-<p>Web Interface Authentication<br/><br/>When a user logs into Fossil using the web interface, the login name and password are sent in the clear to the server. The server then hashes the password and compares it against the value stored in USER.PW. If they match, the server sets a cookie on the client to record the login. This cookie contains a large amount of high-quality randomness and is thus intractable to guess. The value of the cookie and the IP address of the client is stored in the USER.COOKIE and USER.IPADDR fields of the USER table on the server. The USER.CEXPIRE field holds an expiration date for the cookie, encoded as a Julian day number. On all subsequent HTTP requests, the cookie value is matched against the USER table to enable access to the repository.</p>
-<p>因此若 Python 經由 Oauth2 流程登入後, 若能建立</p>
-<p>USER.COOKIE</p>
-<p>USER.IPADDR</p>
-<p>USER.CEXPIRE</p>
-<p>所需資料, 並送出與  USER.COOKIE 對應的 cookie 至 client, 將可視為該帳號已經登入 Fossil SCM.</p>
-<p>fossil sql -R repo-name.fossil<br/>.schema user<br/>CREATE TABLE repository.user(<br/>  uid INTEGER PRIMARY KEY,<br/>  login TEXT UNIQUE,<br/>  pw TEXT,<br/>  cap TEXT,<br/>  cookie TEXT,<br/>  ipaddr TEXT,<br/>  cexpire DATETIME,<br/>  info TEXT,<br/>  mtime DATE,<br/>  photo BLOB<br/>);</p>
-<p>Sync Protocol Authentication<br/><br/>A different authentication mechanism is used when one repository wants to sync (or push or pull or clone) another repository. When two repositories are syncing, the one that initiates the transaction is the client and the repository that responds is the server. The client works by sending HTTP requests to the server with a method of "xfer" and a content-type of "application/x-fossil". The content is Zlib-compressed text consisting of "cards" of instructions. The first card of this content is a "login" card responsible for authentication. The login card contains the login name of the user and a "signature" where the signature is the SHA1 hash of a nonce and the value of USER.PW. The nonce is the SHA1 hash of the remainder of the request content after the newline (ASCII 14) character that terminates the login card.</p>
-<p>Fossil has the following option in /setup_access:<br/><br/>------------------------------------------------------------------------<br/> Allow REMOTE_USER authentication<br/><br/>When enabled, if the REMOTE_USER environment variable is set to the login name of a valid user and no other login credentials are available, then the REMOTE_USER is accepted as an authenticated user. (Property: "remote_user_ok") <br/>------------------------------------------------------------------------<br/><br/>It seems to me that one should be able to configure a web server to authenticate against LDAP/AD and host Fossils behind that.  One would still have to add users to Fossil that match the username that is provided by the authentication, but I believe this should work.</p>
-<p>At the Access setup of the Fossil SCM web page:</p>
-<p> Allow REMOTE_USER authentication<br/><br/>When enabled, if the REMOTE_USER environment variable is set to the login name of a valid user and no other login credentials are available, then the REMOTE_USER is accepted as an authenticated user. (Property: "remote_user_ok")</p>
-<p>By using Python:</p>
-<p style="padding-left: 30px;"><a href="https://stackoverflow.com/questions/34418545/flask-faking-request-environremote-user-for-testing">https://stackoverflow.com/questions/34418545/flask-faking-request-environremote-user-for-testing</a></p>
-<p style="padding-left: 30px;"><a href="https://tedboy.github.io/flask/generated/generated/flask.Request.remote_user.html">https://tedboy.github.io/flask/generated/generated/flask.Request.remote_user.html</a></p>
-<p>By using command:</p>
-<p style="padding-left: 30px;">echo "replace into config(name,value) values('remote_user_ok',1)" | fossil<br/>sql -R $repository_filename</p>
-<p><br/>Allow HTTP_AUTHENTICATION authentication<br/><br/>When enabled, allow the use of the HTTP_AUTHENTICATION environment variable or the "Authentication:" HTTP header to find the username and password. This is another way of supporting Basic Authentication. (Property: "http_authentication_ok")</p>
-<p><a href="https://stackoverflow.com/questions/6999565/python-https-get-with-basic-authentication">https://stackoverflow.com/questions/6999565/python-https-get-with-basic-authentication</a></p>
-<p><a href="https://stackoverflow.com/questions/1453264/python-https-client-with-basic-authentication-via-proxy">https://stackoverflow.com/questions/1453264/python-https-client-with-basic-authentication-via-proxy</a></p>
-<p><a href="https://serverfault.com/questions/360293/setting-remote-user-for-trac-in-gunicorn-behind-nginx">https://serverfault.com/questions/360293/setting-remote-user-for-trac-in-gunicorn-behind-nginx</a></p>
-<p>References:</p>
-<p style="padding-left: 30px;"><a href="https://fossil-scm.org/forum/forumpost/363b4668b3">https://fossil-scm.org/forum/forumpost/363b4668b3</a></p>
-<p style="padding-left: 30px;"><a href="https://fossil-scm.org/forum/forumpost/df0df6720d">https://fossil-scm.org/forum/forumpost/df0df6720d</a></p>
-<p style="padding-left: 30px;"><a href="https://pypi.org/project/pystunnel/">https://pypi.org/project/pystunnel/</a></p>
+<p>以 SQL 查詢資料庫中資料表欄位:</p>
+<p style="padding-left: 30px;">fossil sql -R repo-name.fossil<br/>.schema user<br/>CREATE TABLE repository.user(<br/>  uid INTEGER PRIMARY KEY,<br/>  login TEXT UNIQUE,<br/>  pw TEXT,<br/>  cap TEXT,<br/>  cookie TEXT,<br/>  ipaddr TEXT,<br/>  cexpire DATETIME,<br/>  info TEXT,<br/>  mtime DATE,<br/>  photo BLOB<br/>);</p>
 <h4>主題一:</h4>
+<p style="padding-left: 30px;">建立 Fossil SCM 倉儲</p>
+<p style="padding-left: 30px;">修改使用者密碼: fossil user password user_name user_password -R repo.fossil</p>
 <p style="padding-left: 30px;">Python 與 SQLite</p>
-<p style="padding-left: 30px;">CMSiMDE 與 SQLite</p>
-<p style="padding-left: 30px;">利用 Python 讀取 Fossil SCM 資料庫內容</p>
+<p style="padding-left: 30px;">CMSiMDE 與 SQLite - 也許可以試著將 content.htm 或靜態網頁內容存入 SQLite 資料表中.</p>
+<p style="padding-left: 30px;">利用 Python 讀取 Fossil SCM 資料庫內容:</p>
 <p style="padding-left: 60px;"><a href="https://github.com/mdecourse/fossilpy">https://github.com/mdecourse/fossilpy</a></p>
-<p style="padding-left: 60px;"><a href="https://github.com/ggicci/python-fossil-delta">https://github.com/ggicci/python-fossil-delta</a></p>
-<h3>Althttpd</h3>
+<p style="padding-left: 30px;">利用 Python 與 delta 原理進行版次管理:</p>
+<p style="padding-left: 60px;"><a href="https://github.com/ggicci/python-fossil-delta">https://github.com/ggicci/python-fossil-delta</a></p><h3>Althttpd</h3>
 <p><a href="https://sqlite.org/althttpd/doc/trunk/althttpd.md">https://sqlite.org/althttpd/doc/trunk/althttpd.md</a></p>
 <p></p>
 <h2>IK</h2>
@@ -988,6 +934,7 @@ print(session.cookies.get_dict())
 <p><a href="http://mde.tw/cd2021/content/%E5%85%AD%E8%BB%B8%E6%A9%9F%E6%A2%B0%E8%87%82%E6%A8%A1%E5%9E%8B.html">Robot 機械手臂模型</a></p>
 <p>Import Robot from Solidworks into Coppeliasim: <a href="https://www.youtube.com/watch?v=jfUA2W-niIc">https://www.youtube.com/watch?v=jfUA2W-niIc</a></p>
 <p style="padding-left: 30px;">URDF: <a href="https://wiki.ros.org/urdf">https://wiki.ros.org/urdf</a></p>
+<p style="padding-left: 60px;"><a href="https://github.com/mmatl/urdfpy">https://github.com/mmatl/urdfpy</a> </p>
 <p style="padding-left: 30px;"><a href="/downloads/kuka kr16 assembly URDF.rar">kuka kr16 assembly URDF.rar</a></p>
 <p style="padding-left: 30px;"><a href="https://www.youtube.com/channel/UCX6c67E5PTUq5W8n8POeO_w/videos">reference videos</a></p>
 <p style="padding-left: 30px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/urdfPlugin.htm">https://www.coppeliarobotics.com/helpFiles/en/urdfPlugin.htm</a></p>
