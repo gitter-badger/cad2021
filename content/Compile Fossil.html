@@ -2,7 +2,7 @@
         <head>
         <title>CAD2021</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -134,17 +134,25 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">注意事項 << <a href='注意事項.html'>Previous</a> <a href='靜態網頁 404.html'>Next</a> >> 靜態網頁 404<br /><h1>標題選擇</h1>
-<p>由於 CMSiMDE 中的動態網站透過 config/content.htm 的 H1~H3 超文件標註進行分頁, 因此使用者利用 cms.bat 開啟動態網站後, 必須注意各頁面標題文字的選擇:</p>
-<ol>
-<li><span style="background-color: #ffff99;">頁面標題文字儘量簡短</span> - 頁面標題就有如文章的章節標題, 只要該標題具有該頁面內容的代表性即可, 越簡短越好.</li>
-<li><span style="background-color: #ffff99;">頁面標題文字不要使用標點符號</span> - 因為標點符號中的 "/" 會造成頁面擷取時 URL 指令分段上的誤判, 至於標題文字中若有 ":" 則會在動態內容轉靜態內容時, 因 Windows 不允許檔案名稱帶有 ":" 而無法轉檔.</li>
-<li><span style="background-color: #ffff99;">頁面標題中不可以有超文件標註</span> - 由於 CMSiMDE 動態網站編輯器採用 GUI 進行, 採用滑鼠標修頁面標題時, 可能無意中將 HTML 標註放入 H1~H3 標題文字中, 如此可能會造成 CMSiMDE 分頁錯誤而無法開啟動態網站. 當使用者要檢查所使用的頁面標題是否帶有 html 標註, 可以透過編輯功能中的 Source Code 檢查.</li>
-<li><span style="background-color: #ffff99;">H1 標題數量不可過多</span> - 由於 CMSiMDE 的靜態網站支援手機模式, 當頁面 H1 標題數量超過 10 個之後, 頁面標題可能無法在螢幕上最上方以一列顯示, 而是必須出現在第二行, 結果將會導致頁面展開時的 Javascript 程式產生錯亂, 結果為無法直接以滑鼠點擊進入特定頁面.</li>
-</ol>
-<p></p>
-<p></p>
-<br />注意事項 << <a href='注意事項.html'>Previous</a> <a href='靜態網頁 404.html'>Next</a> >> 靜態網頁 404</div>
+    <div id="tipue_search_content">Fossil << <a href='Fossil.html'>Previous</a> <a href='Althttpd.html'>Next</a> >> Althttpd<br /><h1>Compile Fossil</h1>
+<p>一般將 Ubuntu 中的 fossil 設為 server, 配合 Stunnel 建立 https 介面, 而 Windows 中的 fossil.exe 則作為 client, 兩者可以透過 fossil version 查詢版次, 必須注意 server 與 client 的 Fossil SCM 版次是否相應, 以免無法使用新版本 Fossil SCM 可能新增的功能.</p>
+<h4>Ubuntu:</h4>
+<p>下載 Fossil SCM 最新版本原始碼:</p>
+<p style="padding-left: 30px;">點選 <a href="https://www.fossil-scm.org/home/timeline">Timeline</a>, 選擇最新版號對應的連結, 例如: <a href="https://www.fossil-scm.org/home/info/7aedd5675883d441">Fossil SCM 2.16 版</a>. 點選 <a href="https://www.fossil-scm.org/home/zip/7aedd567/Fossil-7aedd567.zip">ZIP archive</a> 下載後解開原始碼壓縮檔案.</p>
+<p style="padding-left: 30px;">由於操作系統為 Ubuntu, 根據<a href="https://superuser.com/questions/371901/openssl-missing-during-configure-how-to-fix">說明</a>, 可以利用 sudo apt install libssl-dev 安裝所需的 OpenSSL 程式庫開發檔案.</p>
+<p style="padding-left: 30px;">利用 xterm 命令列進入 Fossil SCM 原始碼所在目錄後, 執行 ./configure 後, 再執行 make 就可以建立 fossil 可執行檔案. 只不過檔案大小約 17 MB, 若利用 ./configure --static 所建立的 fossil 則將近 22GB.</p>
+<h4>Windows:</h4>
+<p style="padding-left: 30px;">以下將採用 <a href="https://www.msys2.org/">MSYS2</a> 執行編譯.</p>
+<p style="padding-left: 30px;">下載 Fossil SCM 最新版原始碼與上列 Ubuntu 相同.</p>
+<p style="padding-left: 30px;">由於採用 <a href="https://www.msys2.org/">MSYS2</a>, 因此必須在 mingw64.exe 啟動後的介面, 以 pacman -S openssl-devel 安裝所需的 OpenSSL 程式庫開發檔案, 其中包括 libssl.a 與 libcrypto.a 等兩個靜態程式庫.</p>
+<p style="padding-left: 30px;">由於已經將 Y:\msys64_20210419\mingw64\bin\mingw32-make.exe 複製一份為 make.exe, 因此之後可以直接以 make 命令執行.</p>
+<p style="padding-left: 30px;"><a href="https://www.msys2.org/">MSYS2</a> 所使用的 Makefile 位於 Fossil SCM 原始碼目錄中的 win/Makefile.mingw 檔案, 以 SciTE 編輯此一檔案時, 將第 22 行改為:</p>
+<p style="padding-left: 60px;">PREFIX = x86_64-w64-mingw32-</p>
+<p style="padding-left: 30px;">第 63 行改為:</p>
+<p style="padding-left: 60px;">FOSSIL_ENABLE_SSL = 1</p>
+<p style="padding-left: 30px;">並且將 libssl.a 與 libcrypto.a 檔案放入原始碼目錄中. 然後再利用:</p>
+<p style="padding-left: 60px;">make -f win/Makefile.mingw LIB="-l:libssl.a -l:libcrypto.a -lgdi32 -lmingwex -lz -lws2_32 -municode"</p>
+<p style="padding-left: 30px;">以直接連結 libssl.a 與 libcrypto.a 的方式, 即可完成 fossil.exe 的編譯, 檔案大小約 8MB.</p><br />Fossil << <a href='Fossil.html'>Previous</a> <a href='Althttpd.html'>Next</a> >> Althttpd</div>
         
     <!-- footer -->
       <div class="container">

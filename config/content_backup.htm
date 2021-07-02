@@ -146,8 +146,9 @@
 <p style="padding-left: 30px;">Intro to URDF: <a href="https://industrial-training-master.readthedocs.io/en/melodic/_source/session3/Intro-to-URDF.html">https://industrial-training-master.readthedocs.io/en/melodic/_source/session3/Intro-to-URDF.html</a></p>
 <p style="padding-left: 30px;"><a href="http://wiki.ros.org/urdf/Tutorials/Building%20a%20Visual%20Robot%20Model%20with%20URDF%20from%20Scratch">Building a Visual Robot Model with URDF from Scratch</a></p>
 <p style="padding-left: 30px;">Use Python to generate URDF: <a href="https://github.com/mdecourse/odio_urdf">https://github.com/mdecourse/odio_urdf</a></p>
-<p style="padding-left: 30px;"><a href="https://github.com/yanshil/Fusion2PyBullet">https://github.com/yanshil/Fusion2PyBullet</a> </p>
-<p style="padding-left: 30px;"><a href="https://github.com/mdecourse/urdf2webots">https://github.com/mdecourse/urdf2webots</a> </p>
+<p style="padding-left: 30px;"><a href="https://github.com/yanshil/Fusion2PyBullet">https://github.com/yanshil/Fusion2PyBullet</a> (Pybullet)</p>
+<p style="padding-left: 30px;"><a href="https://github.com/mdecourse/urdf2webots">https://github.com/mdecourse/urdf2webots</a> (Webots)</p>
+<p style="padding-left: 30px;"><a href="https://github.com/dfki-ric/phobos">https://github.com/dfki-ric/phobos</a> (Blender)</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/0M2b1p6H20o" title="YouTube video player" width="560"></iframe></p>
 <h4>simExtURDF:</h4>
 <p style="padding-left: 30px;"><a href="https://github.com/CoppeliaRobotics/simExtURDF">https://github.com/CoppeliaRobotics/simExtURDF</a></p><h2>Featurescript</h2>
@@ -924,10 +925,27 @@ def forum():
 <p style="padding-left: 30px;">利用 Python 讀取 Fossil SCM 資料庫內容:</p>
 <p style="padding-left: 60px;"><a href="https://github.com/mdecourse/fossilpy">https://github.com/mdecourse/fossilpy</a></p>
 <p style="padding-left: 30px;">利用 Python 與 delta 原理進行版次管理:</p>
-<p style="padding-left: 60px;"><a href="https://github.com/ggicci/python-fossil-delta">https://github.com/ggicci/python-fossil-delta</a></p><h3>Althttpd</h3>
+<p style="padding-left: 60px;"><a href="https://github.com/ggicci/python-fossil-delta">https://github.com/ggicci/python-fossil-delta</a></p><h3>Compile Fossil</h3>
+<h4>Ubuntu:</h4>
+<p>下載 Fossil SCM 最新版本原始碼:</p>
+<p style="padding-left: 30px;">點選 <a href="https://www.fossil-scm.org/home/timeline">Timeline</a>, 選擇最新版號對應的連結, 例如: <a href="https://www.fossil-scm.org/home/info/7aedd5675883d441">Fossil SCM 2.16 版</a>. 點選 <a href="https://www.fossil-scm.org/home/zip/7aedd567/Fossil-7aedd567.zip">ZIP archive</a> 下載後解開原始碼壓縮檔案.</p>
+<p style="padding-left: 30px;">由於操作系統為 Ubuntu, 根據<a href="https://superuser.com/questions/371901/openssl-missing-during-configure-how-to-fix">說明</a>, 可以利用 sudo apt install libssl-dev 安裝所需的 OpenSSL 程式庫開發檔案.</p>
+<p style="padding-left: 30px;">利用 xterm 命令列進入 Fossil SCM 原始碼所在目錄後, 執行 ./configure 後, 再執行 make 就可以建立 fossil 可執行檔案. 只不過檔案大小約 17 MB, 若利用 ./configure --static 所建立的 fossil 則將近 22GB.</p>
+<h4>Windows:</h4>
+<p style="padding-left: 30px;">以下將採用 <a href="https://www.msys2.org/">MSYS2</a> 執行編譯.</p>
+<p style="padding-left: 30px;">下載 Fossil SCM 最新版原始碼與上列 Ubuntu 相同.</p>
+<p style="padding-left: 30px;">由於採用 <a href="https://www.msys2.org/">MSYS2</a>, 因此必須在 mingw64.exe 啟動後的介面, 以 pacman -S openssl-devel 安裝所需的 OpenSSL 程式庫開發檔案, 其中包括 libssl.a 與 libcrypto.a 等兩個靜態程式庫.</p>
+<p style="padding-left: 30px;">由於已經將 Y:\msys64_20210419\mingw64\bin\mingw32-make.exe 複製一份為 make.exe, 因此之後可以直接以 make 命令執行.</p>
+<p style="padding-left: 30px;"><a href="https://www.msys2.org/">MSYS2</a> 所使用的 Makefile 位於 Fossil SCM 原始碼目錄中的 win/Makefile.mingw 檔案, 以 SciTE 編輯此一檔案時, 將第 22 行改為:</p>
+<p style="padding-left: 60px;">PREFIX = x86_64-w64-mingw32-</p>
+<p style="padding-left: 30px;">第 63 行改為:</p>
+<p style="padding-left: 60px;">FOSSIL_ENABLE_SSL = 1</p>
+<p style="padding-left: 30px;">並且將 libssl.a 與 libcrypto.a 檔案放入原始碼目錄中. 然後再利用:</p>
+<p style="padding-left: 60px;">make -f win/Makefile.mingw LIB="-l:libssl.a -l:libcrypto.a -lgdi32 -lmingwex -lz -lws2_32 -municode"</p>
+<p style="padding-left: 30px;">以直接連結 libssl.a 與 libcrypto.a 的方式, 即可完成 fossil.exe 的編譯, 檔案大小約 8MB.</p><h3>Althttpd</h3>
+<p>Althttpd is a simple webserver that has run the https://sqlite.org/ website since 2004. Althttpd strives for simplicity, security, and low resource usage.</p>
 <p><a href="https://sqlite.org/althttpd/doc/trunk/althttpd.md">https://sqlite.org/althttpd/doc/trunk/althttpd.md</a></p>
-<p></p>
-<h2>IK</h2>
+<p></p><h2>IK</h2>
 <p><a href="https://wiki.blender.org/wiki/Source/Animation/IK">https://wiki.blender.org/wiki/Source/Animation/IK</a></p>
 <p><a href="/downloads/Building-a-Better-IK-Solver.pdf">Building-a-Better-IK-Solver.pdf</a></p><h2>FMS</h2>
 <p>在 <a href="https://www.coppeliarobotics.com/">CoppeliaSim </a>場景中, 從手動組裝自動化生產設備 (<a href="https://en.wikipedia.org/wiki/Industrial_robot">Industrial Robot</a>, <a href="https://en.wikipedia.org/wiki/Conveyor_system">Conveyor</a>, <a href="https://en.wikipedia.org/wiki/Automated_guided_vehicle">AGVS</a> 與 <a href="https://en.wikipedia.org/wiki/Automated_storage_and_retrieval_system">AS/RS</a> 設施等), 終至完成一套 <a href="https://en.wikipedia.org/wiki/Flexible_manufacturing_system">Flexible Manufacturing System</a> (彈性製造系統).</p>
