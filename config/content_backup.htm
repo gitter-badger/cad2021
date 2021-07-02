@@ -151,7 +151,12 @@
 <p style="padding-left: 30px;"><a href="https://github.com/dfki-ric/phobos">https://github.com/dfki-ric/phobos</a> (Blender)</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/0M2b1p6H20o" title="YouTube video player" width="560"></iframe></p>
 <h4>simExtURDF:</h4>
-<p style="padding-left: 30px;"><a href="https://github.com/CoppeliaRobotics/simExtURDF">https://github.com/CoppeliaRobotics/simExtURDF</a></p><h2>Featurescript</h2>
+<p style="padding-left: 30px;"><a href="https://github.com/CoppeliaRobotics/simExtURDF">https://github.com/CoppeliaRobotics/simExtURDF</a></p>
+<h3>Compile Solvespace</h3>
+<p>由於利用 MSYS2 編譯 Solvespace, 需要 install cmake</p>
+<p style="padding-left: 30px;">pacman -S mingw-w64-x86_64-cmake</p>
+<p>而且必須 rename Y:\msys64_20210419\mingw64\bin\sh.exe 與 Y:\portablegit_2.31.1\bin\sh.exe 換成其他名稱.</p>
+<p>git clone --recurse-submodules https://github.com/solvespace/solvespace.git<br/>cd solvespace<br/>mkdir build<br/>cd build<br/>cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release<br/>make<br/><br/>need libwinpthread-1.dll to execute solvespace.exe</p><h2>Featurescript</h2>
 <p><a href="https://cad.onshape.com/FsDoc/">https://cad.onshape.com/FsDoc/</a> 能做什麼?</p>
 <p><a href="http://cadlab.mde.tw/post/onshape-featurescript-cheng-shi-yu-yan.html">http://cadlab.mde.tw/post/onshape-featurescript-cheng-shi-yu-yan.html</a></p>
 <p><a href="https://cadlab.mde.tw/post/tag/featurescript.html">https://cadlab.mde.tw/post/tag/featurescript.html</a> </p>
@@ -926,6 +931,7 @@ def forum():
 <p style="padding-left: 60px;"><a href="https://github.com/mdecourse/fossilpy">https://github.com/mdecourse/fossilpy</a></p>
 <p style="padding-left: 30px;">利用 Python 與 delta 原理進行版次管理:</p>
 <p style="padding-left: 60px;"><a href="https://github.com/ggicci/python-fossil-delta">https://github.com/ggicci/python-fossil-delta</a></p><h3>Compile Fossil</h3>
+<p>一般將 Ubuntu 中的 fossil 設為 server, 配合 Stunnel 建立 https 介面, 而 Windows 中的 fossil.exe 則作為 client, 兩者可以透過 fossil version 查詢版次, 必須注意 server 與 client 的 Fossil SCM 版次是否相應, 以免無法使用新版本 Fossil SCM 可能新增的功能.</p>
 <h4>Ubuntu:</h4>
 <p>下載 Fossil SCM 最新版本原始碼:</p>
 <p style="padding-left: 30px;">點選 <a href="https://www.fossil-scm.org/home/timeline">Timeline</a>, 選擇最新版號對應的連結, 例如: <a href="https://www.fossil-scm.org/home/info/7aedd5675883d441">Fossil SCM 2.16 版</a>. 點選 <a href="https://www.fossil-scm.org/home/zip/7aedd567/Fossil-7aedd567.zip">ZIP archive</a> 下載後解開原始碼壓縮檔案.</p>

@@ -2,7 +2,7 @@
         <head>
         <title>CAD2021</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -134,42 +134,11 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Bevel Gears << <a href='Bevel Gears.html'>Previous</a> <a href='Fossil.html'>Next</a> >> Fossil<br /><h1>Oauth2</h1>
-<h4>本頁面相關內容的討論, 最終催生出:</h4>
-<p style="padding-left: 30px;"><a href="https://github.com/mdecourse/fossiloauth">https://github.com/mdecourse/fossiloauth</a></p>
-<p>Flask 與 Fossil SCM  在同一台主機, 可以透過 Oauth2 登入後, 由 Python 程式導引 redirect 登入 Fossil SCM 主機. 其中可以讓 Python 讀取使用者在 Fossil SCM 倉儲中當下所設定的帳號密碼後登入.</p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from flask import Flask
-from flask import make_response, request, redirect
-import requests
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'SUPER SECRET'
-
-@app.route('/')
-def hello_world():
-    with requests.Session() as s:
-        url = 'https://fossil.kmol.info/u/yen/login'
-        post_var = {'u': 'username', 'p': 'password'}
-        headers = {'X-Requested-With': 'XMLHttpRequest'}
-        result = s.post(url, data = post_var, headers = headers)
-        cookie = s.cookies.get_dict()
-        key = list(cookie.keys())[0]
-        value = cookie[key]
-        '''
-        print(key, value)
-        resp = redirect(url)
-        resp.set_cookie(key, value)
-        return resp
-        '''
-        response = make_response(redirect(url))
-        response.set_cookie(key, value)
-        return response
-        
-
-if __name__ == '__main__':
-    app.run()</pre>
-<p>接下來的考量是, 能否不讓使用者直接從 Fossil SCM web 介面中登入?</p>
-<br />Bevel Gears << <a href='Bevel Gears.html'>Previous</a> <a href='Fossil.html'>Next</a> >> Fossil</div>
+    <div id="tipue_search_content">SolidWorks << <a href='SolidWorks.html'>Previous</a> <a href='Featurescript.html'>Next</a> >> Featurescript<br /><h1>Compile Solvespace</h1>
+<p>由於利用 MSYS2 編譯 Solvespace, 需要 install cmake</p>
+<p style="padding-left: 30px;">pacman -S mingw-w64-x86_64-cmake</p>
+<p>而且必須 rename Y:\msys64_20210419\mingw64\bin\sh.exe 與 Y:\portablegit_2.31.1\bin\sh.exe 換成其他名稱.</p>
+<p>git clone --recurse-submodules https://github.com/solvespace/solvespace.git<br/>cd solvespace<br/>mkdir build<br/>cd build<br/>cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release<br/>make<br/><br/>need libwinpthread-1.dll to execute solvespace.exe</p><br />SolidWorks << <a href='SolidWorks.html'>Previous</a> <a href='Featurescript.html'>Next</a> >> Featurescript</div>
         
     <!-- footer -->
       <div class="container">
