@@ -159,7 +159,7 @@
 <h4 style="text-align: left;">Don’t confuse essence with tools. 到底在說什麼?</h4>
 <p>電腦輔助設計的 <a href="https://www.merriam-webster.com/dictionary/essence">essence</a> 是 ____?</p>
 <hr/>
-<p>由於利用 MSYS2 編譯 Solvespace, 需要 install cmake</p>
+<p>由於利用 <a href="https://www.msys2.org/">MSYS2</a> 編譯 Solvespace, 需要 install cmake</p>
 <p style="padding-left: 30px;">pacman -S mingw-w64-x86_64-cmake</p>
 <p>而且必須 rename Y:\msys64_20210419\mingw64\bin\sh.exe 與 Y:\portablegit_2.31.1\bin\sh.exe 換成其他名稱.</p>
 <p>git clone --recurse-submodules https://github.com/solvespace/solvespace.git<br/>cd solvespace<br/>mkdir build<br/>cd build<br/>cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release<br/>make<br/><br/>need libwinpthread-1.dll to execute solvespace.exe</p><h2>Featurescript</h2>
@@ -937,24 +937,39 @@ def forum():
 <p style="padding-left: 60px;"><a href="https://github.com/mdecourse/fossilpy">https://github.com/mdecourse/fossilpy</a></p>
 <p style="padding-left: 30px;">利用 Python 與 delta 原理進行版次管理:</p>
 <p style="padding-left: 60px;"><a href="https://github.com/ggicci/python-fossil-delta">https://github.com/ggicci/python-fossil-delta</a></p><h3>Compile Fossil</h3>
+<p>自行編譯 <a href="https://www.fossil-scm.org">Fossil SCM</a> 的目的為 ____?</p>
+<p><a href="https://www.fossil-scm.org">Fossil SCM</a> 提供 <a href="https://www.fossil-scm.org/home/doc/trunk/www/serverext.wiki">CGI Extensions</a> 功能的目的為何? <a href="https://en.wikipedia.org/wiki/CGI">CGI</a>, <a href="https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface">WSGI</a>, <a href="https://en.wikipedia.org/wiki/UWSGI">UWSGI</a> 則又是什麼呢?</p>
+<p><a href="https://www.fossil-scm.org">Fossil SCM</a> 有什麼功能, 在機械設計相關的電腦輔助設計實習流程中, 能夠扮演 ____, ____, ____, ____ 角色?</p>
+<p><a href="https://git-scm.com/">Git </a>之於 <a href="https://github.com/torvalds/linux">Linux kernel</a>, <a href="https://www.fossil-scm.org">Fossil SCM</a> 之於 <a href="https://sqlite.org/src/dir?ci=trunk">SQLite</a>, 分別代表什麼意義?</p>
+<p>需要自行編譯 <a href="https://sqlite.org/src/dir?ci=trunk">SQLite</a> 原始碼嗎? <a href="https://sqlite.org/src/dir?ci=trunk">SQLite</a> 與 <a href="https://www.fossil-scm.org">Fossil SCM</a> 的原始碼與機電資整合軟硬體產品, 可能有任何關係嗎?</p>
+<p>為什麼每一套 Browser 與手機都採用 <a href="https://sqlite.org/src/dir?ci=trunk">SQLite</a> 存資料? 那電動汽車與太空衛星呢? 資料該如何儲存?</p>
+<hr/>
 <p>一般將 Ubuntu 中的 fossil 設為 server, 配合 Stunnel 建立 https 介面, 而 Windows 中的 fossil.exe 則作為 client, 兩者可以透過 fossil version 查詢版次, 必須注意 server 與 client 的 Fossil SCM 版次是否相應, 以免無法使用新版本 Fossil SCM 可能新增的功能.</p>
-<h4>Ubuntu:</h4>
+<h4>Ubuntu 操作系統:</h4>
 <p>下載 Fossil SCM 最新版本原始碼:</p>
 <p style="padding-left: 30px;">點選 <a href="https://www.fossil-scm.org/home/timeline">Timeline</a>, 選擇最新版號對應的連結, 例如: <a href="https://www.fossil-scm.org/home/info/7aedd5675883d441">Fossil SCM 2.16 版</a>. 點選 <a href="https://www.fossil-scm.org/home/zip/7aedd567/Fossil-7aedd567.zip">ZIP archive</a> 下載後解開原始碼壓縮檔案.</p>
 <p style="padding-left: 30px;">由於操作系統為 Ubuntu, 根據<a href="https://superuser.com/questions/371901/openssl-missing-during-configure-how-to-fix">說明</a>, 可以利用 sudo apt install libssl-dev 安裝所需的 OpenSSL 程式庫開發檔案.</p>
 <p style="padding-left: 30px;">利用 xterm 命令列進入 Fossil SCM 原始碼所在目錄後, 執行 ./configure 後, 再執行 make 就可以建立 fossil 可執行檔案. 只不過檔案大小約 17 MB, 若利用 ./configure --static 所建立的 fossil 則將近 22GB.</p>
-<h4>Windows:</h4>
+<h4>Windows 64 位元操作系統:</h4>
 <p style="padding-left: 30px;">以下將採用 <a href="https://www.msys2.org/">MSYS2</a> 執行編譯.</p>
 <p style="padding-left: 30px;">下載 Fossil SCM 最新版原始碼與上列 Ubuntu 相同.</p>
 <p style="padding-left: 30px;">由於採用 <a href="https://www.msys2.org/">MSYS2</a>, 因此必須在 mingw64.exe 啟動後的介面, 以 pacman -S openssl-devel 安裝所需的 OpenSSL 程式庫開發檔案, 其中包括 libssl.a 與 libcrypto.a 等兩個靜態程式庫.</p>
-<p style="padding-left: 30px;">由於已經將 Y:\msys64_20210419\mingw64\bin\mingw32-make.exe 複製一份為 make.exe, 因此之後可以直接以 make 命令執行.</p>
-<p style="padding-left: 30px;"><a href="https://www.msys2.org/">MSYS2</a> 所使用的 Makefile 位於 Fossil SCM 原始碼目錄中的 win/Makefile.mingw 檔案, 以 SciTE 編輯此一檔案時, 將第 22 行改為:</p>
-<p style="padding-left: 60px;">PREFIX = x86_64-w64-mingw32-</p>
-<p style="padding-left: 30px;">第 63 行改為:</p>
-<p style="padding-left: 60px;">FOSSIL_ENABLE_SSL = 1</p>
-<p style="padding-left: 30px;">並且將 libssl.a 與 libcrypto.a 檔案放入原始碼目錄中. 然後再利用:</p>
+<h4 style="padding-left: 30px;">make.exe 檔案複製:</h4>
+<p style="padding-left: 60px;">由於已經將 Y:\msys64_20210419\mingw64\bin\mingw32-make.exe 複製一份為 make.exe, 因此之後可以直接以 make 命令執行.</p>
+<h4 style="padding-left: 30px;">windres.exe 檔案複製:</h4>
+<p style="padding-left: 60px;">另外必須要將 Y:\msys64_20210419\mingw64\bin\windres.exe 複製一份為 x86_64-w64-mingw32-windres.exe, 因為 win/Makefile.mingw 中會採用:</p>
+<p style="padding-left: 90px;">RCC = $(PREFIX)windres -I$(SRCDIR)</p>
+<p style="padding-left: 60px;">轉換 Windows 原始碼中的 Resource files, 而 PREFIX 變數在下列將設定為 x86_64-w64-mingw32-.</p>
+<h4 style="padding-left: 30px;">Makefile.mingw 設定：</h4>
+<p style="padding-left: 60px;"><a href="https://www.msys2.org/">MSYS2</a> 所使用的 Makefile 位於 Fossil SCM 原始碼目錄中的 win/Makefile.mingw 檔案, 以 SciTE 編輯此一檔案時, 將第 22 行改為:</p>
+<p style="padding-left: 90px;">PREFIX = x86_64-w64-mingw32-</p>
+<p style="padding-left: 60px;">第 63 行改為:</p>
+<p style="padding-left: 90px;">FOSSIL_ENABLE_SSL = 1</p>
+<h4 style="padding-left: 30px;">OpenSSL 靜態程式庫檔案:</h4>
+<p style="padding-left: 60px;">將 pacman -S openssl-devel 安裝後, 在Y:\msys64_20210419\mingw64\lib 目錄中的 libssl.a 與 libcrypto.a 檔案放入 Fossil SCM 原始碼目錄中.</p>
+<h4 style="padding-left: 30px;">執行編譯與連結:</h4>
 <p style="padding-left: 60px;">make -f win/Makefile.mingw LIB="-l:libssl.a -l:libcrypto.a -lgdi32 -lmingwex -lz -lws2_32 -municode"</p>
-<p style="padding-left: 30px;">以直接連結 libssl.a 與 libcrypto.a 的方式, 即可完成 fossil.exe 的編譯, 檔案大小約 8MB.</p><h3>Althttpd</h3>
+<p style="padding-left: 60px;">此處採直接連結 libssl.a 與 libcrypto.a 的方式進行編譯, 完成後的 fossil.exe, 檔案大小約 8MB.</p><h3>Althttpd</h3>
 <p>Althttpd is a simple webserver that has run the https://sqlite.org/ website since 2004. Althttpd strives for simplicity, security, and low resource usage.</p>
 <p><a href="https://sqlite.org/althttpd/doc/trunk/althttpd.md">https://sqlite.org/althttpd/doc/trunk/althttpd.md</a></p>
 <p></p><h2>IK</h2>
