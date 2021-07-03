@@ -141,11 +141,11 @@ img.add_border {
 <p><a href="https://git-scm.com/">Git </a>之於 <a href="https://github.com/torvalds/linux">Linux kernel</a>, <a href="https://www.fossil-scm.org">Fossil SCM</a> 之於 <a href="https://sqlite.org/src/dir?ci=trunk">SQLite</a>, 分別代表什麼意義?</p>
 <p>需要自行編譯 <a href="https://sqlite.org/src/dir?ci=trunk">SQLite</a> 原始碼嗎? <a href="https://sqlite.org/src/dir?ci=trunk">SQLite</a> 與 <a href="https://www.fossil-scm.org">Fossil SCM</a> 的原始碼與機電資整合軟硬體產品, 可能有任何關係嗎?</p>
 <h4>SQLite and JSON:</h4>
-<p style="padding-left: 30px;"><a href="https://stackoverflow.com/questions/8652005/json-file-vs-sqlite-android">https://stackoverflow.com/questions/8652005/json-file-vs-sqlite-android</a> </p>
-<p style="padding-left: 30px;"><a href="https://stackoverflow.com/questions/22789079/json-vs-sqlite-which-is-more-suitable-for-android-ios-development">https://stackoverflow.com/questions/22789079/json-vs-sqlite-which-is-more-suitable-for-android-ios-development</a> </p>
-<p style="padding-left: 30px;"><a href="https://www.reddit.com/r/roguelikedev/comments/j5ljzd/game_data_storage_json_sql/">https://www.reddit.com/r/roguelikedev/comments/j5ljzd/game_data_storage_json_sql/</a> </p>
-<p style="padding-left: 30px;"><a href="https://www.nicholasnadeau.com/post/2020/11/python-for-hardware-engineers-sqlite-or-how-i-learned-to-stop-worrying-and-love-databases/">https://www.nicholasnadeau.com/post/2020/11/python-for-hardware-engineers-sqlite-or-how-i-learned-to-stop-worrying-and-love-databases/</a> </p>
-<p style="padding-left: 30px;"><a href="https://www.nicholasnadeau.com/post/2020/10/new-series-python-for-hardware-engineering/">https://www.nicholasnadeau.com/post/2020/10/new-series-python-for-hardware-engineering/</a> </p>
+<p style="padding-left: 30px;"><a href="https://stackoverflow.com/questions/8652005/json-file-vs-sqlite-android">https://stackoverflow.com/questions/8652005/json-file-vs-sqlite-android</a></p>
+<p style="padding-left: 30px;"><a href="https://stackoverflow.com/questions/22789079/json-vs-sqlite-which-is-more-suitable-for-android-ios-development">https://stackoverflow.com/questions/22789079/json-vs-sqlite-which-is-more-suitable-for-android-ios-development</a></p>
+<p style="padding-left: 30px;"><a href="https://www.reddit.com/r/roguelikedev/comments/j5ljzd/game_data_storage_json_sql/">https://www.reddit.com/r/roguelikedev/comments/j5ljzd/game_data_storage_json_sql/</a></p>
+<p style="padding-left: 30px;"><a href="https://www.nicholasnadeau.com/post/2020/11/python-for-hardware-engineers-sqlite-or-how-i-learned-to-stop-worrying-and-love-databases/">https://www.nicholasnadeau.com/post/2020/11/python-for-hardware-engineers-sqlite-or-how-i-learned-to-stop-worrying-and-love-databases/</a></p>
+<p style="padding-left: 30px;"><a href="https://www.nicholasnadeau.com/post/2020/10/new-series-python-for-hardware-engineering/">https://www.nicholasnadeau.com/post/2020/10/new-series-python-for-hardware-engineering/</a></p>
 <p><a href="https://learnsql.com/blog/most-popular-sql-databases-2020/">https://learnsql.com/blog/most-popular-sql-databases-2020/</a></p>
 <p><a href="https://towardsdatascience.com/top-10-databases-to-use-in-2021-d7e6a85402ba">https://towardsdatascience.com/top-10-databases-to-use-in-2021-d7e6a85402ba</a></p>
 <p><a href="./../downloads/2017_Research and Improvement of SQLite’s Concurrency Control Mechanism.pdf">2017_Research and Improvement of SQLite’s Concurrency Control Mechanism.pdf</a></p>
@@ -169,11 +169,15 @@ img.add_border {
 <p style="padding-left: 60px;">另外必須要將 Y:\msys64_20210419\mingw64\bin\windres.exe 複製一份為 x86_64-w64-mingw32-windres.exe, 因為 win/Makefile.mingw 中會採用:</p>
 <p style="padding-left: 90px;">RCC = $(PREFIX)windres -I$(SRCDIR)</p>
 <p style="padding-left: 60px;">轉換 Windows 原始碼中的 Resource files, 而 PREFIX 變數在下列將設定為 x86_64-w64-mingw32-.</p>
+<h4 style="padding-left: 30px;">先編譯 compat/zlib:</h4>
+<p style="padding-left: 60px;">cd compat/zlib<br/>mingw32-make -f win32/Makefile.gcc</p>
 <h4 style="padding-left: 30px;">Makefile.mingw 設定：</h4>
 <p style="padding-left: 60px;"><a href="https://www.msys2.org/">MSYS2</a> 所使用的 Makefile 位於 Fossil SCM 原始碼目錄中的 win/Makefile.mingw 檔案, 以 SciTE 編輯此一檔案時, 將第 22 行改為:</p>
 <p style="padding-left: 90px;">PREFIX = x86_64-w64-mingw32-</p>
+<p style="padding-left: 90px;">表示編譯完成的 fossil.exe 要在 x86_64-w64-mingw32 平台上執行.</p>
 <p style="padding-left: 60px;">第 63 行改為:</p>
 <p style="padding-left: 90px;">FOSSIL_ENABLE_SSL = 1</p>
+<p style="padding-left: 90px;">表示編譯後的 fossil.exe 要能夠在 https 網路協定中使用.</p>
 <h4 style="padding-left: 30px;">OpenSSL 靜態程式庫檔案:</h4>
 <p style="padding-left: 60px;">將 pacman -S openssl-devel 安裝後, 在Y:\msys64_20210419\mingw64\lib 目錄中的 libssl.a 與 libcrypto.a 檔案放入 Fossil SCM 原始碼目錄中.</p>
 <h4 style="padding-left: 30px;">執行編譯與連結:</h4>
