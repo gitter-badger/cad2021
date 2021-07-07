@@ -209,7 +209,20 @@
 <p>由於利用 <a href="https://www.msys2.org/">MSYS2</a> 編譯 Solvespace, 需要 install cmake</p>
 <p style="padding-left: 30px;">pacman -S mingw-w64-x86_64-cmake</p>
 <p>而且必須 rename Y:\msys64_20210419\mingw64\bin\sh.exe 與 Y:\portablegit_2.31.1\bin\sh.exe 換成其他名稱.</p>
-<p>git clone --recurse-submodules https://github.com/solvespace/solvespace.git<br/>cd solvespace<br/>mkdir build<br/>cd build<br/>cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release<br/>make<br/><br/>need libwinpthread-1.dll to execute solvespace.exe</p><h3>Featurescript</h3>
+<p>git clone --recurse-submodules https://github.com/solvespace/solvespace.git<br/>cd solvespace<br/>mkdir build<br/>cd build<br/>cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release<br/>make<br/><br/>need libwinpthread-1.dll to execute solvespace.exe</p><h3>CAD in Rust</h3>
+<p><a href="https://drive.google.com/file/d/1SDLtjyddvFs9OHobMu7Ddx6Doa15RVMY/view?usp=sharing">rust_1.53.0_portable_for_msys2.7z</a> (下載 147MB , 解開壓縮後 1.13GB)</p>
+<p>Rust Playground: <a href="https://play.rust-lang.org/">https://play.rust-lang.org/</a></p>
+<h4>Geometric Constraints Solver:</h4>
+<p style="padding-left: 30px;"><a href="https://github.com/mdecourse/constraints">https://github.com/mdecourse/constraints</a> (In Rust)</p>
+<p style="padding-left: 30px;"><a href="https://adventures.michaelfbryan.com/posts/constraints-part-1-expressions/">https://adventures.michaelfbryan.com/posts/constraints-part-1-expressions/</a></p>
+<h4>A Rust CAD system:</h4>
+<p style="padding-left: 30px;"><a href="https://github.com/mdecourse/arcs">https://github.com/mdecourse/arcs</a></p>
+<p style="padding-left: 60px;"><a href="https://adventures.michaelfbryan.com/posts/ecs-outside-of-games/">https://adventures.michaelfbryan.com/posts/ecs-outside-of-games/</a></p>
+<h4>Rust for Linux:</h4>
+<p style="padding-left: 30px;"><a href="https://github.com/Rust-for-Linux/linux">https://github.com/Rust-for-Linux/linux</a></p>
+<h4>Planar Linkage in Rust:</h4>
+<p style="padding-left: 30px;"><a href="https://github.com/KmolYuan/four-bar-rs">https://github.com/KmolYuan/four-bar-rs</a> </p>
+<p style="padding-left: 60px;"><a href="https://kmolyuan.github.io/four-bar-rs/">https://kmolyuan.github.io/four-bar-rs/</a> </p><h3>Featurescript</h3>
 <p><a href="https://cad.onshape.com/FsDoc/">https://cad.onshape.com/FsDoc/</a> 能做什麼?</p>
 <p><a href="http://cadlab.mde.tw/post/onshape-featurescript-cheng-shi-yu-yan.html">http://cadlab.mde.tw/post/onshape-featurescript-cheng-shi-yu-yan.html</a></p>
 <p><a href="https://cadlab.mde.tw/post/tag/featurescript.html">https://cadlab.mde.tw/post/tag/featurescript.html</a> </p>
@@ -1036,12 +1049,14 @@ def forum():
 <p>Althttpd is a simple webserver that has run the https://sqlite.org/ website since 2004. Althttpd strives for simplicity, security, and low resource usage.</p>
 <p><a href="https://sqlite.org/althttpd/doc/trunk/althttpd.md">https://sqlite.org/althttpd/doc/trunk/althttpd.md</a></p>
 <p></p><h2>Robotics</h2>
+<p><a href="https://github.com/mithi/robotics-coursework">https://github.com/mithi/robotics-coursework</a> (<a href="https://medium.com/@mithi/robotics-prototyping-zero-to-hero-dfc49cdd8a19">steps</a>)</p>
 <p><a href="https://link.springer.com/book/10.1007/978-3-319-01851-5">Fundamentals of Robotic Mechanical Systems</a> (在校園網路下載電子書)</p>
 <p><a href="https://link.springer.com/book/10.1007/978-3-642-20144-8">Robotics, Vision and Control</a> (在校園網路下載電子書)</p>
 <p><a href="https://link.springer.com/book/10.1007/978-3-319-32552-1">Springer Handbook of Robotics</a> (在校園網路下載電子書)</p>
 <p><a href="https://link.springer.com/book/10.1007/978-3-319-72911-4">Robotics</a> (在校園網路下載電子書)</p>
 <p><a href="https://link.springer.com/book/10.1007/978-1-84628-642-1">Robotics</a> (在校園網路下載電子書))</p>
 <p><a href="https://link.springer.com/book/10.1007/978-981-15-8053-6">Automotive Cyber Security</a> (在校園網路下載電子書)</p>
+<p><a href="https://link.springer.com/book/10.1007/978-1-4020-2110-7">Fundamentals of Mechanicsof Robotic Manipulation</a> (在校園網路下載電子書)</p>
 <p><a href="https://link.springer.com/book/10.1007/978-3-030-20190-6">Robot Operating System</a> (在校園網路下載電子書)</p>
 <p><a href="https://www.nicholasnadeau.com/publication/nadeau-2019-pybotics/">https://www.nicholasnadeau.com/publication/nadeau-2019-pybotics/</a></p>
 <h4>IK</h4>
@@ -1087,7 +1102,31 @@ def forum():
 <p style="padding-left: 30px;">Metaprogramming is a programming technique in which computer programs have the ability to treat other programs as their data. It means that a program can be designed to read, generate, analyze or transform other programs, and even modify itself while running.</p>
 <p style="padding-left: 30px;">Metaprogramming can be used to move computations from run-time to compile-time, to generate code using compile time computations, and to enable self-modifying code. The ability of a programming language to be its own metalanguage is called reflection. Reflection is a valuable language feature to facilitate metaprogramming.</p>
 <p><a href="https://elixirschool.com/zh-hant/lessons/advanced/metaprogramming/">https://elixirschool.com/zh-hant/lessons/advanced/metaprogramming/</a></p>
-<p><a href="https://serokell.io/blog/elixir-metaprogramming">https://serokell.io/blog/elixir-metaprogramming</a> </p><h3>Elixir</h3>
+<p><a href="https://serokell.io/blog/elixir-metaprogramming">https://serokell.io/blog/elixir-metaprogramming</a> </p><h3>Rust</h3>
+<h4>Rust 線上編譯執行網站:</h4>
+<p style="padding-left: 30px;"><a href="https://play.rust-lang.org/">https://play.rust-lang.org/</a></p>
+<p style="padding-left: 30px;"><a href="https://kaisery.github.io/trpl-zh-cn/title-page.html">Rust 程式設計語言</a> (中文版)</p>
+<p style="padding-left: 30px;"><a href="https://www.itread01.com/content/1546256884.html">About Rust Macro</a> (巨集)</p>
+<h4>Ｗindows Rust 可攜系統:</h4>
+<h4 style="padding-left: 30px;">start_ipv6.bat 相關設定:</h4>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">REM for Rust
+set MINGW_PATH=%path_msys2%;
+set GIT_PATH=%path_git%;
+set VSCODE_PATH=%path_vscode%
+set RUSTUP_HOME=%Disk%:\Rust\rust
+set CARGO_HOME=%Disk%:\Rust\cargo
+set RUST_PATH=%CARGO_HOME%\bin</pre>
+<h4>參考資料:</h4>
+<h4 style="padding-left: 30px;">Rust and Assembly: <a href="https://rustwasm.github.io/docs/book/">https://rustwasm.github.io/docs/book/</a></h4>
+<p style="padding-left: 30px;"><a href="https://stevedonovan.github.io/rust-gentle-intro/">https://stevedonovan.github.io/rust-gentle-intro/</a></p>
+<p style="padding-left: 30px;"><a href="https://github.com/yewstack/yew">https://github.com/yewstack/yew</a></p>
+<p style="padding-left: 30px;"><a href="https://github.com/WebAssembly/wabt">https://github.com/WebAssembly/wabt</a>  (Web Assembley Binary Toolkit)</p>
+<p style="padding-left: 30px;"><a href="https://doc.rust-lang.org/book/">Rust Programming Language.pdf</a></p>
+<p style="padding-left: 30px;"><a href="https://www.ralfj.de/projects/rust-101/main.html">https://www.ralfj.de/projects/rust-101/main.html</a></p>
+<p style="padding-left: 30px;"><a href="https://doc.rust-lang.org/stable/rust-by-example/">https://doc.rust-lang.org/stable/rust-by-example/</a></p>
+<p style="padding-left: 30px;"><a href="https://thenewstack.io/using-web-assembly-written-in-rust-on-the-server-side/">https://thenewstack.io/using-web-assembly-written-in-rust-on-the-server-side/</a> (Deno, Rust, Typescript, Webassembly)</p>
+<p style="padding-left: 60px;"><a href="https://github.com/reselbob/wisesayingswasm">https://github.com/reselbob/wisesayingswasm</a></p>
+<p></p><h3>Elixir</h3>
 <p>Elixir 在解決 ____, ____, ____, ____等問題.</p>
 <p><a href="/downloads/a_history_of_erlang.pdf">A history of Erlang</a></p>
 <p><a href="https://github.com/dwyl/learn-elixir">https://github.com/dwyl/learn-elixir</a></p>
@@ -1096,8 +1135,8 @@ def forum():
 <h4>Elixir to Javascript:</h4>
 <p style="padding-left: 30px;"><a href="https://github.com/elixirscript/elixirscript">https://github.com/elixirscript/elixirscript</a></p>
 <h4>Erlang VM in Rust:</h4>
-<p style="padding-left: 30px;"><a href="https://github.com/archseer/enigma">https://github.com/archseer/enigma</a> </p>
-<h4>Dart + Phonix:</h4>
+<p style="padding-left: 30px;"><a href="https://github.com/archseer/enigma">https://github.com/archseer/enigma</a></p>
+<h4>Dart + Phoenix:</h4>
 <p style="padding-left: 30px;"><a href="https://pub.dev/packages/phoenix_socket">https://pub.dev/packages/phoenix_socket</a></p>
 <p style="padding-left: 30px;"><a href="https://pub.dev/packages/phoenix_wings">https://pub.dev/packages/phoenix_wings</a></p>
 <p style="padding-left: 30px;"><a href="https://github.com/approov/quickstart-flutter-elixir-phoenix-channels">https://github.com/approov/quickstart-flutter-elixir-phoenix-channels</a></p>
@@ -1171,6 +1210,8 @@ pacman -Sy mingw-w64-x86_64-ffmpeg
 pacman -Sy mingw-w64-x86-64-cmake</pre>
 <p><a href="https://drive.google.com/file/d/17M7Ro9NO2mmycvwOuK-10yYgs2oxFwEB/view?usp=sharing">msys64_20210419_clean.7z</a> (下載 87MB , 解開壓縮後 374MB)</p>
 <p style="padding-left: 30px;">功能: 尚未安裝任何 Package 的 <a href="https://www.msys2.org/">Msys2</a> 系統.</p>
+<p><a href="https://drive.google.com/file/d/1X8icOyPgABAkKHYaDLXPSoy7U7nyxqzW/view?usp=sharing">Flutter_portable_20210707.7z</a> (下載 4.7 GB, 解開壓縮後約 20GB)</p>
+<p style="padding-left: 30px;">可攜系統中的 Android sdk 容量約 7.5 GB, Flutter 與 Dart 容量約 1.6 GB, Java jdk 容量約 200MB. vscode 約 530 MB, home_mdecourse 目錄下含手機 emulator 檔案容量約 9.3 GB.</p>
 <p><a href="https://drive.google.com/file/d/1MmLHqk2i3Ei2Bf3EoNOjaLVO6RHqJtb4/view?usp=sharing">node-v14.17.2-x64.7z</a> (下載 17MB, 解開壓縮後 78MB)</p>
 <p><a href="https://drive.google.com/file/d/1SDLtjyddvFs9OHobMu7Ddx6Doa15RVMY/view?usp=sharing">rust_1.53.0_portable_for_msys2.7z</a> (下載 147MB , 解開壓縮後 1.13GB)</p>
 <p><a href="https://drive.google.com/file/d/1CZfEjvHtQSlAch83jHmw4Ivz6WubPu8h/view?usp=sharing">Erlang 10.7 and Elixir portable.7z</a> for Windows (下載 62MB , 解開壓縮後 340MB)</p>
