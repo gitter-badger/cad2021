@@ -85,7 +85,31 @@
 <p><a href="https://www.coppeliarobotics.com/">https://www.coppeliarobotics.com/</a></p>
 <p><a href="https://robocomp.github.io/web/">https://robocomp.github.io/web/</a></p>
 <p><a href="https://robocomp.github.io/web/gsoc/2019/nikhil_bansal/post02">https://robocomp.github.io/web/gsoc/2019/nikhil_bansal/post02</a></p>
-<h2>強化學習</h2>
+<p>利用 Python <a href="https://docs.python.org/3/library/xml.etree.elementtree.html">xml 模組</a>解讀 simscene.xml 場景檔案, 列出 xml 檔案格式中的標註名稱:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import xml.etree.ElementTree as ET
+
+# load and parse the vacant simscene xml file
+xmlTree = ET.parse('cop.simscene.xml')
+
+# tags has 1196 elements, but only 236 are unique
+tags = [elem.tag for elem in xmlTree.iter()]
+
+# let tags2 be vacant list
+tags2 = []
+
+# one by one to remove the duplicate tags
+for i in tags:
+    if i not in tags2:
+        tags2.append(i)
+print(len(tags), len(tags2))
+
+for tag in tags:
+    print(tag)
+</pre>
+<p><a href="/downloads/xml/xml.leo">xml.leo</a> 檔案範例, 利用 Leo Editor 檔案中的 @settings -&gt; import options -&gt; @data import-xml-tags 設定 <a href="https://www.coppeliarobotics.com/helpFiles/en/xmlFormat.htm">CoppeliaSim XML</a> 檔案讀取標註. 如此就可以直接文字檔案管理 CoppeliaSim 場景模型.</p>
+<h4>參考資料:</h4>
+<p style="padding-left: 30px;"><a href="http://mde.tw/lab/blog/2021-kmol-notice-the-detail-difference-between-programs.html">Leo Editor replace-all 與 xml 解讀功能設定</a></p>
+<p></p><h3>XML</h3><h2>強化學習</h2>
 <p><a href="https://github.com/timzhang642/3D-Machine-Learning">https://github.com/timzhang642/3D-Machine-Learning</a> </p>
 <h4>Pytorch Reinforcement Learning Library:</h4>
 <p style="padding-left: 30px;"><a href="https://github.com/thu-ml/tianshou">https://github.com/thu-ml/tianshou</a></p><h1>課程主題</h1>
@@ -199,6 +223,8 @@
 <p><a href="/downloads/Automatically Generating 60,000 CAD Variantsfor Big Data Applications.pdf">Automatically Generating 60,000 CAD Variantsfor Big Data Applications.pdf</a></p>
 <p><a href="https://towardsdatascience.com/suggestive-computer-aided-design-a9c7698c1cc9">https://towardsdatascience.com/suggestive-computer-aided-design-a9c7698c1cc9</a></p>
 <p><a href="/downloads/Computer Aided Design as Language.pdf">Computer Aided Design as Language.pdf</a></p>
+<p><a href="/downloads/Integrating Deep Learning into CAD:CAE System Generative Design and Evaluation of3D Conceptual Wheel.pdf">Integrating Deep Learning into CAD/CAE System Generative Design and Evaluation of3D Conceptual Wheel.pdf</a></p>
+<p style="padding-left: 30px;">Computer-Aided Design (CAD) applications are used in manufacturing to model everything from coffee mugs to sports cars. These programs are complex and require years of training and experience to master. A component of all CAD models particularly difficult to make are the highly structured 2D sketches thatlie at the heart of every 3D construction. In this work, we propose a machine learning model capable of automatically generating such sketches. Through this, we pave the way for developing intelligent tools that would help engineers <span style="background-color: #ffff99;">create better designs with less effort</span>. Our method is a combination of a general-purpose language modeling technique alongside an off-the-shelf data serialization protocol. We show that our approach has enough flexibility to accommodate the complexity of the domain and performs well for both unconditional synthesis and image-to-sketch translation.</p>
 <h4>SolidWorks</h4>
 <p>SolidWorks Robot model import into CoppeliaSim</p>
 <p><a href="https://www.youtube.com/watch?v=jfUA2W-niIc">https://www.youtube.com/watch?v=jfUA2W-niIc</a></p>
@@ -212,6 +238,7 @@
 <p style="padding-left: 30px;"><a href="https://github.com/mdecourse/urdf2webots">https://github.com/mdecourse/urdf2webots</a> (Webots)</p>
 <p style="padding-left: 30px;"><a href="https://github.com/dfki-ric/phobos">https://github.com/dfki-ric/phobos</a> (Blender)</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/0M2b1p6H20o" title="YouTube video player" width="560"></iframe></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/K4QWuTMxnsY" title="YouTube video player" width="560"></iframe></p>
 <h4>simExtURDF:</h4>
 <p style="padding-left: 30px;"><a href="https://github.com/CoppeliaRobotics/simExtURDF">https://github.com/CoppeliaRobotics/simExtURDF</a></p><h3>Compile Solvespace</h3>
 <p>Solvespace 可用來解決 ____ 問題?</p>
@@ -954,7 +981,10 @@ export function involutePoint(context, baseCircleRadius, involuteIntersectionRad
 
 	return vector(x,y);
 }</pre>
-<p></p>
+<h3>AI and CAD</h3>
+<p><a href="https://www.goodfirms.co/blog/importance-artificial-intelligence-computer-aided-design">https://www.goodfirms.co/blog/importance-artificial-intelligence-computer-aided-design</a></p>
+<p><a href="https://www.digitalengineering247.com/article/deep-learning-meets-3d-modeling/engineering-resource-center">https://www.digitalengineering247.com/article/deep-learning-meets-3d-modeling/engineering-resource-center</a></p>
+<p><a href="https://www.autodesk.com/autodesk-university/content/future-design-powered-ai-mike-haley-2019">https://www.autodesk.com/autodesk-university/content/future-design-powered-ai-mike-haley-2019</a> </p>
 <p style="padding-left: 30px;"></p>
 <p></p><h2>SSO</h2>
 <p><a href="https://en.wikipedia.org/wiki/Single_sign-on">https://en.wikipedia.org/wiki/Single_sign-on</a> </p>
