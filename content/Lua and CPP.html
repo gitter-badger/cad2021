@@ -2,7 +2,7 @@
         <head>
         <title>CAD2021</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -135,9 +135,305 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Gitlab 同步 << <a href='Gitlab 同步.html'>Previous</a> <a href='Fossil SCM.html'>Next</a> >> Fossil SCM<br /><h1>Heroku 部署</h1>
-<p>與 Heroku 部署有關資訊請參考: <a href="https://mde.tw/cp2020/content/Heroku.html">https://mde.tw/cp2020/content/Heroku.html</a></p>
-<br />Gitlab 同步 << <a href='Gitlab 同步.html'>Previous</a> <a href='Fossil SCM.html'>Next</a> >> Fossil SCM</div>
+    <div id="tipue_search_content">Compile CoppeliaSim << <a href='Compile CoppeliaSim.html'>Previous</a> <a href='XML.html'>Next</a> >> XML<br /><h1>Lua and CPP</h1>
+<h4>可攜編譯系統:</h4>
+<p style="padding-left: 30px;">Portable compiler in Windows 64-bit operating system. <a href="https://drive.google.com/file/d/1szBXUkv7q_UpcMvOtX4D5SOMuM1KMcgP/view?usp=sharing">compile_copsim.7z,</a> download file size 3.87 GB, uncompressed file size 14 GB)</p>
+<h4>學習動機:</h4>
+<p style="padding-left: 30px;"><a href="https://www.youtube.com/playlist?list=PLLwK93hM93Z3nhfJyRRWGRXHaXgNX0Itk">CoppeliaSim</a> 以 Qt + C++ 編寫, 並將 Lua embedded 於 C++ 套件中, 使用者可以利用 Lua Script 操控機電模擬場景中的物件.</p>
+<h4>機電模擬系統編譯實習:</h4>
+<p style="padding-left: 30px;">以 <a href="https://drive.google.com/file/d/19fRksWRkP9mpYgDFvaBPnFkB6q8B09_w/view?usp=sharing">V-rep 3.1.2 原始碼</a>為例, 利用上列可攜程式系統編譯後, 加上<a href="https://drive.google.com/file/d/1thQ72bUQ2K1d-ODhwgnkUWxfU1mgpwNO/view?usp=sharing">所需的 dll 與相關目錄檔案</a>後, 就可以直接放入隨身系統在 Windows 64 位元環境中執行.</p>
+<p>以下為 Lua 與 CPP 結合運用的範例:</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/4l5HdmPoynw" title="YouTube video player" width="560"></iframe></p>
+<p>編譯流程:</p>
+<p style="padding-left: 30px;">mkdir build</p>
+<p style="padding-left: 30px;">cd build</p>
+<p style="padding-left: 30px;">cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release<br/><br/>mingw32-make</p>
+<p style="padding-left: 30px;">取得 main.exe 與下列 EmbeddingLua1.lua 後, 若需要轉為可攜, 需要 libgcc_s_seh-1.dll, libstdc++-6.dll 與 libwinpthread-1.dll 等檔案.</p>
+<p>main.cpp</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/*
+	Embedding Lua in C++ Part #1
+	"Stupid 3D printer, I didn't want a nest..." - javidx9
+
+	License (OLC-3)
+	~~~~~~~~~~~~~~~
+
+	Copyright 2018-2019 OneLoneCoder.com
+
+	Redistribution and use in source and binary forms, with or without
+	modification, are permitted provided that the following conditions
+	are met:
+
+	1. Redistributions or derivations of source code must retain the above
+	copyright notice, this list of conditions and the following disclaimer.
+
+	2. Redistributions or derivative works in binary form must reproduce
+	the above copyright notice. This list of conditions and the following
+	disclaimer must be reproduced in the documentation and/or other
+	materials provided with the distribution.
+
+	3. Neither the name of the copyright holder nor the names of its
+	contributors may be used to endorse or promote products derived
+	from this software without specific prior written permission.
+
+	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+	"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+	LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+	A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+	HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+	SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+	LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+	DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+	THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+	Relevant Video: https://youtu.be/4l5HdmPoynw
+
+	Links
+	~~~~~
+	YouTube:	https://www.youtube.com/javidx9
+				https://www.youtube.com/javidx9extra
+	Discord:	https://discord.gg/WhwHUMV
+	Twitter:	https://www.twitter.com/javidx9
+	Twitch:		https://www.twitch.tv/javidx9
+	GitHub:		https://www.github.com/onelonecoder
+	Patreon:	https://www.patreon.com/javidx9
+	Homepage:	https://www.onelonecoder.com
+
+	Author
+	~~~~~~
+	David Barr, aka javidx9, �OneLoneCoder 2019
+*/
+
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+// include Lua, assumes it is local to this file
+extern "C"
+{
+#include "Y:/lua-5.3.5/src/lua.h"
+#include "Y:/lua-5.3.5/src/lauxlib.h"
+#include "Y:/lua-5.3.5/src/lualib.h"
+}
+
+
+// Little error checking utility function
+bool CheckLua(lua_State *L, int r)
+{
+	if (r != LUA_OK)
+	{
+		std::string errormsg = lua_tostring(L, -1);
+		std::cout &lt;&lt; errormsg &lt;&lt; std::endl;
+		return false;
+	}
+	return true;
+}
+
+
+int lua_HostFunction(lua_State *L)
+{
+	float a = (float)lua_tonumber(L, 1);
+	float b = (float)lua_tonumber(L, 2);
+	std::cout &lt;&lt; "[CPP S4] HostFunction(" &lt;&lt; a &lt;&lt; ", " &lt;&lt; b &lt;&lt; ") called from Lua" &lt;&lt; std::endl;
+	float c = a * b;
+	lua_pushnumber(L, c);
+	return 1;
+}
+
+
+// NOTE !!!
+// YOU WILL NEED THE "EmbeddingLua1.lua" FILE FROM GITHUB REPO
+
+
+int main()
+{
+
+	struct Player
+	{
+		std::string title;
+		std::string name;
+		std::string family;
+		int level;
+	} player;
+	
+	// Create Lua State
+	lua_State *L = luaL_newstate();
+
+	// Add standard libraries to Lua Virtual Machine
+	luaL_openlibs(L);
+
+	// Register our C++ Function in the global Lua space
+	lua_register(L, "HostFunction", lua_HostFunction);
+	 
+
+	// Load and parse the Lua File
+	if(CheckLua(L, luaL_dofile(L, "EmbeddingLua1.lua")))
+	{ 
+		// Stage 1: Just read simple variables
+		std::cout &lt;&lt; "[CPP] Stage 1 - Read Simple Variables" &lt;&lt; std::endl;
+		lua_getglobal(L, "a");
+		if (lua_isnumber(L, -1)) std::cout &lt;&lt; "[CPP S1] a = " &lt;&lt; (int)lua_tointeger(L, -1) &lt;&lt; std::endl;
+		lua_getglobal(L, "b");
+		if (lua_isnumber(L, -1)) std::cout &lt;&lt; "[CPP S1] b = " &lt;&lt; (int)lua_tointeger(L, -1) &lt;&lt; std::endl;
+		lua_getglobal(L, "c");
+		if (lua_isnumber(L, -1)) std::cout &lt;&lt; "[CPP S1] c = " &lt;&lt; (int)lua_tointeger(L, -1) &lt;&lt; std::endl;
+		lua_getglobal(L, "d");
+		if (lua_isstring(L, -1)) std::cout &lt;&lt; "[CPP S1] d = " &lt;&lt; lua_tostring(L, -1) &lt;&lt; std::endl &lt;&lt; std::endl;
+
+		// Stage 2: Read Table Object
+		std::cout &lt;&lt; "[CPP] Stage 2 - Read Table (Key/Value pairs)" &lt;&lt; std::endl;
+		lua_getglobal(L, "player");
+		if (lua_istable(L, -1))
+		{
+			lua_pushstring(L, "Name");
+			lua_gettable(L, -2);
+			player.name = lua_tostring(L, -1);
+			lua_pop(L, 1);
+
+			lua_pushstring(L, "Family");
+			lua_gettable(L, -2);
+			player.family = lua_tostring(L, -1);
+			lua_pop(L, 1);
+
+			lua_pushstring(L, "Title");
+			lua_gettable(L, -2);
+			player.title = lua_tostring(L, -1);
+			lua_pop(L, 1);
+
+			lua_pushstring(L, "Level");
+			lua_gettable(L, -2);
+			player.level = (int)lua_tointeger(L, -1);
+			lua_pop(L, 1);
+		}
+		std::cout &lt;&lt; "[CPP S2] " &lt;&lt; player.title &lt;&lt; " " &lt;&lt; player.name &lt;&lt; " of " &lt;&lt; player.family &lt;&lt; " [Lvl: " &lt;&lt; player.level &lt;&lt; "]" &lt;&lt; std::endl &lt;&lt; std::endl; 
+
+		// Stage 3: Call Lua Function
+		std::cout &lt;&lt; "[CPP] Stage 3 - Call Lua Function" &lt;&lt; std::endl;
+		lua_getglobal(L, "CalledFromCPP1");
+		if (lua_isfunction(L, -1))
+		{
+			lua_pushnumber(L, 5.0f);
+			lua_pushnumber(L, 6.0f);
+			lua_pushstring(L, "Bwa ha ha!");
+			std::cout &lt;&lt; "[CPP S3] Calling 'CalledFromCPP1' in lua script" &lt;&lt; std::endl;
+			if (CheckLua(L, lua_pcall(L, 3, 1, 0)))
+			{
+				std::cout &lt;&lt; "[CPP S3] 'CalledFromCPP1' returned " &lt;&lt; (float)lua_tonumber(L, -1) &lt;&lt; std::endl &lt;&lt; std::endl;
+			}
+		}
+
+		// Stage 4: Call Lua Function, which calls C++ Function
+		std::cout &lt;&lt; "[CPP] Stage 4 - Call Lua Function, whcih in turn calls C++ Function" &lt;&lt; std::endl;
+		lua_getglobal(L, "CalledFromCPP2");
+		if (lua_isfunction(L, -1))
+		{
+			lua_pushnumber(L, 5.0f);
+			lua_pushnumber(L, 6.0f);
+			std::cout &lt;&lt; "[CPP S4] Calling 'CalledFromCPP2' in lua script" &lt;&lt; std::endl;
+			if (CheckLua(L, lua_pcall(L, 2, 1, 0)))
+			{
+				std::cout &lt;&lt; "[CPP S4] 'CalledFromCPP2' returned " &lt;&lt; (float)lua_tonumber(L, -1) &lt;&lt; std::endl &lt;&lt; std::endl;
+			}
+		}
+	}
+
+	
+	system("pause");
+	lua_close(L);
+	return 0;
+}</pre>
+<p>CMakeLists.txt</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">cmake_minimum_required(VERSION 3.9.0)
+project(main)
+
+set (PROJECT_SOURCES
+        "main.cpp"
+        )
+
+add_executable(main ${PROJECT_SOURCES})
+
+target_link_libraries(main winmm "Y:/lua-5.3.5/src/liblua.a")</pre>
+<p>EmbeddingLua1.lua</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">--	Embedding Lua in C++ Part #1
+--	"Stupid 3D printer, I didn't want a nest..." - javidx9
+--
+--	License (OLC-3)
+--	~~~~~~~~~~~~~~~
+--
+--	Copyright 2018-2019 OneLoneCoder.com
+--
+--	Redistribution and use in source and binary forms, with or without
+--	modification, are permitted provided that the following conditions
+--	are met:
+--
+--	1. Redistributions or derivations of source code must retain the above
+--	copyright notice, this list of conditions and the following disclaimer.
+--
+--	2. Redistributions or derivative works in binary form must reproduce
+--	the above copyright notice. This list of conditions and the following
+--	disclaimer must be reproduced in the documentation and/or other
+--	materials provided with the distribution.
+--
+--	3. Neither the name of the copyright holder nor the names of its
+--	contributors may be used to endorse or promote products derived
+--	from this software without specific prior written permission.
+--
+--	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+--	"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+--	LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+--	A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+--	HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+--	SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+--	LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+--	DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+--	THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+--	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+--	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+--
+--	Relevant Video: https://youtu.be/4l5HdmPoynw
+--
+--	Links
+--	~~~~~
+--	YouTube:	https://www.youtube.com/javidx9
+--				https://www.youtube.com/javidx9extra
+--	Discord:	https://discord.gg/WhwHUMV
+--	Twitter:	https://www.twitter.com/javidx9
+--	Twitch:		https://www.twitch.tv/javidx9
+--	GitHub:		https://www.github.com/onelonecoder
+--	Patreon:	https://www.patreon.com/javidx9
+--	Homepage:	https://www.onelonecoder.com
+--
+--	Author
+--	~~~~~~
+--	David Barr, aka javidx9, �OneLoneCoder 2019
+
+
+
+-- Stage 1: Reading Simple Values
+a = 5
+b = 7
+c = a + b
+d = "OneLoneCoder.com"
+
+-- Stage 2: Reading a simple object
+player = {Title = "Squire", Name = "Ciaran", Family = "Wirral", Level = 20}
+
+-- Stage 3: Calling a Lua Function
+function CalledFromCPP1(r1, r2, r3)
+	io.write("[LUA S3] CalledFromCPP1("..r1..", "..r2..", "..r3..")\n")
+	return r1 * r2
+end
+
+-- Stage 4: Calling a C++ Function
+function CalledFromCPP2(r1, r2)
+	io.write("[LUA S4] CalledFromCPP2("..r1..", "..r2..")\n")
+	io.write("[LUA S4] Calling HostFunction("..r1..", "..r2..")\n")
+	r = HostFunction(r1, r2)
+	io.write("[LUA S4] HostFunction returned "..r.."\n")
+	return r * 15
+end
+	</pre>
+<p></p><br />Compile CoppeliaSim << <a href='Compile CoppeliaSim.html'>Previous</a> <a href='XML.html'>Next</a> >> XML</div>
         
     <!-- footer -->
       <div class="container">
