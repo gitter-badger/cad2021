@@ -23,7 +23,7 @@
 <h4>關鍵字:</h4>
 <p style="padding-left: 30px;">電腦軟體, 紀錄產品設計過程, 產品初步設計與佈局, 設計細節, 設計運算, 3D 模型, 工程圖, 工程分析, 行銷, 製造, 產品用戶, 互動.</p>
 <h4>這個學期的電腦輔助設計實習包括五個主題:</h4>
-<p style="padding-left: 30px;">請登入 @gm 帳號後, 下載 <a href="https://drive.google.com/file/d/1xb1Es8N-FxeG10OSnLNDwwi_tXyNTP9t/view?usp=sharing">cad2021_textbook.pdf</a> 課程教材, 以及採<a href="/get_page/%E5%8F%AF%E6%94%9C%E7%B3%BB%E7%B5%B1">可攜程式系統</a>編譯的 <a href="https://drive.google.com/file/d/1m_E_21wGwUceFf4NSCJJzz_RepCEsnwn/view?usp=sharing">cad2021_coppeliaSim.7z</a>.</p>
+<p style="padding-left: 30px;">請登入 @gm 帳號後, 下載 <a href="https://drive.google.com/file/d/1xb1Es8N-FxeG10OSnLNDwwi_tXyNTP9t/view?usp=sharing">cad2021_textbook.pdf</a> 課程教材, 以及採<a href="https://mde.tw/cad2021/content/%E5%8F%AF%E6%94%9C%E7%B3%BB%E7%B5%B1.html">可攜程式系統</a>編譯的 <a href="https://drive.google.com/file/d/1aCjkZOPjqTzZsy8tYPHZ0J_WcLVN9hB9/view?usp=sharing">cad2021_coppeliaSim.7z</a>.</p>
 <ol>
 <li><span style="background-color: #ffff99;">直播與討論</span> - 每一位學員都必須要配置隨身碟, 耳機, 麥克風與 webcam, 有能力主持線上會議及錄影, 開會後各學員必須針對會議內容, 錄製相關內容操作過程影片與心得報告, 各影片必須剪輯編修後配上說明字幕. 每一位學員在線上會議前, 要針對討論主題進行準備, 並在過程中針對議題發表看法, 每次開會後, 各學員將針對會議錄影與心得報告, 直接透過線上表單進行 <a href="https://wethrive.net/blog/self-evaluation-and-assessment/">self-evaluation</a> and <a href="https://en.wikipedia.org/wiki/Peer_review">peer review</a>.</li>
 <li><span style="background-color: #ffff99;">MCAD</span> - 設計多軸機械手臂與周邊設施, 開發能夠自動組裝機械手臂的<a href="https://zh.wikipedia.org/wiki/%E5%BD%88%E6%80%A7%E8%A3%BD%E9%80%A0%E7%B3%BB%E7%B5%B1">彈性製造系統</a> (FMS, Flexible Manufacturing System) 與 <a href="https://en.wikipedia.org/wiki/Automated_storage_and_retrieval_system">AS/RS</a> (Automated Storage and Retrieval System) 系統.</li>
@@ -134,9 +134,14 @@ for tag in tags:
 <h4>參考資料:</h4>
 <p style="padding-left: 30px;"><a href="http://mde.tw/lab/blog/2021-kmol-notice-the-detail-difference-between-programs.html">Leo Editor replace-all 與 xml 解讀功能設定</a></p>
 <p></p><h3>Compile CoppeliaSim</h3>
+<p>請登入 @gm 帳號後, 下載 <a href="https://drive.google.com/file/d/1xb1Es8N-FxeG10OSnLNDwwi_tXyNTP9t/view?usp=sharing">cad2021_textbook.pdf</a> 課程教材, 以及採<a href="https://mde.tw/cad2021/content/%E5%8F%AF%E6%94%9C%E7%B3%BB%E7%B5%B1.html">可攜程式系統</a>編譯的 <a href="https://drive.google.com/file/d/1m_E_21wGwUceFf4NSCJJzz_RepCEsnwn/view?usp=sharing">cad2021_coppeliaSim.7z</a>.</p>
 <h4>可攜編譯系統:</h4>
 <p style="padding-left: 30px;">Portable compiler in Windows 64-bit operating system. <a href="https://drive.google.com/file/d/1szBXUkv7q_UpcMvOtX4D5SOMuM1KMcgP/view?usp=sharing">compile_copsim.7z,</a> download file size 3.87 GB, uncompressed file size 14 GB)</p>
 <p style="padding-left: 30px;"><a href="https://drive.google.com/file/d/1hEGgONw8ahNs7JPAKOurc7JvGfhgO2zY/view?usp=sharing">compile_copsim_for_pj2022.7z</a> (download file size 4 GB, uncompressed file size 14 GB)</p>
+<h4>自行編譯動機:</h4>
+<p style="padding-left: 30px;">因為 CoppeliaSim 官方釋出 4.2.0 之後的教育版並無開啟 .simscene.xml 檔案的功能, 而 <a href="https://www.coppeliarobotics.com/helpFiles/en/xmlFormat.htm">XML 開放檔案格式</a>在自動建立機電資模擬場景, 以及延伸整合 <a href="https://cyberbotics.com/">Webots</a> 檔案格式的過程有其重要性, 因此在電腦輔助設計課程中採用 <a href="https://www.msys2.org/">MSYS2</a> 可攜程式系統編譯 CoppeliaSim 教育版原始碼 (<a href="https://github.com/CoppeliaRobotics">https://github.com/CoppeliaRobotics</a> ).</p>
+<p style="padding-left: 30px;">自行編譯 CoppeliaSim 是一項不錯的 C++ 與 Qt 程式練習專案, 由於過程中牽涉如何使用 <a href="https://doc.qt.io/qt-5/qmake-manual.html">qmake</a>, <a href="https://doc.qt.io/qt-5/qmake-manual.html">CMake</a> 與 <a href="https://www.gnu.org/software/make/manual/make.html">Make</a>, 使用者從中可以逐步了解與 <a href="https://riverbankcomputing.com/software/qscintilla/intro">qscintilla</a>, <a href="https://riverbankcomputing.com/software/qscintilla/intro">boost</a>, <a href="https://riverbankcomputing.com/software/qscintilla/intro">Lua</a>, <a href="https://github.com/bulletphysics/bullet3">Bullet</a>, <a href="https://github.com/thomasmarsh/ODE">ODE</a>, <a href="https://github.com/MADEAPPS/newton-dynamics">Newton</a> 與 <a href="https://gcc.gnu.org/">GCC</a> 相關的特性與運用技巧.</p>
+<p style="padding-left: 30px;">當然, 最大的動機是希望能夠透過觀摩 CoppeliaSim 的程式碼, 了解如何利用 C++, Lua 與 Python, 結合各種自由開源的 Dynamics 程式庫, 培訓出更多了解運用 Symbolic and Numerical integrated Inverse Kinematic and Dynamic constraints solver 技術, 進而透過動態模擬與控制系統設計改善產品開發的機械設計工程師.</p>
 <h4>編譯說明:</h4>
 <p style="padding-left: 30px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/compilingCoppeliaSim.htm">https://www.coppeliarobotics.com/helpFiles/en/compilingCoppeliaSim.htm</a> </p>
 <p>上述可攜程式系統採用 <a href="https://www.msys2.org/">https://www.msys2.org/</a> 製作. 可以放入外接 SSD 中執行與電腦輔助設計相關的程式套件開發.</p><h3>Lua and CPP</h3>
