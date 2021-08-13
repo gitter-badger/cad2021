@@ -250,8 +250,10 @@ VS_VERSION_INFO VERSIONINFO
 <p><a href="https://github.com/CoppeliaRobotics/lua.git">https://github.com/CoppeliaRobotics/lua.git</a></p>
 <p><a href="https://github.com/CoppeliaRobotics/helpFiles.git">https://github.com/CoppeliaRobotics/helpFiles.git</a></p>
 <p>分別取下各倉儲內容後, 也是必須進行 git checkout coppeliasim-v4.1.0, 簽出與 coppeliaSim.exe 及 coppeliasim.dll 系統對應的版本.</p>
-<p>編譯流程到這個階段, 再從命令列中啟動 coppeliaSim.exe 已經可以在看到圖型介面中的 Model browser 區域已經載入 models 目錄中的 .ttm, 但是場景還無法顯示, 隨後還需要加入更多的延伸模組程式庫.</p>
-<p>7-2: 請利用自行編譯的 solvespace.exe 與 coppeliasim.exe (以及其他 .dll 以及特定的設定檔案與資料結構) 建立本課程所期望各式 FMS 系統場景.</p><br />Task6 << <a href='Task6.html'>Previous</a> <a href='資料管理.html'>Next</a> >> 資料管理</div>
+<p>編譯流程到這個階段, 再從命令列中啟動 coppeliaSim.exe 已經可以在看到圖型介面中的 Model browser 區域已經載入 models 目錄中的 .ttm, 但是 default 場景還無法顯示, 因為在 system 系統目錄中, 還需要有 dfltscn.ttt 內定場景檔案 (標示在 <a href="https://github.com/CoppeliaRobotics/CoppeliaSimLib/blob/12e4411ea9b9067d012da43b464e69a7456c2fd8/sourceCode/interfaces/simFlavor.cpp#L203">simFlavor.cpp 檔案中第 203 行</a>), 隨後還需要加入更多的延伸模組程式庫, 所編譯完成的 CoppeliaSim 4.1.0 程式套件, 才能配合接下來的電腦輔助設計實習與協同產品設計實習課程使用.</p>
+<p>此外, 過去的相關課程中所使用的 CoppeliaSim remote API 已經被定為為 <a href="https://www.coppeliarobotics.com/helpFiles/en/legacyRemoteApiOverview.htm">Legacy Python remote API</a>, 本學期開始將要在 FMS 系統場景的建構中使用 <a href="https://www.coppeliarobotics.com/helpFiles/en/b0RemoteApiOverview.htm">BlueZero remote API</a> 架構進行遠端控制.</p>
+<p>7-2: 請利用自行編譯的 solvespace.exe 與 coppeliasim.exe (以及其他 .dll 以及特定的設定檔案與資料結構) 建立本課程所期望各式 FMS 系統場景.</p>
+<p>本學期在 CoppeliaSim 機電資整合系統建構流程, 也希望能針對 <a href="https://arxiv.org/pdf/2105.04830.pdf">Jerk-limited Real-time Trajectory Generation with Arbitrary Target States</a> 的技術進行了解, 假如能在 <a href="https://github.com/pantor/ruckig">https://github.com/pantor/ruckig</a> 與目前正在進行的 <a href="https://github.com/CoppeliaRobotics/CoppeliaSimLib/commit/d4486bcc89ba0d40a4fefbda5c82546efcc4b33f">ruckig 延伸程式套件編寫</a>的引導下進行模擬應用, 將會是個不錯的任務工作項目.</p><br />Task6 << <a href='Task6.html'>Previous</a> <a href='資料管理.html'>Next</a> >> 資料管理</div>
         
     <!-- footer -->
       <div class="container">
