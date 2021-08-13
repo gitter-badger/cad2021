@@ -2788,6 +2788,58 @@ set ERLINI=%Disk%:\elixir\erl10.7\erts-10.7\bin\erl.ini</pre>
 <p>設定完成後, 執行 Y:\tmp\cop410\CoppeliaSimLib&gt;qmake -o Makefile coppeliaSimLib.pro</p>
 <p>接著執行 Y:\tmp\cop410\CoppeliaSimLib&gt;mingw32-make -f Makefile.Release</p>
 <p>編譯結束後, 可以在 Release 目錄中建立 coppeliaSim.dll, 這是 CoppeliaSim 的主要動態連結程式庫.</p>
+<p>接著為了執行自行編譯的 CoppeliaSim 4.1.0, 在 Y:\tmp\cop410 中建立 coppeliasim410 目錄, 用來存放編譯完成的檔案, 並且配合 CoppeliaSim 啟動時所需的相關設定內容進行後續的設定.</p>
+<p>Y:\tmp\cop410&gt;mkdir coppeliasim410</p>
+<p>將前面已經編譯完成的 coppeliaSim.dll 放入 Y:\tmp\cop410\coppeliasim410 目錄中, 接著進入 Y:\tmp\cop410\programming\coppeliaSimClientApplication 目錄, 以下列命令建立 coppeliaSim.exe 執行檔.</p>
+<p>而在建立 coppeliaSim.exe 之前, 需要再編輯 coppeliaSim_resource.rc 檔案, 下載 coppeliaSim.ico, 並且開啟 coppeliaSim.pro 中第 42 行 RC_ICONS += coppeliaSim.ico 設定, 以便將 coppeliaSim.ico 圖像編譯後放入 coppeliaSim.exe, coppeliaSim_resource.rc 設定內容如下:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">#include &lt;windows.h&gt;
+
+IDI_ICON1	ICON	DISCARDABLE	"Y:/tmp/cop410/programming/coppeliaSimClientApplication/coppeliaSim.ico"
+
+VS_VERSION_INFO VERSIONINFO
+	FILEVERSION 0,0,0,0
+	PRODUCTVERSION 0,0,0,0
+	FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+	FILEFLAGS VS_FF_DEBUG
+#else
+	FILEFLAGS 0x0L
+#endif
+	FILEOS VOS__WINDOWS32
+	FILETYPE VFT_DLL
+	FILESUBTYPE 0x0L
+	BEGIN
+		BLOCK "StringFileInfo"
+		BEGIN
+			BLOCK "040904b0"
+			BEGIN
+				VALUE "CompanyName", "\0"
+				VALUE "FileDescription", "\0"
+				VALUE "FileVersion", "0.0.0.0\0"
+				VALUE "LegalCopyright", "\0"
+				VALUE "OriginalFilename", "coppeliaSim.exe\0"
+				VALUE "ProductName", "coppeliaSim\0"
+				VALUE "ProductVersion", "0.0.0.0\0"
+			END
+		END
+		BLOCK "VarFileInfo"
+		BEGIN
+			VALUE "Translation", 0x0409, 1200
+		END
+	END
+/* End of Version info */
+</pre>
+<p>Y:\tmp\cop410\programming\coppeliaSimClientApplication&gt;qmake -o Makefile coppeliaSim.pro</p>
+<p>Y:\tmp\cop410\programming\coppeliaSimClientApplication&gt;mingw32-make -f Makefile.Release</p>
+<p>編譯完成後可以在 Y:\tmp\cop410\programming\coppeliaSimClientApplication\release 目錄中建立 coppeliaSim.exe 執行檔.</p>
+<p>將 coppeliaSim.exe 與 coppeliaSim.dll 放入 Y:\tmp\cop410\coppeliasim410 目錄後, 在可攜系統的命令列中, 執行 Y:\tmp\cop410\coppeliasim410\coppeliaSim 已經可以開啟 coppeliaSim 4.1.0 版, 且首次啟動, coppeliaSim.exe 會自動建立 system 目錄以及其中的 usrset.txt 使用者設定檔案.</p>
+<p>接下來必須在 Y:\tmp\cop410\coppeliasim410 目錄加上以下倉儲的內容:</p>
+<p><a href="https://github.com/CoppeliaRobotics/scenes.git">https://github.com/CoppeliaRobotics/scenes.git</a></p>
+<p><a href="https://github.com/CoppeliaRobotics/models.git">https://github.com/CoppeliaRobotics/models.git</a></p>
+<p><a href="https://github.com/CoppeliaRobotics/lua.git">https://github.com/CoppeliaRobotics/lua.git</a></p>
+<p><a href="https://github.com/CoppeliaRobotics/helpFiles.git">https://github.com/CoppeliaRobotics/helpFiles.git</a></p>
+<p>分別取下各倉儲內容後, 也是必須進行 git checkout coppeliasim-v4.1.0, 簽出與 coppeliaSim.exe 及 coppeliasim.dll 系統對應的版本.</p>
+<p>編譯流程到這個階段, 再從命令列中啟動 coppeliaSim.exe 已經可以在看到圖型介面中的 Model browser 區域已經載入 models 目錄中的 .ttm, 但是場景還無法顯示, 隨後還需要加入更多的延伸模組程式庫.</p>
 <p>7-2: 請利用自行編譯的 solvespace.exe 與 coppeliasim.exe (以及其他 .dll 以及特定的設定檔案與資料結構) 建立本課程所期望各式 FMS 系統場景.</p><h1>資料管理</h1>
 <p>本倉儲檔案分別同步存放於 Github, Gitlab 與 Bitbucket.</p>
 <p>與 CoppeliaSim 相關的檔案則分別存放於:</p>
