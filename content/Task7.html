@@ -136,34 +136,15 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Meta << <a href='Meta.html'>Previous</a> <a href='Elixir.html'>Next</a> >> Elixir<br /><h1>Rust</h1>
-<h4>Rust 線上編譯執行網站:</h4>
-<p style="padding-left: 30px;"><a href="https://play.rust-lang.org/">https://play.rust-lang.org/</a></p>
-<p style="padding-left: 30px;"><a href="https://kaisery.github.io/trpl-zh-cn/title-page.html">Rust 程式設計語言</a> (中文版)</p>
-<p style="padding-left: 30px;"><a href="https://doc.rust-lang.org/stable/book/">https://doc.rust-lang.org/stable/book/</a></p>
-<p style="padding-left: 30px;"><a href="https://www.itread01.com/content/1546256884.html">About Rust Macro</a> (巨集)</p>
-<h4>Ｗindows Rust 可攜系統:</h4>
-<h4 style="padding-left: 30px;">start_ipv6.bat 相關設定:</h4>
-<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">REM for Rust
-set MINGW_PATH=%path_msys2%;
-set GIT_PATH=%path_git%;
-set VSCODE_PATH=%path_vscode%
-set RUSTUP_HOME=%Disk%:\Rust\rust
-set CARGO_HOME=%Disk%:\Rust\cargo
-set RUST_PATH=%CARGO_HOME%\bin</pre>
-<h4>參考資料:</h4>
-<h4 style="padding-left: 30px;">Rust and Assembly:</h4>
-<p style="padding-left: 60px;"><a href="https://rustwasm.github.io/docs/book/">https://rustwasm.github.io/docs/book/</a></p>
-<p style="padding-left: 30px;"><a href="https://stevedonovan.github.io/rust-gentle-intro/">https://stevedonovan.github.io/rust-gentle-intro/</a></p>
-<p style="padding-left: 30px;"><a href="https://github.com/yewstack/yew">https://github.com/yewstack/yew</a></p>
-<p style="padding-left: 30px;"><a href="https://github.com/WebAssembly/wabt">https://github.com/WebAssembly/wabt</a>  (Web Assembley Binary Toolkit)</p>
-<p style="padding-left: 30px;"><a href="https://doc.rust-lang.org/book/">Rust Programming Language.pdf</a></p>
-<p style="padding-left: 30px;"><a href="https://www.ralfj.de/projects/rust-101/main.html">https://www.ralfj.de/projects/rust-101/main.html</a></p>
-<p style="padding-left: 30px;"><a href="https://doc.rust-lang.org/stable/rust-by-example/">https://doc.rust-lang.org/stable/rust-by-example/</a></p>
-<p style="padding-left: 30px;"><a href="https://thenewstack.io/using-web-assembly-written-in-rust-on-the-server-side/">https://thenewstack.io/using-web-assembly-written-in-rust-on-the-server-side/</a> (Deno, Rust, Typescript, Webassembly)</p>
-<p style="padding-left: 60px;"><a href="https://github.com/reselbob/wisesayingswasm">https://github.com/reselbob/wisesayingswasm</a></p>
-<p></p>
-<br />Meta << <a href='Meta.html'>Previous</a> <a href='Elixir.html'>Next</a> >> Elixir</div>
+    <div id="tipue_search_content">Task6 << <a href='Task6.html'>Previous</a> <a href='資料管理.html'>Next</a> >> 資料管理<br /><h1>Task7</h1>
+<p>7-1: 請自行編譯 CoppeliaSim 4.1.0 版.</p>
+<p>假如能夠在編譯過程, 整理其中所牽涉的各種 Geometric Constraints, Symbolic and Numerial Analysis, Computer Programming Techniques, 並且分門別類說明從 Lua, Python remote API 與 BlueZero remote API 之間的應用範例, 應該是一個不錯的碩士題目.</p>
+<p>在這裡, 我們將試著看看, 該如何利用 MSYS2 編譯出合用的 CoppeliaSim 4.1.0. 至於為何不直接編譯 4.2.0, 具體情況是:</p>
+<ol>
+<li>4.2.0 版原始程式碼中的 static calculations (即利用 GUI 方式設定) 已經全部改為 dynamic 方式設定 (即只能透過 Scripting 方式設定), 與先前希望採 GUI 設定, 動態設定以及自行編寫程式設定 calculations 的流程相左, 而且 Sensor 功能疑似存在 bugs 有待排除.</li>
+<li>而 4.2.0 rev6 之後的版本, 已經從 Lua 5.1 升級到 5.3, 各項功能正在大幅修改, 目前正在導入 <a href="https://github.com/pantor/ruckig">Ruckig</a> 過程當中, 必須等到下一個穩定版 release 之後, 才能導入編譯.</li>
+</ol>
+<p>7-2: 請利用自行編譯的 solvespace.exe 與 coppeliasim.exe (以及其他 .dll 以及特定的設定檔案與資料結構) 建立本課程所期望各式 FMS 系統場景.</p><br />Task6 << <a href='Task6.html'>Previous</a> <a href='資料管理.html'>Next</a> >> 資料管理</div>
         
     <!-- footer -->
       <div class="container">
