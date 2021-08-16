@@ -108,6 +108,17 @@
 <h4>有關 ethercalc:</h4>
 <p>若 ethercalc 與 redis 合用, sheet 資料將會存入 /var/lib/redis/dump.rdb, 此一檔案儲存設定位於 /etc/redis/redis.conf 中的 dbfilename dump.rdb<br/><br/>使用者若要以 root 身分檢視 /var/lib/redis/dump.rdb 可以透過 sudo -s 以 root 身分執行命令.<br/><br/>若以 /etc/init.d/redis-server stop 關閉 redis, 然後執行 ethercalc, sheet 資料將會存在執行命令目錄下的 dump 目錄中.<br/><br/>在結合 redis 使用下的 ethercalc, 若希望 reset /var/lib/redis/dump.rdb 中的資料:<br/><br/>sudo -s<br/><br/>/etc/init.d/redis-server stop<br/><br/>rm /var/lib/redis/dump.rdb<br/><br/>/etc/init.d/redis-server start<br/><br/>ethercalc<br/><br/>則 /var/lib/redis/dump.rdb 中為空資料.</p>
 <h2>CoppeliaSim</h2>
+<p>2021 Fall 的電腦輔助設計實習課程將繼續採用 CoppeliaSim 4.1.0 版, 並且採 20210419 版本的 MSYS2 進行編譯.</p>
+<p>主要原因是 CoppeliaSim 4.2.0 的原始碼經過 20210419 版本的 MSYS2 編譯後 (20210725 的 MSYS2 目前仍無法正常編譯 CoppeliaSim), 各項 sensors 的運作無法正常啟動 (官方下載的版本則沒有此問題), 且官方 4.2.0 無 .simscene.xml 檔案的輸出入功能. 因此目前決定仍使用 CoppeliaSim 4.1.0.</p>
+<p>在 2021 年 6 月之前下載的官方版 CoppeliaSim 4.1.0 加入開啟時間限制, 若要繼續使用先前下載安裝的 4.1.0 版本, 則需要在 system/usrset.txt 中加入:</p>
+<p style="padding-left: 30px;">allowOldEduRelease=7501</p>
+<p>假如是 4.2.0 則需要在 system/usrset.txt 中加入:</p>
+<p style="padding-left: 30px;">allowOldEduRelease=7775</p>
+<p>而 2021 年 8 月之後仍可以從官網下載的 Coppeliasim 4.1.0 版, 已經納入此一修改, 因此配置安裝後即可使用, 無需修改 system/usrset.txt 檔案.</p>
+<p>假如要在 MacOS 上使用 CoppeliaSim, 可以從官網下載 CoppeliaSim 4.1.0 MacOS 教育版後, 解開壓縮, 將 CoppeliaSim.app 中的 .app 以 mv CoppeliaSim.app CoppeliaSim 後, 即可進入 CoppeliaSim 目錄後, 執行:</p>
+<p style="padding-left: 30px;">sudo xattr -r -d com.apple.quarantine *</p>
+<p>表示要讓沒在 Apple App Store 上架的 CoppeliaSim, 能夠通過應用程式執行流程查驗的過程, 直接開啟.</p>
+<hr/>
 <p><a href="https://arxiv.org/pdf/2008.04627.pdf">A Comparison of Humanoid Robot Simulators: A Quantitative Approach</a> (2020)</p>
 <p><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9386154">A Review of Physics Simulators for Robotic Applications</a> (2021)</p>
 <p><a href="https://www.coppeliarobotics.com/">https://www.coppeliarobotics.com/</a></p>
@@ -137,8 +148,7 @@ for tag in tags:
 <p><a href="/downloads/xml/xml.leo">xml.leo</a> 檔案範例, 利用 Leo Editor 檔案中的 @settings -&gt; import options -&gt; @data import-xml-tags 設定 <a href="https://www.coppeliarobotics.com/helpFiles/en/xmlFormat.htm">CoppeliaSim XML</a> 檔案讀取標註. 如此就可以直接文字檔案管理 CoppeliaSim 場景模型.</p>
 <h4>參考資料:</h4>
 <p style="padding-left: 30px;"><a href="http://mde.tw/lab/blog/2021-kmol-notice-the-detail-difference-between-programs.html">Leo Editor replace-all 與 xml 解讀功能設定</a></p>
-<p></p>
-<h3>Compile CoppeliaSim</h3>
+<p></p><h3>Compile CoppeliaSim</h3>
 <p>請登入 @gm 帳號後, 下載 <a href="https://drive.google.com/file/d/1xb1Es8N-FxeG10OSnLNDwwi_tXyNTP9t/view?usp=sharing">cad2021_textbook.pdf</a> 課程教材.</p>
 <h4>可攜編譯系統:</h4>
 <p style="padding-left: 30px;"><a href="https://drive.google.com/file/d/1hEGgONw8ahNs7JPAKOurc7JvGfhgO2zY/view?usp=sharing">compile_copsim_for_pj2022.7z</a> (download file size 4 GB, uncompressed file size 14 GB)</p>

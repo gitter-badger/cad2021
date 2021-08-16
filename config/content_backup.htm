@@ -108,6 +108,16 @@
 <h4>有關 ethercalc:</h4>
 <p>若 ethercalc 與 redis 合用, sheet 資料將會存入 /var/lib/redis/dump.rdb, 此一檔案儲存設定位於 /etc/redis/redis.conf 中的 dbfilename dump.rdb<br/><br/>使用者若要以 root 身分檢視 /var/lib/redis/dump.rdb 可以透過 sudo -s 以 root 身分執行命令.<br/><br/>若以 /etc/init.d/redis-server stop 關閉 redis, 然後執行 ethercalc, sheet 資料將會存在執行命令目錄下的 dump 目錄中.<br/><br/>在結合 redis 使用下的 ethercalc, 若希望 reset /var/lib/redis/dump.rdb 中的資料:<br/><br/>sudo -s<br/><br/>/etc/init.d/redis-server stop<br/><br/>rm /var/lib/redis/dump.rdb<br/><br/>/etc/init.d/redis-server start<br/><br/>ethercalc<br/><br/>則 /var/lib/redis/dump.rdb 中為空資料.</p>
 <h2>CoppeliaSim</h2>
+<p>2021 Fall 的電腦輔助設計實習課程將繼續採用 CoppeliaSim 4.1.0 版, 並且採 20210419 版本的 MSYS2 進行編譯.</p>
+<p>主要原因是 CoppeliaSim 4.2.0 的原始碼經過 20210419 版本的 MSYS2 編譯後 (20210725 的 MSYS2 目前仍無法正常編譯 CoppeliaSim), 各項 sensors 的運作無法正常啟動 (官方下載的版本則沒有此問題), 且官方 4.2.0 無 .simscene.xml 檔案的輸出入功能. 因此目前決定仍使用 CoppeliaSim 4.1.0.</p>
+<p>在 2021 年 6 月之前下載的官方版 CoppeliaSim 4.1.0 加入開啟時間限制, 若要繼續使用先前下載安裝的 4.1.0 版本, 則需要在 system/usrset.txt 中加入:</p>
+<p style="padding-left: 30px;">allowOldEduRelease=7501</p>
+<p>假如是 4.2.0 則需要在 system/usrset.txt 中加入:</p>
+<p style="padding-left: 30px;">allowOldEduRelease=7775</p>
+<p>而 2021 年 8 月之後仍可以從官網下載的 Coppeliasim 4.1.0 版, 已經納入此一修改, 因此配置安裝後即可使用, 無需修改 system/usrset.txt 檔案.</p>
+<p>假如要在 MacOS 上使用 CoppeliaSim, 可以從官網下載 CoppeliaSim 4.1.0 MacOS 教育版後, 解開壓縮, 將 CoppeliaSim.app 中的 .app 以 mv CoppeliaSim.app CoppeliaSim 後, 即可進入 CoppeliaSim 目錄後, 執行:</p>
+<p style="padding-left: 30px;">sudo xattr -r -d com.apple.quarantine *</p>
+<p>表示要讓沒在 Apple App Store 上架的 CoppeliaSim, 能夠通過應用程式執行流程查驗的過程, 直接開啟.</p>
 <p><a href="https://arxiv.org/pdf/2008.04627.pdf">A Comparison of Humanoid Robot Simulators: A Quantitative Approach</a> (2020)</p>
 <p><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9386154">A Review of Physics Simulators for Robotic Applications</a> (2021)</p>
 <p><a href="https://www.coppeliarobotics.com/">https://www.coppeliarobotics.com/</a></p>
@@ -137,8 +147,7 @@ for tag in tags:
 <p><a href="/downloads/xml/xml.leo">xml.leo</a> 檔案範例, 利用 Leo Editor 檔案中的 @settings -&gt; import options -&gt; @data import-xml-tags 設定 <a href="https://www.coppeliarobotics.com/helpFiles/en/xmlFormat.htm">CoppeliaSim XML</a> 檔案讀取標註. 如此就可以直接文字檔案管理 CoppeliaSim 場景模型.</p>
 <h4>參考資料:</h4>
 <p style="padding-left: 30px;"><a href="http://mde.tw/lab/blog/2021-kmol-notice-the-detail-difference-between-programs.html">Leo Editor replace-all 與 xml 解讀功能設定</a></p>
-<p></p>
-<h3>Compile CoppeliaSim</h3>
+<p></p><h3>Compile CoppeliaSim</h3>
 <p>請登入 @gm 帳號後, 下載 <a href="https://drive.google.com/file/d/1xb1Es8N-FxeG10OSnLNDwwi_tXyNTP9t/view?usp=sharing">cad2021_textbook.pdf</a> 課程教材.</p>
 <h4>可攜編譯系統:</h4>
 <p style="padding-left: 30px;"><a href="https://drive.google.com/file/d/1hEGgONw8ahNs7JPAKOurc7JvGfhgO2zY/view?usp=sharing">compile_copsim_for_pj2022.7z</a> (download file size 4 GB, uncompressed file size 14 GB)</p>
@@ -2725,7 +2734,17 @@ set ERLINI=%Disk%:\elixir\erl10.7\erts-10.7\bin\erl.ini</pre>
 <p style="padding-left: 30px;">7-2: 請利用自行編譯的 solvespace.exe 與 coppeliasim.exe (以及其他 .dll 以及特定的設定檔案與資料結構) 建立本課程所期望的 FMS 系統場景.</p><h3>Task6</h3>
 <p>6-1: 請開啟 MTB robot, 試著利用各種 CAD 套件, 在 CoppeliaSim 中建立一套 SCARA robot.</p>
 <p>6-2: 我們該使用哪一個版本的 CoppeliaSim, 每一個版本都一樣嗎?</p>
-<p>6-3: 請利用隨身程式系統編譯 <a href="https://github.com/mdecourse/scarysim">https://github.com/mdecourse/scarysim</a> 中的 SCARA robot 模擬系統. 請嘗試修改這個 Qt C++ 程式碼, 設法完成 CoppeliaSim 範例中 MTB robot 所進行的 pick and place demo.</p><h3>Task7</h3>
+<p>6-3: 請利用隨身程式系統編譯 <a href="https://github.com/mdecourse/scarysim">https://github.com/mdecourse/scarysim</a> 中的 SCARA robot 模擬系統. 嘗試修改這個 Qt C++ 程式碼, 設法完成 CoppeliaSim 範例中 MTB robot 所進行的 pick and place demo.</p>
+<h4 style="padding-left: 30px;">設法以隨身程式系統編譯此程式碼:</h4>
+<ol>
+<li>git clone <a href="https://github.com/mdecourse/scarysim.git">https://github.com/mdecourse/scarysim.git</a></li>
+<li>修改 scarysim.pro, 蓋掉第 11 行, 成為 # LIBS     += -lglut -lGLU</li>
+<li>cd scarysim</li>
+<li>qmake -o Makefile scarysim.pro</li>
+<li>mingw32-make -f Makefile.Release 可以在 release 目錄取得 scarysim.exe</li>
+<li>因為 scarysim.exe 執行需要 base.obj, arm1.obj, arm2.obj, arm3.obj 等零件外型檔案, 以及對應的 .mtl 材質檔案, 因此可將 scarysim.exe 移至倉儲根目錄執行.</li>
+<li>由於此套程式碼在 Target 模式下, 零組件間會造成干涉, 表示其 Inverse Kinematic 運算並不正確, 請設法修正此錯誤後, 修改其零件尺寸與操作控制方法, 設法模擬 MTB 的 pick and place demo 範例.</li>
+</ol><h3>Task7</h3>
 <p>7-1: 請自行編譯 CoppeliaSim 4.1.0 版.</p>
 <p>假如能夠在編譯過程, 整理其中所牽涉的各種 Geometric Constraints, Symbolic and Numerial Analysis, Computer Programming Techniques, 並且分門別類說明從 Lua, Python remote API 與 BlueZero remote API 之間的應用範例, 應該是一個不錯的碩士題目.</p>
 <p>在這裡, 我們將試著看看, 該如何利用 MSYS2 編譯出合用的 CoppeliaSim 4.1.0. 至於為何不直接編譯 4.2.0, 具體情況是:</p>
