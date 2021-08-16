@@ -118,6 +118,7 @@
 <p>假如要在 MacOS 上使用 CoppeliaSim, 可以從官網下載 CoppeliaSim 4.1.0 MacOS 教育版後, 解開壓縮, 將 CoppeliaSim.app 中的 .app 以 mv CoppeliaSim.app CoppeliaSim 後, 即可進入 CoppeliaSim 目錄後, 執行:</p>
 <p style="padding-left: 30px;">sudo xattr -r -d com.apple.quarantine *</p>
 <p>表示要讓沒在 Apple App Store 上架的 CoppeliaSim, 能夠通過應用程式執行流程查驗的過程, 直接開啟.</p>
+<hr/>
 <p><a href="https://arxiv.org/pdf/2008.04627.pdf">A Comparison of Humanoid Robot Simulators: A Quantitative Approach</a> (2020)</p>
 <p><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9386154">A Review of Physics Simulators for Robotic Applications</a> (2021)</p>
 <p><a href="https://www.coppeliarobotics.com/">https://www.coppeliarobotics.com/</a></p>
@@ -2861,7 +2862,19 @@ VS_VERSION_INFO VERSIONINFO
 <p>編譯流程到這個階段, 再從命令列中啟動 coppeliaSim.exe 已經可以在看到圖型介面中的 Model browser 區域已經載入 models 目錄中的 .ttm, 但是 default 場景還無法顯示, 因為在 system 系統目錄中, 還需要有 dfltscn.ttt 內定場景檔案 (標示在 <a href="https://github.com/CoppeliaRobotics/CoppeliaSimLib/blob/12e4411ea9b9067d012da43b464e69a7456c2fd8/sourceCode/interfaces/simFlavor.cpp#L203">simFlavor.cpp 檔案中第 203 行</a>), 隨後還需要加入更多的延伸模組程式庫, 所編譯完成的 CoppeliaSim 4.1.0 程式套件, 才能配合接下來的電腦輔助設計實習與協同產品設計實習課程使用.</p>
 <p>此外, 過去的相關課程中所使用的 CoppeliaSim remote API 已經被定為為 <a href="https://www.coppeliarobotics.com/helpFiles/en/legacyRemoteApiOverview.htm">Legacy Python remote API</a>, 本學期開始將要在 FMS 系統場景的建構中使用 <a href="https://www.coppeliarobotics.com/helpFiles/en/b0RemoteApiOverview.htm">BlueZero remote API</a> 架構進行遠端控制.</p>
 <p>7-2: 請利用自行編譯的 solvespace.exe 與 coppeliasim.exe (以及其他 .dll 以及特定的設定檔案與資料結構) 建立本課程所期望各式 FMS 系統場景.</p>
-<p>本學期在 CoppeliaSim 機電資整合系統建構流程, 也希望能針對 <a href="https://arxiv.org/pdf/2105.04830.pdf">Jerk-limited Real-time Trajectory Generation with Arbitrary Target States</a> 的技術進行了解, 假如能在 <a href="https://github.com/pantor/ruckig">https://github.com/pantor/ruckig</a> 與目前正在進行的 <a href="https://github.com/CoppeliaRobotics/CoppeliaSimLib/commit/d4486bcc89ba0d40a4fefbda5c82546efcc4b33f">ruckig 延伸程式套件編寫</a>的引導下進行模擬應用, 將會是個不錯的任務工作項目.</p><h1>資料管理</h1>
+<p>本學期在 CoppeliaSim 機電資整合系統建構流程, 也希望能針對 <a href="https://arxiv.org/pdf/2105.04830.pdf">Jerk-limited Real-time Trajectory Generation with Arbitrary Target States</a> 的技術進行了解, 假如能在 <a href="https://github.com/pantor/ruckig">https://github.com/pantor/ruckig</a> 與目前正在進行的 <a href="https://github.com/CoppeliaRobotics/CoppeliaSimLib/commit/d4486bcc89ba0d40a4fefbda5c82546efcc4b33f">ruckig 延伸程式套件編寫</a>的引導下進行模擬應用, 將會是個不錯的任務工作項目.</p>
+<h3>Task7-1-1</h3>
+<p>當我們在 Task7-1, 利用 <a href="https://drive.google.com/file/d/1hEGgONw8ahNs7JPAKOurc7JvGfhgO2zY/view?usp=sharing">compile_copsim_for_pj2022.7z</a> (download file size 4 GB, uncompressed file size 14 GB) 編譯 <a href="https://github.com/CoppeliaRobotics">CoppeliaSim</a> 4.1.0 版的過程中, 轉進 <a href="https://github.com/CoppeliaRobotics/simExtUI/tree/cc2fda5bb20b3ab2ddad758bbb905e46bc205068">simExtUI coppeliasim-v4.1.0</a> 時, 發現其中編譯過程需要的 external 倉儲連結已經失效. 也就是 QDataflowCanvas.</p>
+<p>為了找出此一倉儲的原始資料. 可以從該倉儲當年的 <a href="https://web.archive.org/web/20201117001349/https://github.com/fferri/QDataflowCanvas/stargazers">Web archive</a> 資料中找到潛在的 fork 倉儲用戶. 從中可以追朔到 <a href="https://github.com/HaojieTian/QDataflowCanvas">https://github.com/HaojieTian/QDataflowCanvas</a> 倉儲連結, 並且發現 QDataflowCanvas 已經同步至 <a href="https://github.com/Qt-Widgets/QDataflowCanvas">https://github.com/Qt-Widgets/QDataflowCanvas</a>.</p>
+<p>因此除了建立 <a href="https://github.com/mdecourse/QDataflowCanvas">https://github.com/mdecourse/QDataflowCanvas</a> 之外, 也根據 CoppeliaSim 4.1.0 版本倉儲對應的 <a href="https://github.com/CoppeliaRobotics/simExtUI/tree/cc2fda5bb20b3ab2ddad758bbb905e46bc205068/external">3e2cbcd</a> 版本, 從已經更動連結的 QDataflowCanvas 倉儲中 checkout 出來.</p>
+<p>之後才能設法編譯 4.1.0 版本的 simExtUI plugin 動態連結程式庫 (如下所示, 4.1.0 的 dll 名稱為 simExtCustomUI.dll, 而非 4.2.0 之後的 simExtUI.dll).</p>
+<p>而隨後在執行:</p>
+<p style="padding-left: 30px;">Y:\tmp\cop410\programming\simExtUI\build&gt;cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release</p>
+<p>的過程中發現 build 目錄中並沒有建立 generated 目錄, 在此採用手動建立後, 再執行:</p>
+<p style="padding-left: 30px;">Y:\tmp\cop410\programming\simExtUI\build&gt;mingw32-make</p>
+<p>即可取得 libsimExtCustomUI.dll, 將檔名改為 simExtCustomUI.dll 後, 放入 Y:\tmp\cop410\coppeliasim410 目錄後, 就可以在啟動 coppeliaSim.exe 後載入系統.</p>
+<p>上述 QDataflowCanvas 連結失效的情況, 也發生在 <a href="https://github.com/CoppeliaRobotics/simExtDataflow/tree/5895fe08844f5e59b1f4e34832ef1fdeecb102e0/external">simExtDataflow</a> 倉儲, 可以採相同的方法解決.</p>
+<p></p><h1>資料管理</h1>
 <p>本倉儲檔案分別同步存放於 Github, Gitlab 與 Bitbucket.</p>
 <p>與 CoppeliaSim 相關的檔案則分別存放於:</p>
 <p style="padding-left: 30px;">2021fall At mde</p>

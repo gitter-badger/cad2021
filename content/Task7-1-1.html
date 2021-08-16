@@ -2,7 +2,7 @@
         <head>
         <title>CAD2021</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -136,13 +136,19 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">可攜 Elixir << <a href='可攜 Elixir.html'>Previous</a> <a href='Stage1.html'>Next</a> >> Stage1<br /><h1>實習內容</h1>
-<p>機械設計工程師在產品開發過程, 面臨什麼挑戰? 電腦輔助設計能幫上什麼忙?</p>
-<p style="padding-left: 30px;">挑戰一: 封閉且缺乏彈性的工具, 造成許多無法清楚說明原因的問題.</p>
-<p style="padding-left: 60px;">面對問題, 千萬不要說: 我不知道, 而是要回答: 這是我目前找到的解決方案.</p>
-<p style="padding-left: 30px;">挑戰二: 實體製造與虛擬設計之間的差異鴻溝, 經常由主導藍圖的機械設計師背起各種黑鍋.</p>
-<p style="padding-left: 60px;">清楚說明細節, 留下各種佐證資料, 學會安排動態整合系統, 讓電腦軟硬體協助釐清並解決問題.</p>
-<br />可攜 Elixir << <a href='可攜 Elixir.html'>Previous</a> <a href='Stage1.html'>Next</a> >> Stage1</div>
+    <div id="tipue_search_content">Task7 << <a href='Task7.html'>Previous</a> <a href='資料管理.html'>Next</a> >> 資料管理<br /><h1>Task7-1-1</h1>
+<p>當我們在 Task7-1, 利用 <a href="https://drive.google.com/file/d/1hEGgONw8ahNs7JPAKOurc7JvGfhgO2zY/view?usp=sharing">compile_copsim_for_pj2022.7z</a> (download file size 4 GB, uncompressed file size 14 GB) 編譯 <a href="https://github.com/CoppeliaRobotics">CoppeliaSim</a> 4.1.0 版的過程中, 轉進 <a href="https://github.com/CoppeliaRobotics/simExtUI/tree/cc2fda5bb20b3ab2ddad758bbb905e46bc205068">simExtUI coppeliasim-v4.1.0</a> 時, 發現其中編譯過程需要的 external 倉儲連結已經失效. 也就是 QDataflowCanvas.</p>
+<p>為了找出此一倉儲的原始資料. 可以從該倉儲當年的 <a href="https://web.archive.org/web/20201117001349/https://github.com/fferri/QDataflowCanvas/stargazers">Web archive</a> 資料中找到潛在的 fork 倉儲用戶. 從中可以追朔到 <a href="https://github.com/HaojieTian/QDataflowCanvas">https://github.com/HaojieTian/QDataflowCanvas</a> 倉儲連結, 並且發現 QDataflowCanvas 已經同步至 <a href="https://github.com/Qt-Widgets/QDataflowCanvas">https://github.com/Qt-Widgets/QDataflowCanvas</a>.</p>
+<p>因此除了建立 <a href="https://github.com/mdecourse/QDataflowCanvas">https://github.com/mdecourse/QDataflowCanvas</a> 之外, 也根據 CoppeliaSim 4.1.0 版本倉儲對應的 <a href="https://github.com/CoppeliaRobotics/simExtUI/tree/cc2fda5bb20b3ab2ddad758bbb905e46bc205068/external">3e2cbcd</a> 版本, 從已經更動連結的 QDataflowCanvas 倉儲中 checkout 出來.</p>
+<p>之後才能設法編譯 4.1.0 版本的 simExtUI plugin 動態連結程式庫 (如下所示, 4.1.0 的 dll 名稱為 simExtCustomUI.dll, 而非 4.2.0 之後的 simExtUI.dll).</p>
+<p>而隨後在執行:</p>
+<p style="padding-left: 30px;">Y:\tmp\cop410\programming\simExtUI\build&gt;cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release</p>
+<p>的過程中發現 build 目錄中並沒有建立 generated 目錄, 在此採用手動建立後, 再執行:</p>
+<p style="padding-left: 30px;">Y:\tmp\cop410\programming\simExtUI\build&gt;mingw32-make</p>
+<p>即可取得 libsimExtCustomUI.dll, 將檔名改為 simExtCustomUI.dll 後, 放入 Y:\tmp\cop410\coppeliasim410 目錄後, 就可以在啟動 coppeliaSim.exe 後載入系統.</p>
+<p>相關說明也寫在這裡: <a href="https://github.com/mdecourse/simExtUI/discussions/1">https://github.com/mdecourse/simExtUI/discussions/1</a></p>
+<p>上述 QDataflowCanvas 連結失效的情況, 也發生在 <a href="https://github.com/CoppeliaRobotics/simExtDataflow/tree/5895fe08844f5e59b1f4e34832ef1fdeecb102e0/external">simExtDataflow</a> 倉儲, 可以採相同的方法解決.</p>
+<p></p><br />Task7 << <a href='Task7.html'>Previous</a> <a href='資料管理.html'>Next</a> >> 資料管理</div>
         
     <!-- footer -->
       <div class="container">
