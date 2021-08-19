@@ -1091,7 +1091,11 @@ plt.show()</pre>
 <p style="padding-left: 30px;">pacman -S mingw-w64-x86_64-cmake</p>
 <p>而且必須 rename Y:\msys64_20210419\mingw64\bin\sh.exe 與 Y:\portablegit_2.31.1\bin\sh.exe 換成其他名稱.</p>
 <p>git clone --recurse-submodules https://github.com/solvespace/solvespace.git<br/>cd solvespace<br/>mkdir build<br/>cd build<br/>cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release<br/>make<br/><br/>need libwinpthread-1.dll to execute solvespace.exe</p>
-<h3>Lua</h3>
+<hr/>
+<p><a href="https://solvespace.com/forum.pl?action=viewthread&amp;parent=3775&amp;tt=1628359708">Solvespace can link STL part</a></p>
+<p><a href="https://github.com/solvespace/solvespace/issues/77">About parametric sketches</a> (<a href="https://solvespace.com/forum.pl?action=viewthread&amp;parent=3169&amp;tt=1598104778">ref</a>, <a href="https://github.com/mdecourse/solvespace-w-var-dimension">Solvespace with variable dimension repo</a>)</p>
+<p><a href="https://github.com/solvespace/solvespace/pull/493">About Python wrapper of the solver</a></p>
+<p><a href="https://github.com/solvespace/solvespace/issues/292">About the .slvs file format</a> (We try to use Solvespace for auto assembly of multi-link mechanism. <a href="https://kmolyuan.github.io/pyslvs-slide-en/#/">ref</a>)</p><h3>Lua</h3>
 <p><a href="/downloads/lua_programming/2016_LuaProgramming.pdf">2016_LuaProgramming.pdf</a></p>
 <p><a href="https://www.lua.org/pil/contents.html">Programming in Lua first edition online material</a> (Lua 5.0)</p>
 <p><a href="https://webserver2.tecgraf.puc-rio.br/lua/local/manual/5.1/">Lua 5.1 Reference Manual</a></p>
@@ -2657,8 +2661,7 @@ set ERLINI=%Disk%:\elixir\erl10.7\erts-10.7\bin\erl.ini</pre>
 <p style="padding-left: 30px;">要具備什麼樣的知識與能力, 才能"開發"類似 SolidWorks 這樣的工具?</p>
 <p style="padding-left: 30px;">我們為什麼要想像"能夠"開發 CAD 工具, 而不僅是"使用"就好?</p>
 <h4>想像三:</h4>
-<p style="padding-left: 30px;">3D 列印自 1980 年代起即發明<a href="https://patentimages.storage.googleapis.com/fd/db/8f/27cf989e55898b/US5155324.pdf">逐層選擇金屬粉末燒結</a>技術, 以下是目前的<a href="https://www.relativityspace.com/">應用發展</a>. 可以想像其中牽涉哪些與機械有關的電腦輔助設計技術嗎?</p>
-<p></p>
+<p style="padding-left: 30px;">3D 列印自 1980 年代起即發明<a href="https://patentimages.storage.googleapis.com/fd/db/8f/27cf989e55898b/US5155324.pdf">逐層選擇金屬粉末燒結</a>技術, 以下是目前的<a href="https://www.relativityspace.com/">應用發展</a>. 可以想像其中牽涉哪些與機械有關的電腦輔助設計技術嗎? (About <a href="https://en.wikipedia.org/wiki/Tim_Ellis_(engineer)">Tim Ellis</a>)</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/2Fp_aMCR468" title="YouTube video player" width="560"></iframe></p><h3>Task 1</h3>
 <h4>Computer-aided design</h4>
 <p>Computer-aided design (CAD) uses the <span style="background-color: #ffff99;">mathematical</span> and <span style="background-color: #ffff99;">graphic processing power</span> of the computer to assist the engineer in the creation, modification, analysis, and display of designs.</p>
@@ -2759,7 +2762,7 @@ set ERLINI=%Disk%:\elixir\erl10.7\erts-10.7\bin\erl.ini</pre>
 <p style="padding-left: 60px;">Python 與 NX12 互動範例: <a href="http://mde.tw/cad2020/content/HW1_NX.html">http://mde.tw/cad2020/content/HW1_NX.html</a></p>
 <p style="padding-left: 30px;">請著手進行零件程式化變更設計參數的練習, 並且思考假如能夠在 <a href="https://github.com/mdecourse/cd2020pj1">https://github.com/mdecourse/cd2020pj1</a> 網際系統的架構上, 將各種 3D CAD 與網際 API 程式進行互動, 未來機械設計工程師在產品開發流程中, 會得到什麼好處?</p>
 <p style="padding-left: 30px;">接下來又要進行想像了. 仔細觀察一下 <a href="https://www.driveworks.co.uk/">https://www.driveworks.co.uk/</a> 運用哪些技術? 可以達到何種效益?</p>
-<p style="padding-left: 30px;">假如我們想要利用 Solvespace 建立一個類似的簡單網際系統, 該如何下手?</p><h2>Stage3</h2>
+<p style="padding-left: 30px;">假如我們想要利用 Solvespace 建立一個類似的簡單網際系統, 該如何下手? (以 <a href="https://webassembly.org/">WebAssembly</a> 建立的<a href="https://files.whitequark.org/SolveSpace/solvespace.html">網際 Solvespace</a>)</p><h2>Stage3</h2>
 <h4>任務六:</h4>
 <p style="padding-left: 30px;">我們想像中的 FMS 場景中, 將有一些 Industrial Robots 負責零件加工或組立, 一些 Mobile Robots 擔任半成品運送, 或者利用輸送帶與倉儲系統進行零組件存放.</p>
 <p style="padding-left: 30px;">請閱讀教科書中的 Ch1 Introduction 以及 Ch2 Homogeneous Transformation Matrices 後, 準備利用 Solvespace 與 CoppeliaSim 建立一個 SCARA (Selective Compliance Assembly Robot Arm) robot 場景.</p>
