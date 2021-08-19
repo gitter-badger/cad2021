@@ -35,6 +35,9 @@
         <script src="tipuesearch_content.js"></script>
         <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
         <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <!-- for Wink3 -->
+        <link rel="stylesheet" type="text/css" href="./../cmsimde/static/winkPlayer.css" />
+        <script type="text/javascript" src="./../cmsimde/static/winkPlayer.js"></script>
         <script>
             /* original tipuesearch
             $(document).ready(function() {
@@ -125,7 +128,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Examples.html'>Examples</a><li><a href='Onshape.html'>Onshape</a><li><a href='Arduino.html'>Arduino</a><li><a href='Ethercalc.html'>Ethercalc</a><li class='has-children'><a href='CoppeliaSim.html'>CoppeliaSim</a><ul class='dropdown'><li><a href='Compile CoppeliaSim.html'>Compile CoppeliaSim</a><li><a href='Lua and CPP.html'>Lua and CPP</a><li><a href='XML.html'>XML</a></li></ul><li><a href='Webots.html'>Webots</a><li class='has-children'><a href='強化學習.html'>強化學習</a><ul class='dropdown'><li><a href='Snake RL.html'>Snake RL</a></li></li></ul></ul><li class='has-children'><a href='課程主題.html'>課程主題</a><ul class='dropdown'><li><a href='直播與討論.html'>直播與討論</a><li class='has-children'><a href='CAD.html'>CAD</a><ul class='dropdown'><li><a href='Compile Solvespace.html'>Compile Solvespace</a><li><a href='Lua.html'>Lua</a><li><a href='CAD in Rust.html'>CAD in Rust</a><li><a href='DSL.html'>DSL</a><li><a href='Open CAD.html'>Open CAD</a><li><a href='Bevel Gears.html'>Bevel Gears</a><li><a href='Control.html'>Control</a><li><a href='AI and CAD.html'>AI and CAD</a></li></ul><li class='has-children'><a href='SSO.html'>SSO</a><ul class='dropdown'><li><a href='Fossil.html'>Fossil</a><li><a href='Compile Fossil.html'>Compile Fossil</a><li><a href='Althttpd.html'>Althttpd</a></li></ul><li class='has-children'><a href='Robotics.html'>Robotics</a><ul class='dropdown'><li><a href='FMS.html'>FMS</a><li><a href='EE.html'>EE</a><li><a href='RL.html'>RL</a></li></ul><li class='has-children'><a href='系統開發.html'>系統開發</a><ul class='dropdown'><li><a href='Optimization.html'>Optimization</a><li><a href='Meta.html'>Meta</a><li><a href='Rust.html'>Rust</a><li><a href='Elixir.html'>Elixir</a><li><a href='可攜 Elixir.html'>可攜 Elixir</a></li></li></ul></ul><li class='has-children'><a href='實習內容.html'>實習內容</a><ul class='dropdown'><li class='has-children'><a href='Stage1.html'>Stage1</a><ul class='dropdown'><li><a href='Task 1.html'>Task 1</a><li><a href='Task 2.html'>Task 2</a><li><a href='Wishful Thinking 1.html'>Wishful Thinking 1</a></li></ul><li class='has-children'><a href='Stage2.html'>Stage2</a><ul class='dropdown'><li><a href='Task3.html'>Task3</a><li><a href='Task4.html'>Task4</a><li><a href='Task5.html'>Task5</a></li></ul><li class='has-children'><a href='Stage3.html'>Stage3</a><ul class='dropdown'><li><a href='Task6.html'>Task6</a><li><a href='Task7.html'>Task7</a><li><a href='Task7-1-1.html'>Task7-1-1</a><li><a href='Task7-1-2.html'>Task7-1-2</a></li></li></ul></ul><li><a href='資料管理.html'>資料管理</a></li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Examples.html'>Examples</a><li><a href='Onshape.html'>Onshape</a><li><a href='Arduino.html'>Arduino</a><li><a href='Ethercalc.html'>Ethercalc</a><li class='has-children'><a href='CoppeliaSim.html'>CoppeliaSim</a><ul class='dropdown'><li><a href='Compile CoppeliaSim.html'>Compile CoppeliaSim</a><li><a href='Lua and CPP.html'>Lua and CPP</a><li><a href='XML.html'>XML</a></li></ul><li><a href='Webots.html'>Webots</a><li class='has-children'><a href='強化學習.html'>強化學習</a><ul class='dropdown'><li><a href='Snake RL.html'>Snake RL</a></li></li></ul></ul><li class='has-children'><a href='課程主題.html'>課程主題</a><ul class='dropdown'><li><a href='直播與討論.html'>直播與討論</a><li class='has-children'><a href='CAD.html'>CAD</a><ul class='dropdown'><li><a href='Compile Solvespace.html'>Compile Solvespace</a><li><a href='Lua.html'>Lua</a><li><a href='CAD in Rust.html'>CAD in Rust</a><li><a href='DSL.html'>DSL</a><li><a href='Open CAD.html'>Open CAD</a><li><a href='Bevel Gears.html'>Bevel Gears</a><li><a href='Control.html'>Control</a><li><a href='AI and CAD.html'>AI and CAD</a></li></ul><li class='has-children'><a href='SSO.html'>SSO</a><ul class='dropdown'><li><a href='Fossil.html'>Fossil</a><li><a href='Compile Fossil.html'>Compile Fossil</a><li><a href='Althttpd.html'>Althttpd</a></li></ul><li class='has-children'><a href='Robotics.html'>Robotics</a><ul class='dropdown'><li><a href='FMS.html'>FMS</a><li><a href='EE.html'>EE</a><li><a href='RL.html'>RL</a></li></ul><li class='has-children'><a href='系統開發.html'>系統開發</a><ul class='dropdown'><li><a href='Optimization.html'>Optimization</a><li><a href='Meta.html'>Meta</a><li><a href='Rust.html'>Rust</a><li><a href='Elixir.html'>Elixir</a><li><a href='可攜 Elixir.html'>可攜 Elixir</a></li></li></ul></ul><li class='has-children'><a href='實習內容.html'>實習內容</a><ul class='dropdown'><li class='has-children'><a href='Stage1.html'>Stage1</a><ul class='dropdown'><li><a href='Task 1.html'>Task 1</a><li><a href='Task 2.html'>Task 2</a><li><a href='Wishful Thinking 1.html'>Wishful Thinking 1</a></li></ul><li class='has-children'><a href='Stage2.html'>Stage2</a><ul class='dropdown'><li><a href='Task3.html'>Task3</a><li><a href='Task4.html'>Task4</a><li><a href='Task5.html'>Task5</a></li></ul><li class='has-children'><a href='Stage3.html'>Stage3</a><ul class='dropdown'><li><a href='Task6.html'>Task6</a><li><a href='Task7.html'>Task7</a><li><a href='Task7-1-1.html'>Task7-1-1</a><li><a href='Task7-1-2.html'>Task7-1-2</a></li></li></ul></ul><li class='has-children'><a href='資料管理.html'>資料管理</a><ul class='dropdown'><li><a href='cad2020.html'>cad2020</a></li>
                       </ul>
                 </nav>
               </div>
@@ -140,6 +143,7 @@ img.add_border {
 <h4>任務一:</h4>
 <p style="padding-left: 30px;">請閱讀 <a href="http://mde.tw/cad2021/content/About.html">About</a> 頁面, 待會要每一橫排抽出一位同學, 上台來報告, 你看到什麼? 能不能給一個三分鐘的簡報?</p>
 <p style="padding-left: 30px;">1-1: 看完後, 請利用三分鐘的時間, 說明您看到什麼?</p>
+<p style="padding-left: 30px;">1-2: 請使用 <a href="https://www.debugmode.com/wink/">Wink</a> (<a href="https://mde.tw/cmstemplate/content/Wink.html">Tutorial</a>) 在個人頁面中建立一個有關任務1的內容說明影片.</p>
 <h4>任務二:</h4>
 <p style="padding-left: 30px;">請下載本學期的教科書, 總共有 187 頁, 都是英文資料, 請問: 為什麼身在台灣的機械設計工程師在校期間, 要儘量閱讀英文資料?</p>
 <p style="padding-left: 30px;">2-1: 請翻閱一下您所下載的教科書資料, 內容涵蓋哪些主題?</p>
@@ -148,7 +152,11 @@ img.add_border {
 <p style="padding-left: 60px;">大家能夠想像 SolidWorks 的出現與博弈有關嗎?</p>
 <h4>想像二:</h4>
 <p style="padding-left: 30px;">要具備什麼樣的知識與能力, 才能"開發"類似 SolidWorks 這樣的工具?</p>
-<p style="padding-left: 60px;">我們為什麼要想像"能夠"開發 CAD 工具, 而不僅是"使用"就好?</p><br />實習內容 << <a href='實習內容.html'>Previous</a> <a href='Task 1.html'>Next</a> >> Task 1</div>
+<p style="padding-left: 30px;">我們為什麼要想像"能夠"開發 CAD 工具, 而不僅是"使用"就好?</p>
+<h4>想像三:</h4>
+<p style="padding-left: 30px;">3D 列印自 1980 年代起即發明<a href="https://patentimages.storage.googleapis.com/fd/db/8f/27cf989e55898b/US5155324.pdf">逐層選擇金屬粉末燒結</a>技術, 以下是目前的<a href="https://www.relativityspace.com/">應用發展</a>. 可以想像其中牽涉哪些與機械有關的電腦輔助設計技術嗎?</p>
+<p></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/2Fp_aMCR468" title="YouTube video player" width="560"></iframe></p><br />實習內容 << <a href='實習內容.html'>Previous</a> <a href='Task 1.html'>Next</a> >> Task 1</div>
         
     <!-- footer -->
       <div class="container">

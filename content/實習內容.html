@@ -35,6 +35,9 @@
         <script src="tipuesearch_content.js"></script>
         <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
         <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <!-- for Wink3 -->
+        <link rel="stylesheet" type="text/css" href="./../cmsimde/static/winkPlayer.css" />
+        <script type="text/javascript" src="./../cmsimde/static/winkPlayer.js"></script>
         <script>
             /* original tipuesearch
             $(document).ready(function() {
@@ -125,7 +128,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Examples.html'>Examples</a><li><a href='Onshape.html'>Onshape</a><li><a href='Arduino.html'>Arduino</a><li><a href='Ethercalc.html'>Ethercalc</a><li class='has-children'><a href='CoppeliaSim.html'>CoppeliaSim</a><ul class='dropdown'><li><a href='Compile CoppeliaSim.html'>Compile CoppeliaSim</a><li><a href='Lua and CPP.html'>Lua and CPP</a><li><a href='XML.html'>XML</a></li></ul><li><a href='Webots.html'>Webots</a><li class='has-children'><a href='強化學習.html'>強化學習</a><ul class='dropdown'><li><a href='Snake RL.html'>Snake RL</a></li></li></ul></ul><li class='has-children'><a href='課程主題.html'>課程主題</a><ul class='dropdown'><li><a href='直播與討論.html'>直播與討論</a><li class='has-children'><a href='CAD.html'>CAD</a><ul class='dropdown'><li><a href='Compile Solvespace.html'>Compile Solvespace</a><li><a href='Lua.html'>Lua</a><li><a href='CAD in Rust.html'>CAD in Rust</a><li><a href='DSL.html'>DSL</a><li><a href='Open CAD.html'>Open CAD</a><li><a href='Bevel Gears.html'>Bevel Gears</a><li><a href='Control.html'>Control</a><li><a href='AI and CAD.html'>AI and CAD</a></li></ul><li class='has-children'><a href='SSO.html'>SSO</a><ul class='dropdown'><li><a href='Fossil.html'>Fossil</a><li><a href='Compile Fossil.html'>Compile Fossil</a><li><a href='Althttpd.html'>Althttpd</a></li></ul><li class='has-children'><a href='Robotics.html'>Robotics</a><ul class='dropdown'><li><a href='FMS.html'>FMS</a><li><a href='EE.html'>EE</a><li><a href='RL.html'>RL</a></li></ul><li class='has-children'><a href='系統開發.html'>系統開發</a><ul class='dropdown'><li><a href='Optimization.html'>Optimization</a><li><a href='Meta.html'>Meta</a><li><a href='Rust.html'>Rust</a><li><a href='Elixir.html'>Elixir</a><li><a href='可攜 Elixir.html'>可攜 Elixir</a></li></li></ul></ul><li class='has-children'><a href='實習內容.html'>實習內容</a><ul class='dropdown'><li class='has-children'><a href='Stage1.html'>Stage1</a><ul class='dropdown'><li><a href='Task 1.html'>Task 1</a><li><a href='Task 2.html'>Task 2</a><li><a href='Wishful Thinking 1.html'>Wishful Thinking 1</a></li></ul><li class='has-children'><a href='Stage2.html'>Stage2</a><ul class='dropdown'><li><a href='Task3.html'>Task3</a><li><a href='Task4.html'>Task4</a><li><a href='Task5.html'>Task5</a></li></ul><li class='has-children'><a href='Stage3.html'>Stage3</a><ul class='dropdown'><li><a href='Task6.html'>Task6</a><li><a href='Task7.html'>Task7</a><li><a href='Task7-1-1.html'>Task7-1-1</a><li><a href='Task7-1-2.html'>Task7-1-2</a></li></li></ul></ul><li><a href='資料管理.html'>資料管理</a></li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Examples.html'>Examples</a><li><a href='Onshape.html'>Onshape</a><li><a href='Arduino.html'>Arduino</a><li><a href='Ethercalc.html'>Ethercalc</a><li class='has-children'><a href='CoppeliaSim.html'>CoppeliaSim</a><ul class='dropdown'><li><a href='Compile CoppeliaSim.html'>Compile CoppeliaSim</a><li><a href='Lua and CPP.html'>Lua and CPP</a><li><a href='XML.html'>XML</a></li></ul><li><a href='Webots.html'>Webots</a><li class='has-children'><a href='強化學習.html'>強化學習</a><ul class='dropdown'><li><a href='Snake RL.html'>Snake RL</a></li></li></ul></ul><li class='has-children'><a href='課程主題.html'>課程主題</a><ul class='dropdown'><li><a href='直播與討論.html'>直播與討論</a><li class='has-children'><a href='CAD.html'>CAD</a><ul class='dropdown'><li><a href='Compile Solvespace.html'>Compile Solvespace</a><li><a href='Lua.html'>Lua</a><li><a href='CAD in Rust.html'>CAD in Rust</a><li><a href='DSL.html'>DSL</a><li><a href='Open CAD.html'>Open CAD</a><li><a href='Bevel Gears.html'>Bevel Gears</a><li><a href='Control.html'>Control</a><li><a href='AI and CAD.html'>AI and CAD</a></li></ul><li class='has-children'><a href='SSO.html'>SSO</a><ul class='dropdown'><li><a href='Fossil.html'>Fossil</a><li><a href='Compile Fossil.html'>Compile Fossil</a><li><a href='Althttpd.html'>Althttpd</a></li></ul><li class='has-children'><a href='Robotics.html'>Robotics</a><ul class='dropdown'><li><a href='FMS.html'>FMS</a><li><a href='EE.html'>EE</a><li><a href='RL.html'>RL</a></li></ul><li class='has-children'><a href='系統開發.html'>系統開發</a><ul class='dropdown'><li><a href='Optimization.html'>Optimization</a><li><a href='Meta.html'>Meta</a><li><a href='Rust.html'>Rust</a><li><a href='Elixir.html'>Elixir</a><li><a href='可攜 Elixir.html'>可攜 Elixir</a></li></li></ul></ul><li class='has-children'><a href='實習內容.html'>實習內容</a><ul class='dropdown'><li class='has-children'><a href='Stage1.html'>Stage1</a><ul class='dropdown'><li><a href='Task 1.html'>Task 1</a><li><a href='Task 2.html'>Task 2</a><li><a href='Wishful Thinking 1.html'>Wishful Thinking 1</a></li></ul><li class='has-children'><a href='Stage2.html'>Stage2</a><ul class='dropdown'><li><a href='Task3.html'>Task3</a><li><a href='Task4.html'>Task4</a><li><a href='Task5.html'>Task5</a></li></ul><li class='has-children'><a href='Stage3.html'>Stage3</a><ul class='dropdown'><li><a href='Task6.html'>Task6</a><li><a href='Task7.html'>Task7</a><li><a href='Task7-1-1.html'>Task7-1-1</a><li><a href='Task7-1-2.html'>Task7-1-2</a></li></li></ul></ul><li class='has-children'><a href='資料管理.html'>資料管理</a><ul class='dropdown'><li><a href='cad2020.html'>cad2020</a></li>
                       </ul>
                 </nav>
               </div>
@@ -138,11 +141,37 @@ img.add_border {
         </header>
     <div id="tipue_search_content">可攜 Elixir << <a href='可攜 Elixir.html'>Previous</a> <a href='Stage1.html'>Next</a> >> Stage1<br /><h1>實習內容</h1>
 <p>機械設計工程師在產品開發過程, 面臨什麼挑戰? 電腦輔助設計能幫上什麼忙?</p>
-<p style="padding-left: 30px;">挑戰一: 封閉且缺乏彈性的工具, 造成許多無法清楚說明原因的問題.</p>
-<p style="padding-left: 60px;">面對問題, 千萬不要說: 我不知道, 而是要回答: 這是我目前找到的解決方案.</p>
-<p style="padding-left: 30px;">挑戰二: 實體製造與虛擬設計之間的差異鴻溝, 經常由主導藍圖的機械設計師背起各種黑鍋.</p>
-<p style="padding-left: 60px;">清楚說明細節, 留下各種佐證資料, 學會安排動態整合系統, 讓電腦軟硬體協助釐清並解決問題.</p>
-<br />可攜 Elixir << <a href='可攜 Elixir.html'>Previous</a> <a href='Stage1.html'>Next</a> >> Stage1</div>
+<h4 style="padding-left: 30px;">挑戰一: 封閉且缺乏彈性的工具, 造成許多無法清楚說明原因的問題.</h4>
+<p style="padding-left: 60px;">學習面對問題時, 千萬不要說: 我不知道, 而是要設法搜尋探討問題後回答: 這是我目前找到的可行方案.</p>
+<p style="padding-left: 90px;">工程師在問問題之前, 要試著自行竭盡全力找答案, 並在每一個求解階段留下細節歷程資料.</p>
+<h4 style="padding-left: 30px;">挑戰二: 實體製造與虛擬設計之間的差異鴻溝, 經常由主導藍圖的機械設計師背起各種黑鍋.</h4>
+<p style="padding-left: 60px;">學習清楚說明細節, 留下各種佐證資料, 學會安排動態整合系統, 讓電腦軟硬體協助釐清並解決問題.</p>
+<p style="padding-left: 90px;">範例: 請比較 CoppeliaSim 與 Webots 在處理 Documentation 流程上的差異.</p>
+<h4 style="padding-left: 30px;">挑戰三: 我們是否能夠每一班共同"維護"一個倉儲, 利用一個網站"展現"各學員的學習進度嗎?</h4>
+<p style="padding-left: 60px;">亦即:</p>
+<p style="padding-left: 90px;">每班起始一個 Github 上的倉儲, 以 <a href="https://github.com/mdecourse/cmstemplate">cmstemplate</a> 為主體架構.</p>
+<p style="padding-left: 90px;">針對實體內容中的各 Tasks 任務工作項目, 各學員利用倉儲中的 Discussion 提交工作內容 (mp4 影片, Onshape 零組件連結, CoppeliaSim 模擬場景與其他相關控制程式檔案), 經各學員整合內容修改後, 以 Pull Request 合併至各班實習倉儲, 網頁, 簡報與網誌.</p>
+<p style="padding-left: 60px;"><a href="https://education.github.com/git-cheat-sheet-education.pdf">https://education.github.com/git-cheat-sheet-education.pdf</a></p>
+<p style="padding-left: 60px;"><a href="https://alessandropellegrini.it/didattica/2019/ia/git.pdf">Introduction to Git and Github</a></p>
+<p style="padding-left: 60px;"><a href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a></p>
+<h4 style="padding-left: 30px;">挑戰四: 當各項產品開發技術與說明手冊不斷改版下, 如何有效建立一個緊密對應的技術項目與文件整合系統?</h4>
+<p style="padding-left: 60px;">目前 <a href="https://github.com/mdecourse/cmsimde">cmsimde</a> 的網站構建流程是由使用者在近端或遠端的動態系統維護 config/content.htm 後, 再轉為靜態網頁, 但是面對 <a href="https://github.com/CoppeliaRobotics/helpfiles">https://github.com/CoppeliaRobotics/helpfiles</a> 已經擁有靜態網頁的內容, 目前尚無轉為 config/content.htm 的機制.</p>
+<p style="padding-left: 60px;">由於每一個不同版本的 CoppeliaSim 皆有其對應的 helpFiles, 但 <a href="https://www.coppeliarobotics.com/helpFiles/">https://www.coppeliarobotics.com/helpFiles/</a> 卻只能列出最新版 (目前為 4.2.0) 的 helpFiles. 因此現在只能自行建立 <a href="https://mde.tw/copsim410">https://mde.tw/copsim410</a> 列出 4.1.0 版本的 helpFiles.</p>
+<p style="padding-left: 60px;">而 <a href="https://github.com/cyberbotics/webots/tree/master/docs">https://github.com/cyberbotics/webots/tree/master/docs</a> 之所以沒有上述問題的原因是採用 <a href="https://github.com/showdownjs/showdown">showdown</a> Javascript 程式庫, 以動態 markdown 轉為 html 的方式, 從 Github 倉儲中將各版本所 release 的 docs 內容呈現在 Github Pages 靜態網站上:</p>
+<p style="padding-left: 60px;">因此只要在各頁面加上 index 或 page, 再加上 version 變數, 就可以擷取該版本對應文件:</p>
+<p style="padding-left: 90px;"><a href="https://www.cyberbotics.com/doc/guide/index?version=R2020b">https://www.cyberbotics.com/doc/guide/index?version=R2020b</a></p>
+<p style="padding-left: 90px;"><a href="https://www.cyberbotics.com/doc/guide/page?version=R2021a">https://www.cyberbotics.com/doc/guide/page?version=R2021a</a></p>
+<p style="padding-left: 90px;"><a href="https://www.cyberbotics.com/doc/guide/page?version=R2021b">https://www.cyberbotics.com/doc/guide/page?version=R2021b</a></p>
+<h4 style="padding-left: 60px;">參考資料:</h4>
+<p style="padding-left: 90px;"><a href="https://2019wcm.blogspot.com/2019/03/v-rep-cmsimfly.html">https://2019wcm.blogspot.com/2019/03/v-rep-cmsimfly.html</a></p>
+<p style="padding-left: 90px;"><a href="https://mde.tw/cd2019/content/Webots%20doc.html">https://mde.tw/cd2019/content/Webots%20doc.html</a></p>
+<p style="padding-left: 90px;"><a href="https://mde.tw/cd2021/content/W5.html">https://mde.tw/cd2021/content/W5.html</a></p>
+<h4>Github 改版後 push 方法:</h4>
+<ol>
+<li>在 Windows 環境下, 利用 <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a> 與 <a href="https://en.wikipedia.org/wiki/Secure_Shell">SSH</a> 協定進行推送</li>
+<li>利用 <a href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">Personal Access Token</a> 方式推送</li>
+</ol>
+<p>請每一位學員拍一個教學影片上傳到 Youtube, 說明如何使用上述兩種方法推送改版資料到 Github.</p><br />可攜 Elixir << <a href='可攜 Elixir.html'>Previous</a> <a href='Stage1.html'>Next</a> >> Stage1</div>
         
     <!-- footer -->
       <div class="container">

@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'KMOL'
-SITENAME = 'CMSiMDE 網際內容管理'
+SITENAME = 'CAD2021 電腦輔助設計實習'
 # 不要用文章所在目錄作為類別
 USE_FOLDER_AS_CATEGORY = False
 

@@ -1,7 +1,8 @@
 import os
 import subprocess
 import threading
-import http.server, ssl
+import http.server
+import ssl
 
 def domake():
     # build directory
