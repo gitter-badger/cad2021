@@ -1121,7 +1121,80 @@ plt.show()</pre>
 <p><a href="https://webserver2.tecgraf.puc-rio.br/lua/local/manual/5.1/">Lua 5.1 Reference Manual</a></p>
 <p><a href="/downloads/lua_programming/Introduction_to_lua_programming_language.pdf">Introduction to Lua Programming Language.pdf</a></p>
 <hr/>
-<p>var1 = sim.getObjectHandle('Floor')<br/>var2 = sim.getObjectAssociatedWithScript(sim.handle_self)<br/>print(var1, var2)</p><h3>CAD in Rust</h3>
+<p>Lua 是用於 CoppeliaSim 機電系統控制的程式之一, 以下為利用 User Interface 介面控制場景中的各運動軸範例:</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function closeEventHandler(h)
+    sim.addLog(sim.verbosity_scriptinfos,'Window '..h..' is closing...')
+    simUI.hide(h)
+end
+
+function joint1_rotate(ui,id,newVal)
+    simUI.setLabelText(ui,3000,'theta1 set to '..newVal)
+    sim.setJointTargetPosition(joint1, newVal*deg)
+end
+
+function joint2_rotate(ui,id,newVal)
+    simUI.setLabelText(ui,3000,'theta2 set to '..newVal)
+    sim.setJointTargetPosition(joint2, newVal*deg)
+end
+
+function joint3_rotate(ui,id,newVal)
+    simUI.setLabelText(ui,3000,'theta3 set to '..newVal)
+    sim.setJointTargetPosition(joint3, newVal*deg)
+end
+
+function joint16_rotate(ui,id,newVal)
+    simUI.setLabelText(ui,3000,'theta16 set to '..newVal)
+    sim.setJointTargetPosition(joint16, newVal*deg)
+    sim.setJointTargetPosition(joint20, -newVal*deg)
+end
+
+function sysCall_init()
+    -- do some initialization here
+    joint1 = sim.getObjectHandle('motor1')
+    joint2 = sim.getObjectHandle('motor2')
+    joint3 = sim.getObjectHandle('motor3')
+    joint16 = sim.getObjectHandle('motor16')
+    joint20 = sim.getObjectHandle('motor20')
+    i = 0
+    deg = math.pi/180
+    print(i)
+    xml = [[
+&lt;ui closeable="true" on-close="closeEventHandler" resizable="true"&gt;
+    &lt;label text="This is a demo of the CustomUI plugin. Browse through the tabs below to explore all the widgets that can be created with the plugin." wordwrap="true" /&gt;
+    &lt;tabs&gt;
+        &lt;tab title="Numeric"&gt;a
+            &lt;label text="Sliders can be oriented horizontally or vertically, and have optional properties that can be set (in the XML) such as minimum and maximum value." wordwrap="true" /&gt;
+            &lt;label text="" id="3000" wordwrap="true" /&gt;
+            &lt;label text="theta1" /&gt; &lt;hslider tick-position="above" tick-interval="1" 
+            minimum="0" maximum="360" on-change="joint1_rotate" /&gt;
+            &lt;label text="theta2" /&gt; &lt;hslider tick-position="above" tick-interval="1" 
+            minimum="-90" maximum="65" on-change="joint2_rotate" /&gt;
+            &lt;label text="theta3" /&gt; &lt;hslider tick-position="above" tick-interval="1" 
+            minimum="-90" maximum="185" on-change="joint3_rotate" /&gt;
+            &lt;label text="theta16" /&gt; &lt;hslider tick-position="above" tick-interval="1" 
+            minimum="0" maximum="15" on-change="joint16_rotate" /&gt;
+        &lt;/tab&gt;
+    &lt;/tabs&gt;
+&lt;/ui&gt;
+]]
+    ui=simUI.create(xml)
+end
+
+function sysCall_actuation()
+    -- put your actuation code here
+end
+
+function sysCall_sensing()
+    -- put your sensing code here
+end
+
+function sysCall_cleanup()
+    -- do some clean-up here
+end
+
+-- See the user manual or the available code snippets for additional callback functions and details
+</pre>
+<p></p><h3>CAD in Rust</h3>
 <p><a href="https://drive.google.com/file/d/1SDLtjyddvFs9OHobMu7Ddx6Doa15RVMY/view?usp=sharing">rust_1.53.0_portable_for_msys2.7z</a> (下載 147MB , 解開壓縮後 1.13GB)</p>
 <p>Rust Playground: <a href="https://play.rust-lang.org/">https://play.rust-lang.org/</a></p>
 <p><a href="https://doc.rust-lang.org/stable/book/">https://doc.rust-lang.org/stable/book/</a></p>
@@ -2786,7 +2859,13 @@ set ERLINI=%Disk%:\elixir\erl10.7\erts-10.7\bin\erl.ini</pre>
 <p>Python 與 Inventor API 互動範例: <a href="http://mde.tw/cad2020/content/HW1_INV.html">http://mde.tw/cad2020/content/HW1_INV.html</a></p>
 <p>Python 與 NX12 互動範例: <a href="http://mde.tw/cad2020/content/HW1_NX.html">http://mde.tw/cad2020/content/HW1_NX.html</a></p>
 <p>CoppeliaSim User Interface 互動介面: <a href="https://mde.tw/copsim410/content/en/customUIPluginXMLSyntax.htm">https://mde.tw/copsim410/content/en/customUIPluginXMLSyntax.htm</a> 與 <a href="https://mde.tw/copsim410/content/en/bubbleRobTutorial.htm">https://mde.tw/copsim410/content/en/bubbleRobTutorial.htm</a></p>
-<p>假如使用者在建立動態模擬場景時, 可以針對各零組件尺寸 (<a href="https://en.wikipedia.org/wiki/Generative_design">Generative Design</a> - 在約束條件與最佳化目標驅使下, 由電腦模型"自行"建構出的設計)與配置組合參數 (<a href="https://en.wikipedia.org/wiki/Configuration_management">Configuration</a> and <a href="https://link.springer.com/book/10.1007/978-3-030-34839-7">Control System Design</a>) 進行調控, 將能透過場景動態輸出最佳化目標, 合成 (Synthesize) 出適用組合設計內容.</p><h3>Wishful Thinking 1</h3>
+<p>假如使用者在建立動態模擬場景時, 可以針對各零組件尺寸 (<a href="https://en.wikipedia.org/wiki/Generative_design">Generative Design</a> - 在約束條件與最佳化目標驅使下, 由電腦模型"自行"建構出的設計)與配置組合參數 (<a href="https://en.wikipedia.org/wiki/Configuration_management">Configuration</a> and <a href="https://link.springer.com/book/10.1007/978-3-030-34839-7">Control System Design</a>) 進行調控, 將能透過場景動態輸出最佳化目標, 合成 (Synthesize) 出適用組合設計內容.</p>
+<h4>Mirobot</h4>
+<p><a href="https://www.wlkata.com/">https://www.wlkata.com/</a> (<a href="http://cn.wlkata.com/">http://cn.wlkata.com/</a>)</p>
+<p><a href="https://github.com/mdecourse/mirobot-py">https://github.com/mdecourse/mirobot-py</a></p>
+<p style="padding-left: 30px;">WLKATA® is a brand owned by Beijing Tsinew Technologies Co., Ltd. in China. The company was founded in December 2017 and focuses on developing minimized industrial robot products for university and STEM education purpose (WLKATA®). The headquarter of Tsinew is located in the Zhongguancun Science and Technology Park, Beijing, China. The major team members of Tsinew have been worked in the field of customization of industrial robot and virtual lab applications for years.<br/><br/>In order to expand the overseas market, a joint-ventured company Wristline INC., New Jersey, USA, was established by Tsinew and the American investor in May 2019. Wristline is responsible for the section of expanding overseas markets and business of Tsinew.<br/><br/>Tsinew upholds the spirit of diligence and hard work. Our team are looking for and willing to work together with like-minded people in the field of robotic engineering education and applications.</p>
+<h4>AR3 Robot</h4>
+<p><a href="https://www.anninrobotics.com/">https://www.anninrobotics.com/</a> </p><h3>Wishful Thinking 1</h3>
 <p>2009 年起, 我們一直鼓勵學生發想, 掛在身上的 f 標誌, 假如能夠上下翻轉一百八十度, 就很像 t 了啊!</p>
 <p>10 年後, 胡思亂想終於成真!</p>
 <p>大家只要努力玩, 用力想, 砲火夠強的話, 想打哪裡都行!</p>
@@ -3136,9 +3215,24 @@ target_link_libraries(simExtBlueZero ws2_32)</pre>
 <li>安裝 Python 與相關模組, 執行 <a href="https://github.com/mdecourse/copsim410/blob/main/content/generate_index.py">content/generate_index.py</a>, 以便建立關鍵字搜尋 <a href="https://github.com/mdecourse/copsim410/blob/main/content/tipuesearch_content.js">tipuesearch_content.js</a> 檔案.</li>
 </ol>
 <p>最後若再設法將處理完成的各版本 helpFiles 與近端的 <a href="https://fossil-scm.org/home/doc/trunk/www/embeddeddoc.wiki">Fossil SCM documentation</a> 同步, 將會是當下最佳的技術研發管理流程.</p><h2>簡化模型</h2>
-<p>當使用者在 CoppeliaSim 中建立場景時, 為了讓機電模型逼真, 零組件必須採用機械製造與組立時的幾何外型, 但是這些符合人因工業設計或製造流程所需的幾何造型, 通常具有平滑曲面, 一旦轉為 STL 格式, import 入 CoppeliaSim 場景後, 因為帶有許多網格, 若直接利用這些複雜零件執行動態模擬, 需要大量運算, 必須要在高階電腦與顯示卡上進行模擬, 才能非常順暢, 因此在一般個人電腦上, 會將模擬場景中的零件分為顯示用零組件 (visible parts) 與運算用零組件 (simulation parts), 亦即, 運算用的零組件必須從顯示用複雜零組件進行簡化. 詳細說明可參見: <a href="https://mde.tw/copsim410/content/en/buildingAModelTutorial.htm">https://mde.tw/copsim410/content/en/buildingAModelTutorial.htm</a></p><h4>已知問題</h4>
-<p>利用 MSYS2 編譯 <a href="https://github.com/CoppeliaRobotics/simExtQhull">https://github.com/CoppeliaRobotics/simExtQhull</a> 4.1.0 版時, 儘管編譯完成, 但過程出現許多警告, 所取得的 simExtQhull.dll 無法用於簡化零件格式. 必須從官方 4.1.0 版複製 simExtQhull.dll.</p>
-<p></p><h1>資料管理</h1>
+<p>當使用者在 CoppeliaSim 中建立場景時, 為了讓機電模型逼真, 零組件必須採用機械製造與組立時的幾何外型, 但是這些符合人因工業設計或製造流程所需的幾何造型, 通常具有平滑曲面, 一旦轉為 STL 格式, import 入 CoppeliaSim 場景後, 因為帶有許多網格, 若直接利用這些複雜零件執行動態模擬, 需要大量運算, 必須要在高階電腦與顯示卡上進行模擬, 才能非常順暢, 因此在一般個人電腦上, 會將模擬場景中的零件分為顯示用零組件 (visible parts) 與運算用零組件 (simulation parts), 亦即, 運算用的零組件必須從顯示用複雜零組件進行簡化. 詳細說明可參見: <a href="https://mde.tw/copsim410/content/en/buildingAModelTutorial.htm">https://mde.tw/copsim410/content/en/buildingAModelTutorial.htm</a></p>
+<p>以下就是 CoppeliaSim 用於簡化模型的兩個程式庫:</p>
+<h4>simExtQhull</h4>
+<p>由於目前 <a href="https://mde.tw">KMOLab</a> 所使用的 MSYS2, 已經是 GNU 10.3.0 的 C/C++ 編譯器, 在建立 <a href="https://github.com/CoppeliaRobotics/simExtQhull/tree/02edba06e65e9973d6c60bc4fe11c4364792aa26">https://github.com/CoppeliaRobotics/simExtQhull 4.1.0 版</a>所產生的 simExtQhull.dll, 無法正確簡化零件, 原因是當時所帶的 qhull 原始碼過於老舊, 因此必須從 <a href="https://github.com/qhull/qhull">https://github.com/qhull/qhull</a> 倉儲中更新.</p>
+<p>只不過, 新版的 qhull 原始碼整體架構已經與 4 年前 CoppeliaSim (當時應該仍稱為 V-rep) 所引用的 qhull 原始碼有很大出入, 因此從 <a href="https://github.com/qhull/qhull">https://github.com/qhull/qhull</a> 倉儲取下原始碼之後, 在不更動 simExtQhull.pro 的情況下, 必須從 qhull\src\libqhull 取下所有檔案, 然後放入 cop410\programming\simExtQhull\qhull 目錄中.</p>
+<p>如此所建立的 simExtQhull.dll 就可以正確用來簡化所轉入的 STL 模型, 所牽涉的指令為 Edit/Morph selection into convex shapes.</p>
+<h4>simExtOpenMesh</h4>
+<p>利用 simExtQhull.dll 將 STL 簡化為 convex 模型後, 若需要再進一步簡化模型中的網格數目, 就必須使用 simExtOpenMesh.dll.</p>
+<p>當我們檢查 <a href="https://github.com/CoppeliaRobotics/simExtOpenMesh/tree/f6c04520626667f69f6867f5979fc3a48efec469">simExtOpenMesh 4.2.0 rev5</a> 原始碼時, 發現已經比 <a href="https://github.com/CoppeliaRobotics/simExtOpenMesh/tree/b43edba9a18ccfe63b4f506291078bd946cffafe">simExtOpenMesh 4.1.0</a> 多了一個 CMakeLists.txt, 因為 4.2.0 rev5 可以自行下載 <a href="https://graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh/-/releases">OpenMesh-8.1</a> 的原始碼, 但 4.1.0 則只能透過 simExtOpenMesh.pro 進行編譯, 或者自行建立對應的 CMakeLists.txt.</p>
+<p>在此我們決定自行取下 OpenMesh-8.1 的原始碼, 以 CMake 編譯出程式庫後, 修改 simExtOpenMesh.pro 有關導入標頭檔案與程式庫的部分如下:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">INCLUDEPATH += "./OpenMesh-8.1/src"
+LIBS += "./OpenMesh-8.1/libOpenMeshCore.a" \
+"./OpenMesh-8.1/libOpenMeshTools.a" \</pre>
+<p>就可以順利以:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">qmake -o Makefiles simExtOpenMesh.pro
+mingw32-make -f Makefile.Release</pre>
+<p>建立 simExtOpenMesh.dll, 此一動態程式庫所牽涉的指令為 Edit/Decimate selected shape...</p>
+<p>使用者可以下載上述兩個 CoppeliaSim 4.1.0 版本中修正過的 simExtQhull 與 simExtOpenMesh 原始碼: <a href="https://drive.google.com/file/d/1owiRDP1t_TwFhnWLIMav1dqdrbRrLBjy/view?usp=sharing">simExtQhull_simExtOpenMesh.7z</a></p><h1>資料管理</h1>
 <p>本倉儲檔案分別同步存放於 Github, Gitlab 與 Bitbucket.</p>
 <p>與 CoppeliaSim 相關的檔案則分別存放於:</p>
 <p style="padding-left: 30px;">2021fall At mde</p>
