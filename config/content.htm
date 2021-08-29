@@ -1,7 +1,6 @@
 <h1>About</h1>
-<h4><a href="https://mde.tw">KMOLab</a> 上課的目的: 鼓勵每一位同學都能及早<span style="background-color: #ffff99;">確定努力的目標</span>, 證明自己具備<span style="background-color: #ffff99;">獨立研究與解題能力</span>.</h4>
 <p>這裡是國立虎尾科技大學 - 機械設計工程系 - 電腦輔助設計實習課程網站.</p>
-<hr/>
+<p><a href="https://mde.tw">KMOLab</a> 上課的目的: 鼓勵每一位同學都能及早<span style="background-color: #ffff99;">確定努力的目標</span>, 證明自己具備<span style="background-color: #ffff99;">獨立研究與解題能力</span>.</p>
 <p><img alt="" class="add_border" height="423" src="/images/computer_aided_design_topics.png" width="600"/></p>
 <p>(from Myur Kutz, 2005, Mechanical Engineers' Handbook 4th Edition, Volume2, Part1, page3.)</p>
 <p>從上述機械工程師手冊中, 有關 CAD 說明如下:</p>
@@ -89,13 +88,12 @@
 <p style="padding-left: 30px;"><a href="https://github.com/Phylliade/ikpy">https://github.com/Phylliade/ikpy</a> </p>
 <p>Onshape to RoboDK, CoppeliaSim and Webots. &lt;= Machine Learning and Reinforcement Learning</p>
 <p><a href="https://cad.onshape.com/documents/56298f9c90df4f577c10ec66/w/ae64289050ff20e29ab48a69/e/fb3ec7729b500dd569ef03c2?configuration=default">Onshape Ex1</a></p>
-<p><img alt="" height="392" src="/images/onshape_ex1.png" width="600"/></p>
+<p><img alt="" class="add_border" height="392" src="/images/onshape_ex1.png" width="600"/></p>
 <p><a href="https://cad.onshape.com/documents/7f4c744a841bb441d1c51956/w/aa991ba802d3774f0d20487c/e/26cece3c2f3e829b22c9a35f">Onshape Ex2</a></p>
-<p><img alt="" height="425" src="/images/betarobot.png" width="600"/></p>
+<p><img alt="" class="add_border" height="425" src="/images/betarobot.png" width="600"/></p>
 <p><a href="/downloads/2021_Adaptation of Openai Gym for Moveo Platform.pdf">Adaptation of Openai Gym for Moveo Platform.pdf</a></p>
 <p><a href="https://github.com/BCN3D/BCN3D-Moveo">https://github.com/BCN3D/BCN3D-Moveo</a></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/SvKoxLXjxLs" title="YouTube video player" width="560"></iframe></p>
-<h2>Onshape</h2>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/SvKoxLXjxLs" title="YouTube video player" width="560"></iframe></p><h2>Onshape</h2>
 <p><a href="https://405232491.gitbooks.io/gitbook_week3/content/week10.html">https://405232491.gitbooks.io/gitbook_week3/content/week10.html</a></p>
 <p><a href="https://www.onshape.com/en/education/">https://www.onshape.com/en/education/</a></p>
 <h4>Featurescript:</h4>
@@ -504,7 +502,23 @@ end
 <p><a href="https://github.com/cyberbotics/webots">原始碼</a>下手.</p>
 <p>假如從 Github 原始碼管理的角度來看, <a href="https://github.com/cyberbotics/webots">Webots 原始碼</a>的整合度遠高於 CoppeliaSim (<a href="https://github.com/CoppeliaRobotics">github</a>), <a href="https://github.com/cyberbotics/webots">Webots 原始碼</a> 將主要的程式放在同一個倉儲中, 且 <a href="https://cyberbotics.com/doc/guide/index">Documentation</a> 採用 <a href="https://github.com/showdownjs/showdown">Showdown</a> 以 Markdown 編寫後在網頁上即時轉為 html, 且配合每年兩次改版 <a href="https://cyberbotics.com/doc/guide/index">Documentation</a> 可同時配合倉儲內容更動.</p>
 <p>至於 CoppeliaSim 除了<a href="https://github.com/CoppeliaRobotics/CoppeliaSimLib">主核心程式庫倉儲</a>外, 還包含多達幾十個大小不同的必要程式庫與延伸程式庫, 所採用的 <a href="https://github.com/bulletphysics/bullet3">Bullet</a>, <a href="https://github.com/thomasmarsh/ODE">ODE</a>, <a href="https://github.com/MADEAPPS/newton-dynamics">Newton</a> 屬於開源軟體, 但 <a href="https://en.wikipedia.org/wiki/Vortex_(software)">Vortex </a>dynamics 程式庫則是封閉商用套件. 且即便是最新版的 CoppeliaSim 4.2.0 仍然採用 2015 年的 3.12 版 Newton</p>
-<h2>強化學習</h2>
+<h4>編譯 Webots</h4>
+<p style="padding-left: 30px;">編譯 Controllers: https://www.cyberbotics.com/doc/guide/compiling-controllers-in-a-terminal</p>
+<p style="padding-left: 30px;">編譯 <a href="https://cyberbotics.com/doc/reference/physics-plugin">Physics plugin</a>: <a href="https://cyberbotics.com/doc/reference/compiling-the-physics-plugin">https://cyberbotics.com/doc/reference/compiling-the-physics-plugin</a></p>
+<p style="padding-left: 60px;">A physics plugin is a user-implemented shared library which is loaded by Webots at run-time, and which gives access to the low-level API of the ODE physics engine.</p>
+<p style="padding-left: 60px;">A physics plugin can be used, for example, to gather information about the simulated bodies (position, orientation, linear or angular velocity, etc.), to add forces and torques, to add extra joints, e.g., "ball &amp; socket" or "universal joints" to a simulation.</p>
+<p style="padding-left: 60px;">For example with a physics plugin it is possible to design an aerodynamics model for a flying robot, a hydrodynamics model for a swimming robot, etc. Moreover, with a physics plugin you can implement your own collision detection system and define non-uniform friction parameters on some surfaces. Note that physics plugins can be programmed only in C or C++.</p>
+<p style="padding-left: 30px;">Webots 原始碼: <a href="https://github.com/cyberbotics/webots">https://github.com/cyberbotics/webots</a></p>
+<p style="padding-left: 30px;">根據<a href="https://github.com/cyberbotics/webots/wiki/Windows-Optional-Dependencies">編譯說明</a>, Webots 的 Python wrapper 採用 <a href="http://www.swig.org/">SWIG </a>介面製作.</p>
+<h3>SUMO</h3>
+<p>Source: <a href="https://www.eclipse.org/sumo/">https://www.eclipse.org/sumo/</a></p>
+<p style="padding-left: 30px;">Simulation of Urban MObility (SUMO) is a free and open source traffic simulation suite. It is available since 2001 and allows modelling of intermodal traffic systems - including road vehicles, public transport and pedestrians. Included with SUMO is a wealth of supporting tools which automate core tasks for the creation, the execution and evaluation of traffic simulations, such as network import, route calculations, visualization and emission calculation. SUMO can be enhanced with custom models and provides various APIs to remotely control the simulation.</p>
+<p> 原始碼: <a href="https://github.com/eclipse/sumo">https://github.com/eclipse/sumo</a></p>
+<p>Open Street Map: <a href="https://www.openstreetmap.org">https://www.openstreetmap.org</a> </p>
+<p>Open Asset Importer Library: <a href="https://www.assimp.org/">https://www.assimp.org/</a></p>
+<p style="padding-left: 30px;"><a href="https://github.com/assimp/assimp">https://github.com/assimp/assimp</a></p>
+<p>Open 3D Model Viewer: <a href="https://github.com/acgessler/open3mod">https://github.com/acgessler/open3mod</a> </p>
+<p></p><h2>強化學習</h2>
 <p><a href="https://github.com/timzhang642/3D-Machine-Learning">https://github.com/timzhang642/3D-Machine-Learning</a></p>
 <h4>Pytorch Reinforcement Learning Library:</h4>
 <p style="padding-left: 30px;"><a href="https://github.com/thu-ml/tianshou">https://github.com/thu-ml/tianshou</a></p>
