@@ -2923,9 +2923,21 @@ set ERLINI=%Disk%:\elixir\erl10.7\erts-10.7\bin\erl.ini</pre>
 <li>當學員具備利用 Solidworks, Inventor, NX, Solvespace 與 Onshape 完成各種多軸機械臂基本零組件繪圖能力後, 必須思考當這些零組件繼續進行細部零件製造設計之前, 必須要針對機電場景模型完成初步的<span style="background-color: #ffff99;">控制設計</span> (假設零組件為剛體, 且點對點運動加減速後不會產生震動, 這種假設當然與實際應用有極大差距).</li>
 <li>初步的機械手臂控制設計包含 <span style="background-color: #ffff99;">Forward Kinematics</span> 與 <span style="background-color: #ffff99;">Inverse Kinematics</span> 的分析.</li>
 <li>Forward Kinematics 的分析是已知各轉軸旋轉角度, 欲求機械手臂端點的座標<span style="background-color: #ffff99;">位置 (position)</span> 與<span style="background-color: #ffff99;">方位 (orientation)</span>.</li>
-<li>Inverse Kinematics 的分析則是<span style="background-color: #ffff99;">計算各轉軸的旋轉角度</span>, 讓機械手臂端點的位置與方位符合工作所需.</li>
+<li><a href="https://motion.cs.illinois.edu/RoboticSystems/InverseKinematics.html">Inverse Kinematics</a> 的分析則是<span style="background-color: #ffff99;">計算各轉軸的旋轉角度</span>, 讓機械手臂端點的位置與方位符合工作所需.</li>
 <li>當使用者練習從電腦輔助多軸機械臂零組件繪圖, 進入多軸機械臂控制應用模擬階段, 取得各旋轉軸座標系統間的轉換矩陣後, 便可根據 <a href="/downloads/2004_The Inverse Kinematics Solutions of Industrial Robot Manipulators.pdf">Inverse Kinematic Closed Form</a> 計算各輸入軸的控制角度, 讓機械臂的端點以所需的方位抵達精確位置.</li>
-</ol><h3>Task 2</h3>
+</ol>
+<h4>延伸應用:</h4>
+<p style="padding-left: 30px;">利用雷射掃點取得的座標特徵線求機械手臂座標間的轉換矩陣:</p>
+<p style="padding-left: 30px;"><a href="/downloads/2016_A Rapid Coordinate Transformation Method Applied in Industrial Robot Calibration Based on Characteristic Line Coincidence.pdf">2016_A Rapid Coordinate Transformation Method Applied in Industrial Robot Calibration Based on Characteristic Line Coincidence.pdf</a></p>
+<p style="padding-left: 30px;">能否推導 Inverse Kinematic Equations for Robots:</p>
+<p style="padding-left: 30px;"><a href="/downloads/1983_a_geometric_approach_in_solving_inverse_kinematics_of_puma_robots.pdf">1983_a_geometric_approach_in_solving_inverse_kinematics_of_puma_robots.pdf</a></p>
+<p style="padding-left: 30px;"><a href="/downloads/1988_inverse_kinematic_analysis_of_robot_manipulators-1-50.pdf">1988_inverse_kinematic_analysis_of_robot_manipulators-1-50.pdf</a></p>
+<p style="padding-left: 30px;"><a href="/downloads/1988_inverse_kinematic_analysis_of_robot_manipulators-51-100.pdf">1988_inverse_kinematic_analysis_of_robot_manipulators-50-100.pdf</a></p>
+<p style="padding-left: 30px;"><a href="/downloads/1988_inverse_kinematic_analysis_of_robot_manipulators-101-149.pdf">1988_inverse_kinematic_analysis_of_robot_manipulators-101-149.pdf</a></p>
+<p style="padding-left: 30px;"><a href="/downloads/1994_efficient_inverse_kinematics_for_general_6R_manipulators.pdf">1994_efficient_inverse_kinematics_for_general_6R_manipulators.pdf</a></p>
+<p style="padding-left: 30px;"><a href="/downloads/2007_solving_inverse_kinematic_robotics_problem_comparison_DH_Matrix_and_GBT.pdf">2007_solving_inverse_kinematic_robotics_problem_comparison_DH_Matrix_and_GBT.pdf</a></p>
+<p style="padding-left: 30px;"><a href="/downloads/Real Time Inverse Kinematics for General 6R Manipulators.pdf">Real Time Inverse Kinematics for General 6R Manipulators.pdf</a></p>
+<p style="padding-left: 30px;"><a href="/downloads/2007_handbook_of_robotics_ch1_kinematics.pdf">2007_handbook_of_robotics_ch1_kinematics.pdf</a></p><h3>Task 2</h3>
 <p>這個學期的教科書前面五個章節取自 2019 年出版的 <a href="https://link.springer.com/book/10.1007/978-3-319-72911-4">Robotics</a> 第二版.作者群大多來自 <a href="https://www.uni-lj.si/university/">https://www.uni-lj.si/university/</a> 電機系.</p>
 <p>Ch1 Introduction<br/>Ch2 Homogenous Transformation Matrices<br/>Ch3 Geometric Description of the Robot Mechanism<br/>Ch4 Orientation<br/>Ch5 Two-Segment Robot Manipulator (<a href="http://mde.tw/cd2021/content/W14-W15.html">cd2021 W14-W15.html</a>)</p>
 <p>接續前面有關 Robotics 相關數學運算之後的是 Ch7 Robot Sensors.</p>
@@ -2939,6 +2951,7 @@ set ERLINI=%Disk%:\elixir\erl10.7\erts-10.7\bin\erl.ini</pre>
 <li>接著重複相同流程取下 2008 年出版的 <a href="https://link.springer.com/book/10.1007/978-1-84800-336-1">Theory and design of CNC systems</a> Ch1-Ch3 檔案.</li>
 <li>最後利用 cd2020pj1 pdf 檔案 combine 功能, 將上述三個檔案結合為一個 pdf 檔案, 就是 <a href="https://drive.google.com/file/d/1xb1Es8N-FxeG10OSnLNDwwi_tXyNTP9t/view?usp=sharing">cad2021_textbook.pdf</a> 課程教材</li>
 </ol>
+<p>註: <a href="https://www.ilovepdf.com/">https://www.ilovepdf.com/</a> 提供更多元的線上 pdf 檔案服務, 只是必須注意上傳檔案的使用權限, 以及與檔案相關的隱私權保障議題.</p>
 <p><a href="https://github.com/mdecourse/cd2020pj1">https://github.com/mdecourse/cd2020pj1</a> 網際程式開發目的, 是利用較為簡單的 pdf 檔案切割與合併功能, 展示機械設計工程師可以利用 Oauth2 協定, 讓參與協同設計的各成員利用既有的 Gmail 帳號登入 (也可以使用 Github, Gitlab, Bitbucket, Heroku 或其他符合 Oauth2 協定的任何系統帳號). 並在網際環境中以 Python 程式操控 server 上的 Solvespace, Solidworks, Inventor 與 NX 等 3D 參數式 CAD, 設法透過動態參數系統的零組件設計來因應各種設計參數產生組合變化的需求.</p>
 <p>Python 與 Solidworks API 互動範例: <a href="http://mde.tw/cad2020/content/HW1_SW.html">http://mde.tw/cad2020/content/HW1_SW.html</a></p>
 <p>Python 與 Inventor API 互動範例: <a href="http://mde.tw/cad2020/content/HW1_INV.html">http://mde.tw/cad2020/content/HW1_INV.html</a></p>
@@ -2960,7 +2973,7 @@ set ERLINI=%Disk%:\elixir\erl10.7\erts-10.7\bin\erl.ini</pre>
 <p>選擇設計: <a href="/downloads/powerjacks-screw-jack-design-guide-pjdg-sj-en-01a.pdf">powerjacks-screw-jack-design-guide-pjdg-sj-en-01a.pdf</a></p>
 <p style="padding-left: 30px;"><a href="https://github.com/mdecourse/wcms-scrum1">https://github.com/mdecourse/wcms-scrum1</a></p>
 <p style="padding-left: 30px;"><a href="https://mae.ufl.edu/designlab/DFMA%20Tips/Fundamental_Design_Principles_KCraig.pdf">https://mae.ufl.edu/designlab/DFMA%20Tips/Fundamental_Design_Principles_KCraig.pdf</a></p>
-<p style="padding-left: 30px;"><a href="https://www.mcadcafe.com/nbc/articles/1/1305329/Machine-Design-Procedure-Engineers-Guide-Mechanical-Design-Development">https://www.mcadcafe.com/nbc/articles/1/1305329/Machine-Design-Procedure-Engineers-Guide-Mechanical-Design-Development</a> </p><h3>Wishful Thinking 1</h3>
+<p style="padding-left: 30px;"><a href="https://www.mcadcafe.com/nbc/articles/1/1305329/Machine-Design-Procedure-Engineers-Guide-Mechanical-Design-Development">https://www.mcadcafe.com/nbc/articles/1/1305329/Machine-Design-Procedure-Engineers-Guide-Mechanical-Design-Development</a></p><h3>Wishful Thinking 1</h3>
 <p>2009 年起, 我們一直鼓勵學生發想, 掛在身上的 f 標誌, 假如能夠上下翻轉一百八十度, 就很像 t 了啊!</p>
 <p>10 年後, 胡思亂想終於成真!</p>
 <p>大家只要努力玩, 用力想, 砲火夠強的話, 想打哪裡都行!</p>
@@ -3300,7 +3313,7 @@ target_link_libraries(simExtBlueZero ws2_32)</pre>
 <h4>協同設計的挑戰</h4>
 <p><a href="https://github.com/mdecourse/copsim410">https://github.com/mdecourse/copsim410</a> 是 CoppeliaSim 4.1.0 的 <a href="https://github.com/CoppeliaRobotics/helpFiles">helpFiles</a>, 即便是開發 V-rep 與 CoppeliaSim 的原始團隊, 在維護各版本的技術手冊, 其實與其他研發團隊都面臨相同的協同產品設計問題, 也就是如何在多人 (其實從 CoppeliaSim 的提交紀錄來看, 只有兩位開發者) 不斷對 CoppeliaSim 各模組改版的同時 (主要進行除錯, 移除舊功能, 增加新功能, 設法相容於舊版本等工作項目), 如何維護各版本完整的技術手冊.</p>
 <h4>CoppeliaSim 技術手冊的問題</h4>
-<p>其實至今 CoppeliaSim 的公開倉儲中, 仍然看不到有完善的技術手冊管理方法, 作為競爭對手之一的 <a href="https://github.com/cyberbotics/webots">Webots 倉儲</a>,, 可能因為參與者較多 (60 幾人), 採用 <a href="https://github.com/cyberbotics/webots/tree/master/docs/js">showdown</a> 即時將 Markdown 轉為 html 外, 也利用 <a href="https://github.com/cyberbotics/webots/blob/master/.github/workflows/tests_doc.yml">Github Actions</a> 協助處理技術文件的查驗.</p>
+<p>其實至今 CoppeliaSim 的公開倉儲中, 仍然看不到有完善的技術手冊管理方法, 作為競爭對手之一的 <a href="https://github.com/cyberbotics/webots">Webots 倉儲</a>, 可能因為參與者較多 (60 幾人), 採用 <a href="https://github.com/cyberbotics/webots/tree/master/docs/js">showdown</a> 即時將 Markdown 轉為 html 外, 也利用 <a href="https://github.com/cyberbotics/webots/blob/master/.github/workflows/tests_doc.yml">Github Actions</a> 協助處理技術文件的查驗.</p>
 <h4>目前仍以 CoppeliaSim 研究優先</h4>
 <p>然而, 由於 V-rep (即現在的 CoppeliaSim) 早在 2013 年 V3.0.0 時就已經<a href="https://www.coppeliarobotics.com/helpFiles/en/versionInfo.htm">開源</a>, 比 Webots 早了 6 年 (<a href="https://cyberbotics.com/doc/blog/Webots-2019-a-release">2019a 才開源</a>), 因此目前 CoppeliaSim 的<a href="https://github.com/CoppeliaRobotics">各模組原始碼</a>即使看似紛亂, 但是就 accessibility 來說, 仍比肥大的 Webots (模型檔案延續 1997 年老舊的 VRML 2.0 架構, 但優點是透過 <a href="https://cyberbotics.com/doc/guide/web-scene">X3D 與 HTML5</a>, 可以將模型直接轉 Web-based 瀏覽) 容易上手.</p>
 <h4>Task7-1-3 任務目的</h4>
